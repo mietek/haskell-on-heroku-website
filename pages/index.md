@@ -4,7 +4,7 @@ html-class: hero
 header-class: hero
 main-class: hero
 hero:
-  <h1>Haskell on Heroku</h1>
+  <h1 class="logotype">Haskell on Heroku</h1>
   <p>Deploy in seconds, not minutes.</p>
 ---
 

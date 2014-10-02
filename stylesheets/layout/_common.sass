@@ -26,16 +26,30 @@ pre
   overflow-x: auto
 
 
-nav h1 a
+nav.menu-bar h1.logotype a
+  @include no-text
+  @include smart-image-glow($violet)
+  transition: ease(filter, 1, 0), ease(-webkit-filter, 1, 0)
+
+
+header.hero nav.menu-bar h1.logotype a
+  @include smart-opacity(0.6, 1)
+  @include smart-image-glow(white)
+
+#hero
+  background-image: url(_images/hero.jpg)
+
+#hero .hero-wrapper
+  background: none
+  background-image: radial-gradient(circle farthest-corner at left top, rgba($blue, 0.0) 0%, rgba($blue, 0.6) 40%, rgba($violet, 0.6) 60%, rgba($violet, 0.0) 100%)
+
+#hero h1.logotype
   @include no-text
 
 
 .menu.toc li
   @include smart-icon-after("down", $object-color-name, $accent-color-name)
 
-
-main section
-  position: relative
 
 .backlink-button
   display: block
@@ -103,11 +117,3 @@ strong
 
 .level3 p:first-of-type
   margin-top: ln(1)
-
-
-#hero
-  background-image: url(_images/hero.jpg)
-
-#hero .hero-wrapper
-  background: none
-  background-image: radial-gradient(circle farthest-corner at left top, rgba($blue, 0.0) 0%, rgba($blue, 0.6) 40%, rgba($violet, 0.6) 60%, rgba($violet, 0.0) 100%)

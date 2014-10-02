@@ -1,50 +1,18 @@
-nav h1 a
+nav.menu-bar h1.logotype a
   width: 176px
-  background-size: 176px ln(1)
+  background-size: 176px auto
 
-header nav h1 a
-  @include smart-image-glow($accent-color)
-  @include image("logotype-large", "png")
-  @include frob-when-frobbed
-    @include image("logotype-violet-large", "png")
-  @include frob-always
-    text-shadow: none
-    transition: ease(filter, 1, 0), ease(-webkit-filter, 1, 0)
+header nav.menu-bar h1.logotype a
+  @include smart-logotype(color, violet, large)
 
-footer nav h1 a
-  @include smart-image-glow($accent-color)
-  @include image("logotype-gray9-large", "png")
-  @include frob-when-frobbed
-    @include image("logotype-violet-large", "png")
-  @include frob-always
-    text-shadow: none
-    transition: ease(filter, 1, 0), ease(-webkit-filter, 1, 0)
+footer nav.menu-bar h1.logotype a
+  @include smart-logotype(gray9, violet, large)
 
 
-header.hero nav h1 a
-  @include smart-opacity(0.6, 1)
-  @include smart-image-glow(white)
-  @include image("logotype-white-large", "png")
-  @include frob-when-frobbed
-    @include image("logotype-white-large", "png")
-  @include frob-always
-    text-shadow: none
-    transition: ease(filter, 1, 0), ease(-webkit-filter, 1, 0)
+header.hero nav.menu-bar h1.logotype a
+  @include smart-logotype(white, white, large)
 
 #hero h1
   @include image("logotype-white-hero-large", "png")
-  @include no-text
-  background-position: center center
   width: 352px
-  height: ln(2)
-  background-size: 352px ln(2)
-
-
-header.accent nav h1 a
-  @include smart-image-glow(white)
-  @include image("logotype-white-large", "png")
-  @include frob-when-frobbed
-    @include image("logotype-white-large", "png")
-  @include frob-always
-    text-shadow: none
-    transition: ease(filter, 1, 0), ease(-webkit-filter, 1, 0)
+  background-size: 352px auto
