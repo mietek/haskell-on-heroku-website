@@ -1,6 +1,6 @@
 ---
 title: Deploy in seconds, not minutes
-html-class: hero
+page-class: hero
 header-class: hero
 main-class: hero
 hero:
