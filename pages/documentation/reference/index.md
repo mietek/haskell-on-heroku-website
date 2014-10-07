@@ -104,7 +104,7 @@ Version of Cabal to use, instead of an inferred version.
 ### `HALCYON_FORCE_CABAL_UPDATE`
 > Default value:  `0`
 
-Whether to ignore any existing prebuilt updated Cabal packages and update Cabal based on a non-updated Cabal package.
+Whether to ignore any existing prebuilt updated Cabal packages and update Cabal from scratch.
 
 
 ### `HALCYON_TRIM_GHC`
