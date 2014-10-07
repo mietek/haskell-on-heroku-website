@@ -18,7 +18,7 @@ page-footer: |
 About
 =====
 
-_Haskell on Heroku_ is a buildpack for rapid deployment of Haskell web apps, made by [Miëtek Bak](http://mietek.io/).
+_Haskell on Heroku_ is a buildpack for rapid deployment of [Haskell](http://haskell.org/) web apps to [Heroku](http://heroku.com/), made by [Miëtek Bak](http://mietek.io/).
 
 Interested in deploying Haskell on other platforms?  Try [_Halcyon_](http://halcyon.sh/).
 
@@ -26,7 +26,7 @@ Interested in deploying Haskell on other platforms?  Try [_Halcyon_](http://halc
 Support
 -------
 
-Please report any problems on the [_Haskell on Heroku_ issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).
+Please report any problems with _Haskell on Heroku_ on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the website and documentation.
 
 Commercial support for _Haskell on Heroku_ is offered by [Least Fixed](http://leastfixed.com/), a software consultancy specialising in the development of quality software using functional programming techniques.
 
@@ -36,7 +36,7 @@ Need help deploying a Haskell web app?  Say <a href="" id="hello">hello</a>.
 Ac­knowl­edg­ments
 ---------------
 
-Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.com/luciferous/) for their work on Haskell buildpacks.  Thanks to [Tweag I/O](http://www.tweag.io/) and [Purely Agile](http://purelyagile.com/) for their advice and assistance.
+Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.com/luciferous/) for their work on Haskell buildpacks.  Thanks to [CircuitHub](https://circuithub.com/), [Tweag I/O](http://www.tweag.io/), and [Purely Agile](http://purelyagile.com/) for their advice and assistance.
 
 The sans-serif font used in this website is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  The monospaced font is [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://www.fsd.it/).
 
@@ -45,8 +45,8 @@ The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kub
 This website is built with [_cannot_](https://github.com/mietek/cannot/), a microframework by Miëtek Bak.
 
 
-Legal
------
+License
+-------
 
 © 2014 Miëtek Bak.  Published under the [MIT X11 License](license/).
 
