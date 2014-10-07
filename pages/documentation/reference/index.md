@@ -110,7 +110,7 @@ Whether to ignore any existing prebuilt updated Cabal packages and update Cabal 
 ### `HALCYON_TRIM_GHC`
 > Default value:  `0`
 
-Whether to use an aggressively minimized prebuilt variant of GHC.
+Whether to use an aggressively minimised prebuilt variant of GHC.
 
 
 ### `HALCYON_CUSTOM_SCRIPT`
