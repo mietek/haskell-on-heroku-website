@@ -16,9 +16,9 @@ Please report any problems with the Haskell on Heroku documentation on the [issu
 
 Available as a [Bower](http://bower.io/) package.
 
-```sh
-bower install haskell-on-heroku-website
-make
+```
+$ bower install haskell-on-heroku-website
+$ make
 ```
 
 
