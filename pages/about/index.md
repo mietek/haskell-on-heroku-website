@@ -18,7 +18,7 @@ page-footer: |
 About
 =====
 
-_Haskell on Heroku_ is made by [Miëtek Bak](http://mietek.io/).
+_Haskell on Heroku_ is a buildpack for rapid deployment of Haskell web apps, made by [Miëtek Bak](http://mietek.io/).
 
 Interested in deploying Haskell on other platforms?  Try [Halcyon](http://halcyon.sh/).
 
