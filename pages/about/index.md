@@ -28,7 +28,7 @@ Support
 
 Please report any problems on the [_Haskell on Heroku_ issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).
 
-Commercial support for _Haskell on Heroku_ is offered by [Least Fixed](http://leastfixed.com/), a software consultancy based in Cambridge, UK.
+Commercial support for _Haskell on Heroku_ is offered by [Least Fixed](http://leastfixed.com/), a software consultancy specialising in the development of quality software using functional programming techniques.
 
 Need help deploying a Haskell web app?  Say <a href="" id="hello">hello</a>.
 
@@ -44,7 +44,7 @@ The sans-serif font used in this website is [Concourse](http://practicaltypograp
 
 The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/) by [Jeff Kubina](https://www.flickr.com/photos/kubina/), published under the [CC BY-SA 2.0 License](https://creativecommons.org/licenses/by-sa/2.0/).
 
-The website is built with [_cannot_](https://github.com/mietek/cannot/), a microframework by [Miëtek Bak](http://mietek.io/).
+This website is built with [_cannot_](https://github.com/mietek/cannot/), a microframework by [Miëtek Bak](http://mietek.io/).
 
 
 Legal
