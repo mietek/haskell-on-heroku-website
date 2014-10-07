@@ -1,6 +1,12 @@
 ---
 title: Manual
 page-class: add-section-toc
+page-head: |
+  <style>
+    header a.link-docs {
+      color: #ac5cf0;
+    }
+  </style>
 ---
 
 

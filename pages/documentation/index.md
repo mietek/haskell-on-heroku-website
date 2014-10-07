@@ -1,5 +1,11 @@
 ---
 title: Docs
+page-head: |
+  <style>
+    header a.link-docs {
+      color: #ac5cf0;
+    }
+  </style>
 ---
 
 
