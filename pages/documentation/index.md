@@ -41,7 +41,7 @@ A public S3 bucket is provided in order to facilitate getting started, and as a 
 
 _Haskell on Heroku_ can use buckets in one of three ways:
 
-1.  If a private bucket is not available, _Haskell on Heroku_ will be unable to prebuild packages, and will only use packages from the default public Halcyon bucket.  As these packages cannot contain all dependencies required to compile every app, only some apps will deploy successfully, and other apps will fail to deploy.
+1.  If a private bucket is not available, _Haskell on Heroku_ will be unable to prebuild packages, and will only use packages from the default public _Halcyon_ bucket.  As these packages cannot contain all dependencies required to compile every app, only some apps will deploy successfully, and other apps will fail to deploy.
 
 2.  Similarly, if a private bucket is available, but uploading to it is not allowed—either by an S3 policy, or by setting [`HALCYON_NO_UPLOAD`](documentation/reference/#halcyon_no_upload) to `1`—_Haskell on Heroku_ will only use the packages which already exist in the bucket.  Public packages are not used in this mode.
 
