@@ -36,15 +36,13 @@ Need help deploying a Haskell web app?  Say <a href="" id="hello">hello</a>.
 Ac­knowl­edg­ments
 ---------------
 
-Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.com/luciferous/) for their work on Haskell buildpacks.
-
-Thanks to [Tweag I/O](http://www.tweag.io/) and [Purely Agile](http://purelyagile.com/) for their advice and assistance.
+Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.com/luciferous/) for their work on Haskell buildpacks.  Thanks to [Tweag I/O](http://www.tweag.io/) and [Purely Agile](http://purelyagile.com/) for their advice and assistance.
 
 The sans-serif font used in this website is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  The monospaced font is [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://www.fsd.it/).
 
 The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/) by [Jeff Kubina](https://www.flickr.com/photos/kubina/), published under the [CC BY-SA 2.0 License](https://creativecommons.org/licenses/by-sa/2.0/).
 
-This website is built with [_cannot_](https://github.com/mietek/cannot/), a microframework by [Miëtek Bak](http://mietek.io/).
+This website is built with [_cannot_](https://github.com/mietek/cannot/), a microframework by Miëtek Bak.
 
 
 Legal
