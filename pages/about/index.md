@@ -26,7 +26,7 @@ Interested in deploying Haskell on other platforms?  Try [Halcyon](http://halcyo
 Support
 -------
 
-Please report any problems on the [Haskell on Heroku issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).
+Please report any problems on the [_Haskell on Heroku_ issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).
 
 Commercial support for _Haskell on Heroku_ is offered by [Least Fixed](http://leastfixed.com/), a software consultancy based in Cambridge, UK.
 

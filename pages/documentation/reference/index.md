@@ -3,7 +3,7 @@ title: Reference
 page-class: add-section-toc
 page-head: |
   <style>
-    header a.link-docs {
+    header a.link-documentation {
       color: #ac5cf0;
     }
   </style>
@@ -13,11 +13,11 @@ page-head: |
 Reference
 =========
 
-Haskell on Heroku internal function documentation.
+Internal documentation for _Haskell on Heroku_.  Intended primarily for people interested in contributing to _Haskell on Heroku_.  Best read together with the source code.
 
-Intended for people interested in developing [Haskell on Heroku](https://github.com/mietek/haskell-on-heroku/).  Best read together with the source code.
+_Haskell on Heroku_ is built on top of [Halcyon](http://halcyon.sh/), a system for rapid Haskell deployment.  For any additional details, please refer to the [Halcyon documentation](http://halcyon.sh/documentation/).
 
-Work in progress.
+Work in progress.  Please report any problems with the documentation on the [_haskell-on-heroku-website_ issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/).
 
 > Contents:
 
