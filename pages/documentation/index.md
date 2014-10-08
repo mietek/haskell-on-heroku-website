@@ -63,17 +63,17 @@ All packages include a `tag` file in their top-level directory, declaring the ti
 
 ### Sandbox packages
 
-Special consideration is due to sandbox packages.  Every sandbox package includes a `cabal.config` file, which declares the names and version numbers of all included dependencies.  A SHA–1 digest of these constraints is embedded in the name of the package.  This allows efficiently locating a sandbox which perfectly matches all required dependencies—by scanning a list of file names.
+Special consideration is due to sandbox packages.  Every sandbox package includes a `cabal.config` file, which declares a set of constraints—the names and version numbers of all included dependencies.  A [SHA–1](http://en.wikipedia.org/wiki/SHA-1) digest of these constraints is embedded in the name of the package.  This allows efficiently locating a sandbox which perfectly matches all required dependencies—by scanning a list of file names.
 
 A copy of the `cabal.config` file is also kept next to the archived sandbox package:\
 `halcyon-sandbox-`_`ghcVersion`_`-`_`appName`_`-`_`appVersion`_-_`sandboxDigest`_`.cabal.config`
 
-If a perfect match for the required dependencies cannot be located, each available configuration file is scanned and scored.  Files including any extraneous constraints are ignored.  The sandbox containing the best scoring set of constraints is selected a base for building a new, perfectly matched sandbox.
+If a perfectly matched sandbox cannot be located, each available configuration file is scanned and scored.  Files including any extraneous constraints are ignored.  The sandbox containing the best scoring set of constraints is selected as a base, copied, and extended with the missing packages.  The resulting sandbox will match the required dependencies perfectly, without needing to be built from scratch.
 
 
 ### Rationale
 
-Separating the dependencies required to compile an app into four tiers is an attempt at striking an optimum between the time spent compiling code, archiving compilation results, and transferring archives over the network. 
+Separating the dependencies required to compile an app into four tiers is an attempt at striking a balance between the time spent compiling code, archiving compilation results, and transferring archives over the network. 
 
 The four-tiered design allows mixing-and-matching GHC and Cabal versions, updating the Cabal database incrementally or from scratch, and building new sandboxes based on existing sandboxes.  This flexibility enables aiming for efficiency at every step—for example:
 
@@ -89,9 +89,9 @@ Building packages
 
 _Haskell on Heroku_ is intended to be used with a private Amazon S3 bucket, defined by the [`HALCYON_S3_BUCKET`](documentation/reference/#halcyon_s3_bucket) configuration variable.
 
-All packages required for compilation are downloaded from the bucket.  If a required package is not found while attempting to deploy an app, compilation will fail—but deployment will succeed!  This may be counter-intuitive, but it enables building the missing packages directly on Heroku, without needing to involve any external entities.
+All packages required for compilation are downloaded from the bucket.  If a required package is not found while attempting to deploy an app, compilation will fail—but deployment will succeed!  The deployed slug will contain only _Haskell on Heroku_ itself.  This approach, which may seem counter-intuitive, enables building the missing packages directly on Heroku, without the need to involve any external entities.
 
-Should compilation fail due to a missing package, the user will be notified, and the deployed slug will consist only _Haskell on Heroku_ itself.  The next step is building the missing packages on a one-off PX-sized dyno:
+The user will be notified whenever compilation fails due to a missing package.  The next step is building the missing packages on a one-off PX-sized dyno:
 ```
 $ heroku run --size=PX build
 ```
