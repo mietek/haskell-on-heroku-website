@@ -111,7 +111,7 @@ Access to the private bucket is controlled by setting [`HALCYON_AWS_ACCESS_KEY_I
 
 For the purposes of getting started quickly, it is also possible to use [public packages](http://s3.halcyon.sh/), by not defining a private bucket.  This is not recommended for production usage, as the set of available public packages may change at any time.
 
-Additionally, as public packages cannot match all dependencies required to compile every app, some apps will not compile successfully unless a private bucket is defined.
+Additionally, as public packages cannot match all dependencies required to compile every app, and uploading packages is not possible without defining a private bucket, some apps will not compile successfully.
 
 If a private bucket is defined, public packages are never used.  This helps maintain complete control over the deployed code.
 
@@ -124,9 +124,9 @@ Compile dynos keep packages in the Heroku compile cache, but access ot the cache
 
 Building packages on-the-fly during deployment is not practical on Heroku, because apps are always compiled on 1X dynos, which offer 512MB RAM.  This amount of memory is not sufficient to compile most Haskell web frameworks—indeed, compiling some of the more generously-proportioned frameworks requires in excess of 4GB RAM.  Running out of memory will not stop deployment immediately—instead, the dyno will slowly grind to a halt, swapping data in and out of RAM, until the 15-minut Heroku compile time limit puts it out of its misery.  Hence, building packages is best done on PX one-off dynos, which offer 6GB RAM, and where the time limit does not apply.
 
-While _Haskell on Heroku_ is designed to make building packages on one-off dynos as easy as possible, packages can also be built on any machine with an architecture and OS matching the specifications of the targeted Heroku stack—currently, Ubuntu 10.04 LTS or 14.04 LTS, both 64-bit.  Please refer to the [_Halcyon_ documentation](http://halcyon.sh/documentation/) for details.
-
 Storing packages externally also allows unrelated apps to share common dependencies.  Sharing the same private bucket between multiple apps requires no additional configuration beyond defining the same private bucket for every app.  This is the same method by which public packages are made available.
+
+While _Haskell on Heroku_ is designed to make building packages on one-off dynos as easy as possible, packages can also be built on any machine with an architecture and OS matching the specifications of the targeted Heroku stack—currently, Ubuntu 10.04 LTS or 14.04 LTS, both 64-bit.  Please refer to the [_Halcyon_ documentation](http://halcyon.sh/documentation/) for details.
 
 
 ### Special considerations
