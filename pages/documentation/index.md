@@ -118,11 +118,11 @@ If a private bucket is defined, public packages are never used.  This helps main
 
 ### Rationale
 
-A private bucket is necessary because of the separation between the dynos used for compiling apps and the one-off dynos used for building packages.
+Building packages on-the-fly during deployment is not practical on Heroku, because apps are always compiled on 1X dynos, which offer 512MB RAM.  This amount of memory is not sufficient to compile most Haskell web frameworks—indeed, compiling some of the more generously-proportioned frameworks requires in excess of 4GB RAM.  Running out of memory during compilation will not stop deployment immediately—instead, the dyno will slowly grind to a halt, swapping data in and out of RAM, until the 15-minut Heroku compile time limit puts it out of its misery.
 
-Compile dynos keep packages in the Heroku compile cache, but access ot the cache is not allowed from one-off dynos.  Some form of external storage must be used to transfer the packages between dynos, and an Amazon S3 bucket is a good solution to this problem.
+For this reason, _Haskell on Heroku_ requires packages to be built prior to deployment, on PX one-off dynos offering 6GB RAM, where the time limit does not apply.  However, the separation between compile dynos and one-off dynos creates the need for a private S3 bucket.
 
-Building packages on-the-fly during deployment is not practical on Heroku, because apps are always compiled on 1X dynos, which offer 512MB RAM.  This amount of memory is not sufficient to compile most Haskell web frameworks—indeed, compiling some of the more generously-proportioned frameworks requires in excess of 4GB RAM.  Running out of memory will not stop deployment immediately—instead, the dyno will slowly grind to a halt, swapping data in and out of RAM, until the 15-minut Heroku compile time limit puts it out of its misery.  Hence, building packages is best done on PX one-off dynos, which offer 6GB RAM, and where the time limit does not apply.
+Compile dynos keep packages in the Heroku compile cache, but access to the cache is not allowed from one-off dynos.  Some form of external storage must be used to transfer the packages between dynos, and an Amazon S3 bucket is a good solution to this problem.
 
 Storing packages externally also allows unrelated apps to share common dependencies.  Sharing the same private bucket between multiple apps requires no additional configuration beyond defining the same private bucket for every app.  This is the same method by which public packages are made available.
 
