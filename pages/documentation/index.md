@@ -30,7 +30,7 @@ Work in progress.  Please report any problems with the documentation on the [_ha
 Packages
 --------
 
-_Haskell on Heroku_ is a buildpack for rapid deployment of Haskell web apps to Heroku, designed to be fast, efficient, and flexible.
+_Haskell on Heroku_ is a buildpack for rapid deployment of Haskell web apps to Heroku, designed to be fast, flexible and reliable.
 
 Apps are expected to deploy in the time required to compile the pushed changes.  There is no unnecessary recompiling or relinking.  Only the minimum is stored in the Heroku cache.  The resulting slugs are small, as they do not include the compilation environment—which can be restored in seconds, should the user wish to interact with the deployed app using GHCi.
 
