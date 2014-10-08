@@ -61,6 +61,12 @@ Commonly used values are `private` and `public-read`.
 Whether to delete the contents of the Heroku cache before compilation.
 
 
+### `HALCYON_DEPENDENCIES_ONLY`
+> Default value:  `0`
+
+TODO
+
+
 ### `HALCYON_NO_PREBUILT`
 > Default value:  `0`
 
