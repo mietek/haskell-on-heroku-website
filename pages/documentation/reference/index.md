@@ -17,7 +17,7 @@ Internal documentation for _Haskell on Heroku_.  Intended primarily for people i
 
 _Haskell on Heroku_ is built on top of [_Halcyon_](http://halcyon.sh/), a system for rapid Haskell deployment.  For any additional details, please refer to the [_Halcyon_ documentation](http://halcyon.sh/documentation/).
 
-Both _Haskell on Heroku_ and _Halcyon_ are written in GNU _bash_, using [_bashmenot_](https://github.com/mietek/bashmenot/), a library of functions for safer shell scripting.  For more information, including usage examples, please consult the [_bashmenot_ library reference](documentation/library-reference/).
+Both _Haskell on Heroku_ and _Halcyon_ are written in GNU _bash_, using [_bashmenot_](https://github.com/mietek/bashmenot/), a library of functions for safer shell scripting.  For more information, including usage examples, please consult the [_bashmenot_ library reference](http://halcyon.sh/documentation/library-reference/).
 
 Work in progress.  Please report any problems with the documentation on the [_haskell-on-heroku-website_ issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/).
 
