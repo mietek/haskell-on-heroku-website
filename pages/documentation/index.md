@@ -89,7 +89,7 @@ Building packages
 
 _Haskell on Heroku_ is intended to be used with a private Amazon S3 bucket, defined by the [`HALCYON_S3_BUCKET`](documentation/reference/#halcyon_s3_bucket) configuration variable.
 
-All packages required for compilation are downloaded from the bucket.  If a required package is not found while attempting to deploy an app, compilation will fail—but deployment will succeed!  The deployed slug will contain only _Haskell on Heroku_ itself.  This approach, which may seem counter-intuitive, enables building the missing packages directly on Heroku, without the need to involve any external entities.
+All packages required for compilation are downloaded from the private bucket.  If a required package is not found while attempting to deploy an app, compilation will fail—but deployment will succeed!  The deployed slug will contain only _Haskell on Heroku_ itself.  This approach, which may seem counter-intuitive, enables building the missing packages directly on Heroku, without the need to involve any external entities.
 
 The user will be notified whenever compilation fails due to a missing package.  The next step is building the missing packages on a one-off PX-sized dyno:
 ```
@@ -102,9 +102,9 @@ $ git commit --allow-empty --allow-empty-message -m ''
 $ git push heroku master
 ```
 
-All built packages are archived and uploaded to the private S3 bucket, prefixed with an appropriate OS identifier.  The original files used for the build are also uploaded to the bucket, in order to decrease the overall load on upstream servers.  All uploaded files are assigned an [S3 ACL](http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html), defined by [`HALCYON_S3_ACL`](documentation/reference/#halcyon_s3_acl), which defaults to `private`.
+All built packages are archived and uploaded to the private S3 bucket, prefixed with an appropriate OS identifier.  The original files used for the build are also uploaded to the private bucket, in order to decrease the overall load on upstream servers.  All uploaded files are assigned an [S3 ACL](http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html), defined by [`HALCYON_S3_ACL`](documentation/reference/#halcyon_s3_acl), which defaults to `private`.
 
-Access to the bucket is controlled by setting [`HALCYON_AWS_ACCESS_KEY_ID`](documentation/reference/#halcyon_aws_access_key) and [`HALCYON_AWS_SECRET_ACCESS_KEY`](documentation/reference/#halcyon_aws_secret_access_key).
+Access to the private bucket is controlled by setting [`HALCYON_AWS_ACCESS_KEY_ID`](documentation/reference/#halcyon_aws_access_key) and [`HALCYON_AWS_SECRET_ACCESS_KEY`](documentation/reference/#halcyon_aws_secret_access_key).
 
 
 ### Public packages
@@ -126,7 +126,7 @@ Building packages on-the-fly during deployment is not practical on Heroku, becau
 
 While _Haskell on Heroku_ is designed to make building packages on one-off dynos as easy as possible, packages can also be built on any machine with an architecture and OS matching the specifications of the targeted Heroku stack—currently, Ubuntu 10.04 LTS or 14.04 LTS, both 64-bit.  Please refer to the [_Halcyon_ documentation](http://halcyon.sh/documentation/) for details.
 
-Storing packages externally also allows unrelated apps to share common dependencies.  Sharing the same private bucket between multiple apps requires no additional configuration beyond defining the same bucket for every app.  This is how public packages are made available.
+Storing packages externally also allows unrelated apps to share common dependencies.  Sharing the same private bucket between multiple apps requires no additional configuration beyond defining the same private bucket for every app.  This is the same method by which public packages are made available.
 
 
 ### Special considerations
