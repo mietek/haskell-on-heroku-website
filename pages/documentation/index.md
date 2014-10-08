@@ -131,7 +131,7 @@ While _Haskell on Heroku_ is designed to make building packages on one-off dynos
 
 ### Special considerations
 
-If the time required to compile the pushed changes is greater than the 15-minute Heroku compile time limit, it may be worth considering to split off part of the app into a library, allowing the library to be declared as a dependency and included in a sandbox package.  As an interim measure, it is also possible to avoid compiling the app during deployment, by setting [`HALCYON_DEPENDENCIES_ONLY`](documentation/reference/#halcyon_dependencies_only) to `1`.  This will allow building the app on a one-off dyno, as described above.
+If the time required to compile the pushed changes is greater than the 15-minute Heroku compile time limit, it may be practical to consider splitting the app into one or more libraries, allowing each library to be declared as a dependency and included in a sandbox package.  As an interim measure, it is also possible to avoid compiling the app during deployment, by setting [`HALCYON_DEPENDENCIES_ONLY`](documentation/reference/#halcyon_dependencies_only) to `1`.  This will allow building the app on a one-off dyno, as described above.
 
 
 
