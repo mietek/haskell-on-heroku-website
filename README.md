@@ -1,28 +1,10 @@
-haskell-on-heroku-website
-=========================
+_[haskell-on-heroku](http://haskellonheroku.com/)-website_
+==========================================================
 
-Website for [Haskell on Heroku](http://mietek.github.io/haskell-on-heroku-website/).
-
-Built with [cannot](https://github.com/mietek/cannot/).
-
-
-Usage
------
-
-Please report any problems with the Haskell on Heroku documentation on the [issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/).
-
-
-### Installation
-
-Available as a [Bower](http://bower.io/) package.
-
-```
-$ bower install haskell-on-heroku-website
-$ make
-```
+Built with [_cannot_](http://cannot.mietek.io/).
 
 
 License
 -------
 
-[MIT X11](https://github.com/mietek/license/blob/master/LICENSE.md) © [Miëtek Bak](http://mietek.io/)
+Made by [Miëtek Bak](http://mietek.io/).  Published under the [MIT X11 license](http://haskellonheroku.com/license/).  Not affiliated with [Heroku](http://heroku.com/).

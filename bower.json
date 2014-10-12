@@ -1,12 +1,11 @@
 {
   "name": "haskell-on-heroku-website",
-  "description": "Website for Haskell on Heroku",
+  "description": "Haskell on Heroku website",
   "authors": [
     "Miëtek Bak <hello@mietek.io>"
   ],
   "license": "MIT X11",
   "dependencies": {
-    "cannot": "*",
-    "cannot-h": "*"
+    "cannot": "*"
   }
 }
