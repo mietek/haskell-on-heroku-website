@@ -1,11 +1,11 @@
 ---
-title: Rapid deployment of Haskell web apps
+title: Haskell web application deployment
 page-class: hero
 header-class: hero
 main-class: hero
-hero:
+hero: |
   <h1 class="logotype">Haskell on Heroku</h1>
-  <p>Rapid deployment of Haskell web apps</p>
+  <p>Haskell web application deployment.</p>
 ---
 
 

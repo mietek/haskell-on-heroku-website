@@ -1,30 +1,22 @@
 ---
-title: Documentation
+title: User’s guide
 page-class: add-section-toc
 page-data:
   - key: max-section-toc-level
     value: 1
 page-head: |
   <style>
-    header a.link-documentation {
+    header a.link-guide {
       color: #ac5cf0;
     }
   </style>
 ---
 
 
-Documentation
-=============
+User’s guide
+============
 
-_Haskell on Heroku_ user guide.
-
-Detailed technical information is available in the [_Haskell on Heroku_ reference](documentation/reference/).
-
-Work in progress.  Please report any problems with the documentation on the [_haskell-on-heroku-website_ issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/).
-
-> Contents:
-
-
+_Work in progress._
 
 
 Packages

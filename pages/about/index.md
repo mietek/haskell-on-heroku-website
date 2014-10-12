@@ -18,36 +18,47 @@ page-footer: |
 About
 =====
 
-_Haskell on Heroku_ is a buildpack for rapid deployment of [Haskell](http://haskell.org/) web apps to [Heroku](http://heroku.com/), made by [Miëtek Bak](http://mietek.io/).
+_Haskell on Heroku_ is a system for deploying [Haskell](http://haskell.org/) web applications to [Heroku](http://heroku.com/) rapidly and reliably.
 
-Interested in deploying Haskell on other platforms?  Try [_Halcyon_](http://halcyon.sh/).
+To get started with _Haskell on Heroku_, see the [examples](.), and continue with the [user’s guide](guide/).
+
+Interested in deploying other Haskell applications?  Try [Halcyon](http://halcyon.sh/).
+
+
+### Internals
+
+For an in-depth discussion of _Haskell on Heroku_ internals, see the [programmer’s reference](reference/).
+
+_Haskell on Heroku_ is built with [Halcyon](http://halcyon.sh/), a system for deploying Haskell applications, and [_bashmenot_](http://bashmenot.mietek.io/), a library of functions for safer shell scripting in [GNU _bash_](http://gnu.org/software/bash/).
+
+Additional information is available in the [Halcyon user’s guide](http://halcyon.sh/guide/), the [Halcyon programmers’s reference](http://halcyon.sh/reference/), and the [_bashmenot_ programmer’s reference](http://bashmenot.mietek.io/reference/).
 
 
 Support
 -------
 
-Please report any problems with _Haskell on Heroku_ on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the website and documentation.
+Please report any problems with _Haskell on Heroku_ on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the documentation.
 
-Commercial support for _Haskell on Heroku_ is offered by [Least Fixed](http://leastfixed.com/), a software consultancy specialising in the development of quality software using functional programming techniques.
+Commercial support for _Haskell on Heroku_ is offered by [Least Fixed](http://leastfixed.com/), a functional software consultancy.
 
-Need help deploying a Haskell web app?  Say <a href="" id="hello">hello</a>.
+Need help?  Say <a href="" id="hello">hello</a>.
 
 
 Ac­knowl­edg­ments
 ---------------
 
-Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.com/luciferous/) for their work on Haskell buildpacks.  Thanks to [CircuitHub](https://circuithub.com/), [Tweag I/O](http://www.tweag.io/), and [Purely Agile](http://purelyagile.com/) for their advice and assistance.
+Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.com/luciferous/) for initial work on Haskell buildpacks.  Thanks to [CircuitHub](https://circuithub.com/), [Tweag I/O](http://www.tweag.io/), and [Purely Agile](http://purelyagile.com/) for advice and assistance.
 
 The sans-serif font used in this website is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  The monospaced font is [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://www.fsd.it/).
 
-The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/) by [Jeff Kubina](https://www.flickr.com/photos/kubina/), published under the [CC BY-SA 2.0 License](https://creativecommons.org/licenses/by-sa/2.0/).
+The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/) by [Jeff Kubina](https://www.flickr.com/photos/kubina/).
 
-This website is built with [_cannot_](https://github.com/mietek/cannot/), a microframework by Miëtek Bak.
+This website is built with [_cannot_](http://cannot.mietek.io/).
 
 
 License
 -------
 
-© 2014 Miëtek Bak.  Published under the [MIT X11 License](license/).
+Made by [Miëtek Bak](http://mietek.io/).  Published under the [MIT X11 license](license/).
 
-Not affiliated with or supported by [Heroku](http://heroku.com/) or [Salesforce](http://salesforce.com/).
+Not affiliated with [Heroku](http://heroku.com/).
