@@ -51,7 +51,7 @@ Thanks to [Joe Nelson](http://begriffs.com/) and [Neuman Vong](https://github.co
 
 The sans-serif font used in this website is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  The monospaced font is [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://www.fsd.it/).
 
-The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/) by [Jeff Kubina](https://www.flickr.com/photos/kubina/).
+The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://www.flickr.com/photos/kubina/).
 
 This website is built with [_cannot_](http://cannot.mietek.io/).
 
