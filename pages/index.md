@@ -100,3 +100,5 @@ Thanks to [CircuitHub](https://circuithub.com/), [Tweag I/O](http://www.tweag.io
 The monospaced font used in this website is [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://www.fsd.it/).  The sans-serif font is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).
 
 The welcome image is based on [Cumulus Clouds](https://www.flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://www.flickr.com/photos/kubina/).
+
+[Heroku](http://heroku.com/) is a registered trademark of [Salesforce](http://salesforce.com/).  This project is not affiliated with Heroku.
