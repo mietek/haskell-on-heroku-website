@@ -42,7 +42,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hl/">Learn more</a></li>
+<!-- <li><a href="examples/hl/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hl/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -66,7 +66,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/tryhaskell/">Learn more</a></li>
+<!-- <li><a href="examples/tryhaskell/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/tryhaskell/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -90,7 +90,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/tryidris/">Learn more</a></li>
+<!-- <li><a href="examples/tryidris/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/tryidris/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -114,7 +114,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/trypurescript/">Learn more</a></li>
+<!-- <li><a href="examples/trypurescript/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/trypurescript/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -138,7 +138,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/howistart.org/">Learn more</a></li>
+<!-- <li><a href="examples/howistart.org/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/howistart.org/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -162,7 +162,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/gitit/">Learn more</a></li>
+<!-- <li><a href="examples/gitit/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/gitit/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -186,7 +186,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/tryhplay/">Learn more</a></li>
+<!-- <li><a href="examples/tryhplay/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/tryhplay/tree/halcyon/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -218,7 +218,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-happstack/">Learn more</a></li>
+<!-- <li><a href="examples/hello-happstack/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-happstack/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -243,7 +243,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-mflow/">Learn more</a></li>
+<!-- <li><a href="examples/hello-mflow/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-mflow/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -267,7 +267,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-miku/">Learn more</a></li>
+<!-- <li><a href="examples/hello-miku/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-miku/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -291,7 +291,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-scotty/">Learn more</a></li>
+<!-- <li><a href="examples/hello-scotty/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-scotty/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -315,7 +315,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-simple/">Learn more</a></li>
+<!-- <li><a href="examples/hello-simple/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-simple/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -339,7 +339,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-snap/">Learn more</a></li>
+<!-- <li><a href="examples/hello-snap/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-snap/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -363,7 +363,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-spock/">Learn more</a></li>
+<!-- <li><a href="examples/hello-spock/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-spock/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -387,7 +387,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-wai-warp/">Learn more</a></li>
+<!-- <li><a href="examples/hello-wai-warp/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-wai-warp/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -411,7 +411,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-wheb/">Learn more</a></li>
+<!-- <li><a href="examples/hello-wheb/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-wheb/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -435,7 +435,7 @@ Ready to deploy to Heroku in two clicks.
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/hello-yesod/">Learn more</a></li>
+<!-- <li><a href="examples/hello-yesod/">Learn more</a></li> -->
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-yesod/">Deploy to Heroku</a></li>
 </ul>
 </nav>
@@ -444,21 +444,21 @@ Ready to deploy to Heroku in two clicks.
 Definitions
 -----------
 
--   _Dependencies_ are the Cabal packages needed to build an application, declared as version constraints in a `cabal.config` file.
+-   _Dependencies_ is the number of Cabal packages needed to build an application, declared as version constraints in a `cabal.config` file.
 
--   The _sandbox layer_ contains a Cabal sandbox, and anything else needed to build an application.
+-   The _sandbox layer_ contains a Cabal sandbox, and any additional build-time dependencies not handled by Cabal.
 
-    Build tools, such as _alex_ or _happy_, are declared as _sandbox extra apps_, since Cabal is unable to install them automatically.
+    Build tools, such as _alex_ or _happy_, are declared as _sandbox extra apps_.
 
     Similarly, OS libraries needed to build an application are declared as _sandbox extra libs_.
 
--   The _slug_ contains the build products of an application.
+-   The _slug_ contains the application build products, and any additional run-time dependencies.
 
-    Any additional programs needed by an application at runtime are declared as _slug extra apps_.
+    Programs needed by an application at run-time are declared as _slug extra apps_.
 
 -   Building an application from scratch, without using any available fully- or partially-matching sandbox layers, will take _build time_.
 
-    _Push time_ is the time between pushing an application-level change, and seeing the results of that change, live.
+    _Push time_ is the time between pushing a change to an application and seeing the changed application deployed as a result of the push.
 
     Each example can be deployed to Heroku either in two clicks or via the command-line, and will be up and running within _deploy time_.
 
