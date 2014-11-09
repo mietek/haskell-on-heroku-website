@@ -13,11 +13,19 @@ page-head: |
 Programmer’s reference
 ======================
 
+_Work in progress._
+
 
 Usage
 -----
 
-_Work in progress._
+Executing any of the [`build`](https://github.com/mietek/haskell-on-heroku/blob/master/bin/build), [`compile`](https://github.com/mietek/haskell-on-heroku/blob/master/bin/compile), or [`restore`](https://github.com/mietek/haskell-on-heroku/blob/master/bin/restore) scripts automatically updates Haskell on Heroku, Halcyon, and _bashmenot_ to the newest versions available.
+
+To disable automatic updates, set [`BUILDPACK_NO_AUTOUPDATE`](#buildpack_no_autoupdate) to `1`.
+
+Automatic updates are automatically disabled on compile dynos.
+
+The top-level [`src.sh`](https://github.com/mietek/haskell-on-heroku/blob/master/src.sh) file can also be sourced to bring all functions into scope.
 
 
 Automatic update options
