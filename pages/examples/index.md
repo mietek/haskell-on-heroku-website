@@ -444,23 +444,23 @@ Ready to deploy to Heroku in two clicks.
 Definitions
 -----------
 
-- **Dependencies** is the number of Cabal packages needed to build an application, declared as version constraints in a `cabal.config` file.
+-   _Dependencies_ are the Cabal packages needed to build an application, declared as version constraints in a `cabal.config` file.
 
-- **Sandbox layer** contains a Cabal sandbox, and anything else needed to build an application.
+-   The _sandbox layer_ contains a Cabal sandbox, and anything else needed to build an application.
 
-- Build tools, such as _alex_ or _happy_, are declared as **sandbox extra apps**, since Cabal is unable to install them automatically.
+    Build tools, such as _alex_ or _happy_, are declared as _sandbox extra apps_, since Cabal is unable to install them automatically.
 
-- Similarly, OS libraries needed to build an application are declared as **sandbox extra libs**.
+    Similarly, OS libraries needed to build an application are declared as _sandbox extra libs_.
 
-- **Slug** contains the build products of an application.
+-   The _slug_ contains the build products of an application.
 
-- Any additional programs needed by an application at runtime are declared as **slug extra apps**.
+    Any additional programs needed by an application at runtime are declared as _slug extra apps_.
 
-- Building an application from scratch, without using any available fully- or partially-matching sandbox layers, will take **build time**.
+-   Building an application from scratch, without using any available fully- or partially-matching sandbox layers, will take _build time_.
 
-- **Push time** is the time between pushing an application-level change, and seeing the results of that change, live.
+    _Push time_ is the time between pushing an application-level change, and seeing the results of that change, live.
 
-- Each example can be deployed to Heroku either in two clicks or via the command-line, and will be up and running within **deploy time**.
+    Each example can be deployed to Heroku either in two clicks or via the command-line, and will be up and running within _deploy time_.
 
 All sizes are given before stripping and compression, and all times are approximate.
 
