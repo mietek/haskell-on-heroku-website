@@ -14,3 +14,5 @@ User’s guide
 ============
 
 _Work in progress._
+
+<nav id="main-toc"></nav>
