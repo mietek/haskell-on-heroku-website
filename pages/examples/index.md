@@ -1,6 +1,6 @@
 ---
 title: Examples
-page-class: add-main-toc
+page-class: add-section-toc
 page-head: |
   <style>
     header a.link-examples {
@@ -13,7 +13,7 @@ page-head: |
 Examples
 ========
 
-<nav id="main-toc"></nav>
+_Work in progress._
 
 
 Real-world examples
