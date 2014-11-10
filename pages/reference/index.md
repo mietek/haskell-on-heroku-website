@@ -1,6 +1,6 @@
 ---
 title: Programmer’s reference
-page-class: add-section-toc
+page-class: add-section-toc tweak-listings
 page-head: |
   <style>
     header a.link-reference {

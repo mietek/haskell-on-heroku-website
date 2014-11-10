@@ -19,7 +19,7 @@ _Work in progress._
 Real-world examples
 -------------------
 
-Adaptations of existing web applications, intended as examples of achieving 100% reproducible build results with an established codebase.
+Existing Haskell web applications, adapted to deploy with Halcyon.
 
 Ready to deploy to Heroku in two clicks.
 
@@ -27,14 +27,9 @@ Ready to deploy to Heroku in two clicks.
 ### _haskell-lang.org_
 
 > ---------------------|---
-> Source:              | [_hl_](https://github.com/mietek/hl/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/hl/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/hl/blob/halcyon/cabal.config)
+> Source:              | [_hl_](https://github.com/mietek/hl/tree/halcyon/)
 
 ```
 …
@@ -51,14 +46,9 @@ Ready to deploy to Heroku in two clicks.
 ### _tryhaskell.org_
 
 > ---------------------|---
-> Source:              | [_tryhaskell_](https://github.com/mietek/tryhaskell/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/tryhaskell/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/tryhaskell/blob/halcyon/cabal.config)
+> Source:              | [_tryhaskell_](https://github.com/mietek/tryhaskell/tree/halcyon/)
 
 ```
 …
@@ -75,14 +65,9 @@ Ready to deploy to Heroku in two clicks.
 ### _tryidris.org_
 
 > ---------------------|---
-> Source:              | [_tryidris_](https://github.com/mietek/tryidris/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/tryidris/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/tryidris/blob/halcyon/cabal.config)
+> Source:              | [_tryidris_](https://github.com/mietek/tryidris/tree/halcyon/)
 
 ```
 …
@@ -99,14 +84,9 @@ Ready to deploy to Heroku in two clicks.
 ### _try.purescript.org_
 
 > ---------------------|---
-> Source:              | [_trypurescript_](https://github.com/mietek/trypurescript/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/trypurescript/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/trypurescript/blob/halcyon/cabal.config)
+> Source:              | [_trypurescript_](https://github.com/mietek/trypurescript/tree/halcyon/)
 
 ```
 …
@@ -123,14 +103,9 @@ Ready to deploy to Heroku in two clicks.
 ### _howistart.org_
 
 > ---------------------|---
-> Source:              | [_howistart.org_](https://github.com/mietek/howistart.org/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/howistart.org/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/howistart.org/blob/halcyon/cabal.config)
+> Source:              | [_howistart.org_](https://github.com/mietek/howistart.org/tree/halcyon/)
 
 ```
 …
@@ -147,14 +122,9 @@ Ready to deploy to Heroku in two clicks.
 ### _gitit.net_
 
 > ---------------------|---
-> Source:              | [_gitit_](https://github.com/mietek/gitit/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/gitit/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/gitit/blob/halcyon/cabal.config)
+> Source:              | [_gitit_](https://github.com/mietek/gitit/tree/halcyon/)
 
 ```
 …
@@ -171,14 +141,9 @@ Ready to deploy to Heroku in two clicks.
 ### _tryplayg.herokuapp.com_
 
 > ---------------------|---
-> Source:              | [_tryhplay_](https://github.com/mietek/tryhplay/)
 > Framework:           | …
-> Dependencies:        | […](https://github.com/mietek/tryhplay/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | […](https://github.com/mietek/tryhplay/blob/halcyon/cabal.config)
+> Source:              | [_tryhplay_](https://github.com/mietek/tryhplay/tree/halcyon/)
 
 ```
 …
@@ -195,7 +160,7 @@ Ready to deploy to Heroku in two clicks.
 “Hello, world!” examples
 ------------------------
 
-Simplest possible programs, written to illustrate the process of developing a Haskell web application from scratch.
+Simple programs, written to compare the options available to the Haskell web application developer.
 
 Ready to deploy to Heroku in two clicks.
 
@@ -203,17 +168,21 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-happstack_
 
 > ---------------------|---
-> Source:              | [_hello-happstack_](https://github.com/mietek/hello-happstack/)
 > Framework:           | [Happstack](http://happstack.com/) 7.3.5
-> Dependencies:        | […](https://github.com/mietek/hello-happstack/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [44](https://github.com/mietek/hello-happstack/blob/master/cabal.config)
+> Source:              | [_hello-happstack_](https://github.com/mietek/hello-happstack/)
 
 ```
-…
+import Happstack.Lite
+import System.Environment
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port_ = maybe 8080 read $ lookup "PORT" env
+        config = defaultServerConfig { port = port_ }
+    serve (Just config) $
+      ok $ toResponse "Hello, world!"
 ```
 
 <nav>
@@ -227,18 +196,18 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-mflow_
 
 > ---------------------|---
-> Source:              | [_hello-mflow_](https://github.com/mietek/hello-mflow/)
 > Framework:           | [MFlow](https://github.com/agocorona/MFlow/) 0.4.5.9
-> Dependencies:        | […](https://github.com/mietek/hello-mflow/blob/master/cabal.config)
+> Constraints:         | [106](https://github.com/mietek/hello-mflow/blob/master/cabal.config)
 > Sandbox extra apps:  | _cpphs_ 1.18.6
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Source:              | [_hello-mflow_](https://github.com/mietek/hello-mflow/)
 
 ```
-…
+import MFlow.Wai.Blaze.Html.All
+
+main :: IO ()
+main =
+    runNavigation "hello" $ transientNav $
+      page $ "Hello, world!" ++> empty
 ```
 
 <nav>
@@ -252,17 +221,21 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-miku_
 
 > ---------------------|---
-> Source:              | [_hello-miku_](https://github.com/mietek/hello-miku/)
 > Framework:           | [_miku_](https://github.com/nfjinjing/miku/) 2014.5.19
-> Dependencies:        | […](https://github.com/mietek/hello-miku/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [59](https://github.com/mietek/hello-miku/blob/master/cabal.config)
+> Source:              | [_hello-miku_](https://github.com/mietek/hello-miku/)
 
 ```
-…
+import Network.Miku
+import Hack2.Handler.SnapServer
+import System.Environment
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port_ = maybe 8080 read $ lookup "PORT" env
+    runWithConfig (ServerConfig port_) . miku $
+      get "/" (text "Hello, world!")
 ```
 
 <nav>
@@ -276,17 +249,20 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-scotty_
 
 > ---------------------|---
-> Source:              | [_hello-scotty_](https://github.com/mietek/hello-scotty/)
 > Framework:           | [Scotty](https://github.com/scotty-web/scotty/) 0.9.0
-> Dependencies:        | […](https://github.com/mietek/hello-scotty/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [74](https://github.com/mietek/hello-scotty/blob/master/cabal.config)
+> Source:              | [_hello-scotty_](https://github.com/mietek/hello-scotty/)
 
 ```
-…
+import System.Environment
+import Web.Scotty
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe 8080 read $ lookup "PORT" env
+    scotty port $
+      get "/" $ text "Hello, world!"
 ```
 
 <nav>
@@ -300,17 +276,25 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-simple_
 
 > ---------------------|---
-> Source:              | [_hello-simple_](https://github.com/mietek/hello-simple/)
 > Framework:           | [Simple](http://simple.cx/) 0.10.0.2
-> Dependencies:        | […](https://github.com/mietek/hello-simple/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [70](https://github.com/mietek/hello-simple/blob/master/cabal.config)
+> Source:              | [_hello-simple_](https://github.com/mietek/hello-simple/)
 
 ```
-…
+import Network.Wai.Handler.Warp
+import System.Environment
+import Web.Simple
+
+app :: (Application -> IO ()) -> IO ()
+app runner = do
+    runner $ controllerApp () $ do
+      routeTop $ respond $ okHtml "Hello, world!"
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe 8080 read $ lookup "PORT" env
+    app (run port)
 ```
 
 <nav>
@@ -324,17 +308,25 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-snap_
 
 > ---------------------|---
-> Source:              | [_hello-snap_](https://github.com/mietek/hello-snap/)
 > Framework:           | [Snap](http://snapframework.com/) 0.9.6.3
-> Dependencies:        | […](https://github.com/mietek/hello-snap/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [42](https://github.com/mietek/hello-snap/blob/master/cabal.config)
+> Source:              | [_hello-snap_](https://github.com/mietek/hello-snap/)
 
 ```
-…
+import Snap.Core
+import Snap.Http.Server
+import System.Environment
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe 8080 read $ lookup "PORT" env
+        config = setPort port
+               . setAccessLog ConfigNoLog
+               . setErrorLog ConfigNoLog
+               $ defaultConfig
+    httpServe config $
+      ifTop $ writeBS "Hello, world!"
 ```
 
 <nav>
@@ -348,17 +340,20 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-spock_
 
 > ---------------------|---
-> Source:              | [_hello-spock_](https://github.com/mietek/hello-spock/)
 > Framework:           | [Spock](https://github.com/agrafix/Spock/) 0.7.4.0
-> Dependencies:        | […](https://github.com/mietek/hello-spock/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [80](https://github.com/mietek/hello-spock/blob/master/cabal.config)
+> Source:              | [_hello-spock_](https://github.com/mietek/hello-spock/)
 
 ```
-…
+import System.Environment
+import Web.Spock.Safe
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe 8080 read $ lookup "PORT" env
+    runSpock port $ spockT id $
+      get "/" $ text "Hello, world!"
 ```
 
 <nav>
@@ -369,26 +364,37 @@ Ready to deploy to Heroku in two clicks.
 </nav>
 
 
-### _hello-wai-warp_
+### _hello-wai_
 
 > ---------------------|---
-> Source:              | [_hello-wai-warp_](https://github.com/mietek/hello-wai-warp/)
-> Framework:           | [WAI](https://hackage.haskell.org/package/wai/) and [Warp](https://hackage.haskell.org/package/warp/)
-> Dependencies:        | […](https://github.com/mietek/hello-wai-warp/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Library:             | [WAI](https://hackage.haskell.org/package/wai/) 3.0.2
+> Constraints:         | [38](https://github.com/mietek/hello-wai/blob/master/cabal.config)
+> Source:              | [_hello-wai_](https://github.com/mietek/hello-wai/)
 
 ```
-…
+import Network.HTTP.Types
+import Network.Wai
+import Network.Wai.Handler.Warp
+import System.Environment
+
+app :: Application
+app _ respond =
+    respond $
+      responseLBS status200
+        [("Content-Type", "text/plain")]
+        "Hello, world!"
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe 8080 read $ lookup "PORT" env
+    run port app
 ```
 
 <nav>
 <ul class="menu open">
-<!-- <li><a href="examples/hello-wai-warp/">Learn more</a></li> -->
-<li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-wai-warp/">Deploy to Heroku</a></li>
+<!-- <li><a href="examples/hello-wai/">Learn more</a></li> -->
+<li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-wai/">Deploy to Heroku</a></li>
 </ul>
 </nav>
 
@@ -396,17 +402,23 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-wheb_
 
 > ---------------------|---
-> Source:              | [_hello-wheb_](https://github.com/mietek/hello-wheb/)
 > Framework:           | [Wheb](https://github.com/hansonkd/Wheb-Framework/) 0.3.1.0
-> Dependencies:        | […](https://github.com/mietek/hello-wheb/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [98](https://github.com/mietek/hello-wheb/blob/master/cabal.config)
+> Source:              | [_hello-wheb_](https://github.com/mietek/hello-wheb/)
 
 ```
-…
+import System.Environment
+import Web.Wheb
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe (8080 :: Int) read
+             $ lookup "PORT" env
+    opts <- genMinOpts $ do
+      addGET "." rootPat $ (text "Hello, world!")
+      addSetting' "port" port
+    runWhebServer opts
 ```
 
 <nav>
@@ -420,17 +432,32 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-yesod_
 
 > ---------------------|---
-> Source:              | [_hello-yesod_](https://github.com/mietek/hello-yesod/)
 > Framework:           | [Yesod](http://www.yesodweb.com/) 1.4.0
-> Dependencies:        | […](https://github.com/mietek/hello-yesod/blob/master/cabal.config)
-> Sandbox layer size:  | …MB
-> Slug size:           | …MB
-> Build time:          | …s
-> Push time:           | …s
-> Deploy time:         | …s
+> Constraints:         | [145](https://github.com/mietek/hello-yesod/blob/master/cabal.config)
+> Source:              | [_hello-yesod_](https://github.com/mietek/hello-yesod/)
 
 ```
-…
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
+
+import System.Environment
+import Yesod
+
+data Hello = Hello
+
+mkYesod "Hello" [parseRoutes|/ HomeR GET|]
+
+instance Yesod Hello
+
+getHomeR :: Handler String
+getHomeR = return "Hello, world!"
+
+main :: IO ()
+main = do
+    env <- getEnvironment
+    let port = maybe 8080 read $ lookup "PORT" env
+    warp port Hello
 ```
 
 <nav>
@@ -439,29 +466,3 @@ Ready to deploy to Heroku in two clicks.
 <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hello-yesod/">Deploy to Heroku</a></li>
 </ul>
 </nav>
-
-
-Definitions
------------
-
--   _Dependencies_ is the number of Cabal packages needed to build an application, declared as version constraints in a `cabal.config` file.
-
--   The _sandbox layer_ contains a Cabal sandbox, and any additional build-time dependencies not handled by Cabal.
-
-    Build tools, such as _alex_ or _happy_, are declared as _sandbox extra apps_.
-
-    Similarly, OS libraries needed to build an application are declared as _sandbox extra libs_.
-
--   The _slug_ contains the application build products, and any additional run-time dependencies.
-
-    Programs needed by an application at run-time are declared as _slug extra apps_.
-
--   Building an application from scratch, without using any available fully- or partially-matching sandbox layers, will take _build time_.
-
-    _Push time_ is the time between pushing a change to an application and seeing the changed application deployed as a result of the push.
-
-    Each example can be deployed to Heroku either in two clicks or via the command-line, and will be up and running within _deploy time_.
-
-All sizes are given before stripping and compression, and all times are approximate.
-
-All measurements apply to GHC 7.8.3 and Heroku _cedar-14_.
