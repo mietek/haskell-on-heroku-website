@@ -288,7 +288,8 @@ import Web.Simple
 app :: (Application -> IO ()) -> IO ()
 app runner = do
     runner $ controllerApp () $ do
-      routeTop $ respond $ okHtml "Hello, world!"
+      routeTop $ respond $
+        ok "text/plain" "Hello, world!"
 
 main :: IO ()
 main = do
