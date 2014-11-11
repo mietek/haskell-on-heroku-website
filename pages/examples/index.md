@@ -72,8 +72,8 @@ Ready to deploy to Heroku in two clicks.
 ### _try.purescript.org_
 
 > ---------------------|---
-> Author:              | …
-> Framework:           | …
+> Author:              | [Phil Freeman](https://github.com/purescript/trypurescript/)
+> Framework:           | [Scotty](https://github.com/scotty-web/scotty/) 0.9.0
 > Source:              | [_trypurescript_](https://github.com/mietek/trypurescript/tree/halcyon/)
 
 <nav>
