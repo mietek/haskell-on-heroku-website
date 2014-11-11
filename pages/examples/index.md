@@ -27,13 +27,9 @@ Ready to deploy to Heroku in two clicks.
 ### _haskell-lang.org_
 
 > ---------------------|---
+> Author:              | …
 > Framework:           | …
-> Constraints:         | […](https://github.com/mietek/hl/blob/halcyon/cabal.config)
 > Source:              | [_hl_](https://github.com/mietek/hl/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -46,13 +42,9 @@ Ready to deploy to Heroku in two clicks.
 ### _tryhaskell.org_
 
 > ---------------------|---
-> Framework:           | …
-> Constraints:         | […](https://github.com/mietek/tryhaskell/blob/halcyon/cabal.config)
+> Author:              | [Chris Done](https://github.com/chrisdone/tryhaskell/)
+> Framework:           | [Snap](http://snapframework.com/) 0.9.6.3
 > Source:              | [_tryhaskell_](https://github.com/mietek/tryhaskell/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -65,13 +57,9 @@ Ready to deploy to Heroku in two clicks.
 ### _tryidris.org_
 
 > ---------------------|---
+> Author:              | …
 > Framework:           | …
-> Constraints:         | […](https://github.com/mietek/tryidris/blob/halcyon/cabal.config)
 > Source:              | [_tryidris_](https://github.com/mietek/tryidris/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -84,13 +72,9 @@ Ready to deploy to Heroku in two clicks.
 ### _try.purescript.org_
 
 > ---------------------|---
+> Author:              | …
 > Framework:           | …
-> Constraints:         | […](https://github.com/mietek/trypurescript/blob/halcyon/cabal.config)
 > Source:              | [_trypurescript_](https://github.com/mietek/trypurescript/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -103,13 +87,9 @@ Ready to deploy to Heroku in two clicks.
 ### _howistart.org_
 
 > ---------------------|---
+> Author:              | …
 > Framework:           | …
-> Constraints:         | […](https://github.com/mietek/howistart.org/blob/halcyon/cabal.config)
 > Source:              | [_howistart.org_](https://github.com/mietek/howistart.org/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -122,13 +102,9 @@ Ready to deploy to Heroku in two clicks.
 ### _gitit.net_
 
 > ---------------------|---
-> Framework:           | …
-> Constraints:         | […](https://github.com/mietek/gitit/blob/halcyon/cabal.config)
+> Author:              | [John MacFarlane](https://github.com/jgm/gitit/)
+> Framework:           | [Happstack](http://happstack.com/) 7.3.9
 > Source:              | [_gitit_](https://github.com/mietek/gitit/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -141,13 +117,9 @@ Ready to deploy to Heroku in two clicks.
 ### _tryplayg.herokuapp.com_
 
 > ---------------------|---
+> Author:              | …
 > Framework:           | …
-> Constraints:         | […](https://github.com/mietek/tryhplay/blob/halcyon/cabal.config)
 > Source:              | [_tryhplay_](https://github.com/mietek/tryhplay/tree/halcyon/)
-
-```
-…
-```
 
 <nav>
 <ul class="menu open">
@@ -168,8 +140,8 @@ Ready to deploy to Heroku in two clicks.
 ### _hello-happstack_
 
 > ---------------------|---
-> Framework:           | [Happstack](http://happstack.com/) 7.3.5
-> Constraints:         | [44](https://github.com/mietek/hello-happstack/blob/master/cabal.config)
+> Framework:           | [Happstack](http://happstack.com/) Lite 7.3.5
+> Dependencies:        | [44](https://github.com/mietek/hello-happstack/blob/master/cabal.config)
 > Source:              | [_hello-happstack_](https://github.com/mietek/hello-happstack/)
 
 ```
@@ -197,8 +169,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [MFlow](https://github.com/agocorona/MFlow/) 0.4.5.9
-> Constraints:         | [106](https://github.com/mietek/hello-mflow/blob/master/cabal.config)
-> Sandbox extra apps:  | _cpphs_ 1.18.6
+> Dependencies:        | [106](https://github.com/mietek/hello-mflow/blob/master/cabal.config) and _cpphs_ 1.18.6
 > Source:              | [_hello-mflow_](https://github.com/mietek/hello-mflow/)
 
 ```
@@ -222,7 +193,7 @@ main =
 
 > ---------------------|---
 > Framework:           | [_miku_](https://github.com/nfjinjing/miku/) 2014.5.19
-> Constraints:         | [59](https://github.com/mietek/hello-miku/blob/master/cabal.config)
+> Dependencies:        | [59](https://github.com/mietek/hello-miku/blob/master/cabal.config)
 > Source:              | [_hello-miku_](https://github.com/mietek/hello-miku/)
 
 ```
@@ -250,7 +221,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [Scotty](https://github.com/scotty-web/scotty/) 0.9.0
-> Constraints:         | [74](https://github.com/mietek/hello-scotty/blob/master/cabal.config)
+> Dependencies:        | [74](https://github.com/mietek/hello-scotty/blob/master/cabal.config)
 > Source:              | [_hello-scotty_](https://github.com/mietek/hello-scotty/)
 
 ```
@@ -277,7 +248,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [Simple](http://simple.cx/) 0.10.0.2
-> Constraints:         | [70](https://github.com/mietek/hello-simple/blob/master/cabal.config)
+> Dependencies:        | [70](https://github.com/mietek/hello-simple/blob/master/cabal.config)
 > Source:              | [_hello-simple_](https://github.com/mietek/hello-simple/)
 
 ```
@@ -310,7 +281,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [Snap](http://snapframework.com/) 0.9.6.3
-> Constraints:         | [42](https://github.com/mietek/hello-snap/blob/master/cabal.config)
+> Dependencies:        | [42](https://github.com/mietek/hello-snap/blob/master/cabal.config)
 > Source:              | [_hello-snap_](https://github.com/mietek/hello-snap/)
 
 ```
@@ -342,7 +313,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [Spock](https://github.com/agrafix/Spock/) 0.7.4.0
-> Constraints:         | [80](https://github.com/mietek/hello-spock/blob/master/cabal.config)
+> Dependencies:        | [80](https://github.com/mietek/hello-spock/blob/master/cabal.config)
 > Source:              | [_hello-spock_](https://github.com/mietek/hello-spock/)
 
 ```
@@ -368,8 +339,8 @@ main = do
 ### _hello-wai_
 
 > ---------------------|---
-> Library:             | [WAI](https://hackage.haskell.org/package/wai/) 3.0.2
-> Constraints:         | [38](https://github.com/mietek/hello-wai/blob/master/cabal.config)
+> Framework:           | [WAI](https://hackage.haskell.org/package/wai/) 3.0.2
+> Dependencies:        | [38](https://github.com/mietek/hello-wai/blob/master/cabal.config)
 > Source:              | [_hello-wai_](https://github.com/mietek/hello-wai/)
 
 ```
@@ -404,7 +375,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [Wheb](https://github.com/hansonkd/Wheb-Framework/) 0.3.1.0
-> Constraints:         | [98](https://github.com/mietek/hello-wheb/blob/master/cabal.config)
+> Dependencies:        | [98](https://github.com/mietek/hello-wheb/blob/master/cabal.config)
 > Source:              | [_hello-wheb_](https://github.com/mietek/hello-wheb/)
 
 ```
@@ -434,7 +405,7 @@ main = do
 
 > ---------------------|---
 > Framework:           | [Yesod](http://www.yesodweb.com/) 1.4.0
-> Constraints:         | [145](https://github.com/mietek/hello-yesod/blob/master/cabal.config)
+> Dependencies:        | [145](https://github.com/mietek/hello-yesod/blob/master/cabal.config)
 > Source:              | [_hello-yesod_](https://github.com/mietek/hello-yesod/)
 
 ```

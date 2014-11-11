@@ -64,6 +64,14 @@ Disables automatic updates.
 General options
 ---------------
 
+### `BUILDPACK_SSH_PRIVATE_KEY`
+
+> ---------------------|---
+> Default value:       | _none_
+
+TODO
+
+
 ### `BUILDPACK_KEEP_ALL`
 
 > ---------------------|---
