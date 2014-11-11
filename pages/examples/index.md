@@ -87,8 +87,8 @@ Ready to deploy to Heroku in two clicks.
 ### _howistart.org_
 
 > ---------------------|---
-> Author:              | …
-> Framework:           | …
+> Author:              | [Tristan Sloughter](https://github.com/howistart/howistart.org/)
+> Framework:           | [Snap](http://snapframework.com/) 0.9.6.3
 > Source:              | [_howistart.org_](https://github.com/mietek/howistart.org/tree/halcyon/)
 
 <nav>
