@@ -57,8 +57,8 @@ Ready to deploy to Heroku in two clicks.
 ### _tryidris.org_
 
 > ---------------------|---
-> Author:              | …
-> Framework:           | …
+> Author:              | [Brian McKenna](https://github.com/puffnfresh/tryidris/)
+> Framework:           | [Scotty](https://github.com/scotty-web/scotty/) 0.9.0
 > Source:              | [_tryidris_](https://github.com/mietek/tryidris/tree/halcyon/)
 
 <nav>
