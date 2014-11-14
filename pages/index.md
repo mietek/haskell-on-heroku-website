@@ -5,7 +5,7 @@ header-class: hero
 main-class: hero
 hero: |
   <h1 class="logotype">Haskell on Heroku</h1>
-  <p>Haskell web application deployment.</p>
+  <p>Haskell web application deployment</p>
 page-footer: |
   <script>
     addEventListener('load', function () {
@@ -32,7 +32,8 @@ _Work in progress._
 
 <nav>
 <ul class="menu open">
-<li><a href="examples/">See all examples</a></li>
+<li><a href="real-world-examples/">Real-world examples</a></li>
+<li><a href="hello-world-examples/">“Hello, world!” examples</a></li>
 </ul>
 </nav>
 
