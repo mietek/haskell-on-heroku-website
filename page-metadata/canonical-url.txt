@@ -1,1 +1,1 @@
-http://haskellonheroku.com/
+https://haskellonheroku.com/

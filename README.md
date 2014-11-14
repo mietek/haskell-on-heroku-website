@@ -1,10 +1,10 @@
-_[haskell-on-heroku](http://haskellonheroku.com/)-website_
-==========================================================
+_[haskell-on-heroku](https://haskellonheroku.com/)-website_
+===========================================================
 
-Built with [_cannot_](http://cannot.mietek.io/).
+Built with [_cannot_](https://cannot.mietek.io/).
 
 
 About
 -----
 
-Made by [Miëtek Bak](http://mietek.io/).  Published under the [MIT X11 license](http://haskellonheroku.com/license/).  Not affiliated with [Heroku](http://heroku.com/).
+Made by [Miëtek Bak](https://mietek.io/).  Published under the [MIT X11 license](https://haskellonheroku.com/license/).  Not affiliated with [Heroku](https://heroku.com/).

@@ -404,7 +404,7 @@ main = do
 ### _hello-yesod_
 
 > ---------------------|---
-> Framework:           | [Yesod](http://www.yesodweb.com/) 1.4.0
+> Framework:           | [Yesod](http://yesodweb.com/) 1.4.0
 > Dependencies:        | [145](https://github.com/mietek/hello-yesod/blob/master/cabal.config)
 > Source:              | [_hello-yesod_](https://github.com/mietek/hello-yesod/)
 
