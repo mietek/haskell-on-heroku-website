@@ -17,63 +17,57 @@ page-footer: |
 ---
 
 
-Haskell on Heroku
+Haskell on Heroku
 ==================
 
-Haskell on Heroku is a system for fast and reliable deployment of Haskell web applications to [Heroku](https://heroku.com/).
-
-**This page describes version 1.0, which is currently undergoing testing.  Check back soon, or follow <a href="https://twitter.com/mietek">@mietek</a>.**
+Haskell on Heroku is a system for deploying Haskell web applications to [Heroku](https://heroku.com/).
 
 
-Examples
+Overview
 --------
 
-_Work in progress._
+Haskell on Heroku uses [Halcyon](https://halcyon.sh/) to allow deploying any Haskell application in two clicks, using the appropriate versions of GHC, libraries, and build tools.
 
-<nav>
-<ul class="menu open">
-<li><a href="real-world-examples/">Real-world examples</a></li>
-<li><a href="hello-world-examples/">“Hello, world!” examples</a></li>
-</ul>
-</nav>
+For more information on the build process, please refer to the [Halcyon documentation](https://halcyon.sh/#more).
 
 
 Usage
 -----
 
-New applications:
-
 ```
-$ heroku create -b https://github.com/mietek/haskell-on-heroku -s cedar-14
-```
-
-Existing applications:
-
-```
-$ heroku config:set BUILDPACK_URL=https://github.com/mietek/haskell-on-heroku
+$ heroku create -b https://github.com/mietek/haskell-on-heroku
+$ git push heroku master
+$ heroku ps:scale web=1
+$ heroku open
 ```
 
-Haskell on Heroku supports:
 
-- Heroku _cedar_ and [_cedar-14_](https://blog.heroku.com/archives/2014/8/19/cedar-14-public-beta).
-- GHC [7.0.4](https://haskell.org/ghc/download_ghc_7_0_4), [7.2.2](https://haskell.org/ghc/download_ghc_7_2_2), [7.4.2](https://haskell.org/ghc/download_ghc_7_4_2), [7.6.1](https://haskell.org/ghc/download_ghc_7_6_1), [7.6.3](https://haskell.org/ghc/download_ghc_7_6_3), [7.8.2](https://haskell.org/ghc/download_ghc_7_8_2), and [7.8.3](https://haskell.org/ghc/download_ghc_7_8_3).
-- _cabal-install_ [1.20.0.0](https://haskell.org/cabal/download.html) and newer.
+### Examples
 
-To learn more, check back soon.
-
-
-### Internals
-
-Haskell on Heroku is built with [Halcyon](https://halcyon.sh/), a system for deploying Haskell applications, and [_bashmenot_](https://bashmenot.mietek.io/), a library of functions for safer shell scripting in [GNU _bash_](https://gnu.org/software/bash/).
-
-Additional information is available in the [_bashmenot_ programmer’s reference](https://bashmenot.mietek.io/reference/).
+<nav>
+<ul class="menu open">
+<li><a href="apps/">Real-world Haskell apps</a></li>
+<li><a href="examples/">“Hello, world!” examples</a></li>
+</ul>
+</nav>
 
 
-### Bugs
+### Dependencies
 
-Please report any problems with Haskell on Heroku on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).
+Haskell on Heroku supports:
 
-There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the documentation.
+- Heroku _cedar_ and [_cedar-14_](https://devcenter.heroku.com/articles/cedar)
+- GHC [7.6.3](https://haskell.org/ghc/download_ghc_7_6_3) and [7.8.3](https://haskell.org/ghc/download_ghc_7_8_3)
+- _cabal-install_ [1.20.0.0](https://haskell.org/cabal/download.html) and newer
+
+Versions of GHC including [7.8.2](https://haskell.org/ghc/download_ghc_7_8_2), [7.6.1](https://haskell.org/ghc/download_ghc_7_6_1) , [7.4.2](https://haskell.org/ghc/download_ghc_7_4_2), [7.2.2](https://haskell.org/ghc/download_ghc_7_2_2), and [7.0.4](https://haskell.org/ghc/download_ghc_7_0_4) are also expected to work.
+
+
+### Support
+
+Please report any problems with Haskell on Heroku on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the documentation.
+
+The <a href="irc://chat.freenode.net/haskell-deployment">#haskell-deployment</a> IRC channel on [freenode](https://freenode.net/) is a good place to ask questions and find answers.
 
 
 About
@@ -81,9 +75,9 @@ About
 
 <span id="mietek"><a class="hello" href=""></a></span>
 
-My name is [Miëtek Bak](https://mietek.io/).  I make software, and Haskell on Heroku is one of [my projects](https://mietek.io/projects/).
+My name is [Miëtek Bak](https://mietek.io/).  I make software, and Haskell on Heroku is one of [my projects](https://mietek.io/projects/).
 
-This work is published under the [MIT X11 license](license/), and supported by my company, [Least Fixed](https://leastfixed.com/).
+This work is published under the [MIT X11 license](license/), and supported by my company, [Least Fixed](https://leastfixed.com/).
 
 Like my work?  I am available for consulting on software projects.  Say <a class="hello" href="">hello</a>, or follow <a href="https://twitter.com/mietek">@mietek</a>.
 

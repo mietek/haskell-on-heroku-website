@@ -1,13 +1,19 @@
 ---
-title: Examples
+title: Apps
 page-class: add-section-toc
+page-head: |
+  <style>
+    header a.link-apps {
+      color: #ac5cf0;
+    }
+  </style>
 ---
 
 
-Real-world examples
-===================
+Apps
+====
 
-Existing Haskell web applications, adapted to deploy with Halcyon.
+Real-world Haskell web applications, adapted to deploy with Halcyon.
 
 Ready to deploy to Heroku in two clicks.
 
@@ -23,7 +29,7 @@ _haskell-lang.org_
 <nav>
 <ul class="menu open">
 <!-- <li><a href="examples/hl/">Learn more</a></li> -->
-<li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hl/tree/halcyon/">Deploy to Heroku</a></li>
+<!-- <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/hl/tree/halcyon/">Deploy to Heroku</a></li> -->
 </ul>
 </nav>
 
@@ -119,6 +125,6 @@ _tryplayg.herokuapp.com_
 <nav>
 <ul class="menu open">
 <!-- <li><a href="examples/tryhplay/">Learn more</a></li> -->
-<li><a href="https://heroku.com/deploy?template=https://github.com/mietek/tryhplay/tree/halcyon/">Deploy to Heroku</a></li>
+<!-- <li><a href="https://heroku.com/deploy?template=https://github.com/mietek/tryhplay/tree/halcyon/">Deploy to Heroku</a></li> -->
 </ul>
 </nav>

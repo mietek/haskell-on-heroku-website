@@ -1,6 +1,12 @@
 ---
-title: “Hello, world!” examples
+title: Examples
 page-class: add-section-toc
+page-head: |
+  <style>
+    header a.link-examples {
+      color: #ac5cf0;
+    }
+  </style>
 ---
 
 
