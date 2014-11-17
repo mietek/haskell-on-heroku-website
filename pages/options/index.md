@@ -44,11 +44,3 @@ General options
 > Default value:       | _none_
 
 TODO
-
-
-### `BUILDPACK_KEEP_ALL`
-
-> ---------------------|---
-> Default value:       | `0`
-
-TODO

@@ -1,5 +1,5 @@
 ---
-title: Examples
+title: “Hello, world!” examples
 page-class: add-section-toc
 page-head: |
   <style>
@@ -24,6 +24,8 @@ _hello-happstack_
 > ---------------------|---
 > Framework:           | [Happstack](http://happstack.com/) Lite 7.3.5
 > Dependencies:        | [44](https://github.com/mietek/hello-happstack/blob/master/cabal.config)
+> Sandbox size:        | 64MB
+> App size:            | 12MB
 > Source:              | [_hello-happstack_](https://github.com/mietek/hello-happstack/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">Happstack.Lite</span></span>
@@ -51,6 +53,8 @@ _hello-mflow_
 > ---------------------|---
 > Framework:           | [MFlow](https://github.com/agocorona/MFlow/) 0.4.5.9
 > Dependencies:        | [106](https://github.com/mietek/hello-mflow/blob/master/cabal.config) and _cpphs_ 1.18.6
+> Sandbox size:        | 152MB
+> App size:            | 20MB
 > Source:              | [_hello-mflow_](https://github.com/mietek/hello-mflow/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">MFlow.Wai.Blaze.Html.All</span></span>
@@ -74,6 +78,8 @@ _hello-miku_
 > ---------------------|---
 > Framework:           | [_miku_](https://github.com/nfjinjing/miku/) 2014.5.19
 > Dependencies:        | [59](https://github.com/mietek/hello-miku/blob/master/cabal.config)
+> Sandbox size:        | 84MB
+> App size:            | 13MB
 > Source:              | [_hello-miku_](https://github.com/mietek/hello-miku/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">Network.Miku</span></span>
@@ -101,6 +107,8 @@ _hello-scotty_
 > ---------------------|---
 > Framework:           | [Scotty](https://github.com/scotty-web/scotty/) 0.9.0
 > Dependencies:        | [74](https://github.com/mietek/hello-scotty/blob/master/cabal.config)
+> Sandbox size:        | 83MB
+> App size:            | 12MB
 > Source:              | [_hello-scotty_](https://github.com/mietek/hello-scotty/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">System.Environment</span></span>
@@ -127,6 +135,8 @@ _hello-simple_
 > ---------------------|---
 > Framework:           | [Simple](http://simple.cx/) 0.10.0.2
 > Dependencies:        | [70](https://github.com/mietek/hello-simple/blob/master/cabal.config)
+> Sandbox size:        | 100MB
+> App size:            | 7MB
 > Source:              | [_hello-simple_](https://github.com/mietek/hello-simple/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">Network.Wai.Handler.Warp</span></span>
@@ -159,6 +169,8 @@ _hello-snap_
 > ---------------------|---
 > Framework:           | [Snap](http://snapframework.com/) 0.9.6.3
 > Dependencies:        | [42](https://github.com/mietek/hello-snap/blob/master/cabal.config)
+> Sandbox size:        | 69MB
+> App size:            | 11MB
 > Source:              | [_hello-snap_](https://github.com/mietek/hello-snap/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">Snap.Core</span></span>
@@ -190,6 +202,8 @@ _hello-spock_
 > ---------------------|---
 > Framework:           | [Spock](https://github.com/agrafix/Spock/) 0.7.4.0
 > Dependencies:        | [80](https://github.com/mietek/hello-spock/blob/master/cabal.config)
+> Sandbox size:        | 107MB
+> App size:            | 12MB
 > Source:              | [_hello-spock_](https://github.com/mietek/hello-spock/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">System.Environment</span></span>
@@ -216,6 +230,8 @@ _hello-wai_
 > ---------------------|---
 > Framework:           | [WAI](https://hackage.haskell.org/package/wai/) 3.0.2
 > Dependencies:        | [38](https://github.com/mietek/hello-wai/blob/master/cabal.config)
+> Sandbox size:        | 45MB
+> App size:            | 6MB
 > Source:              | [_hello-wai_](https://github.com/mietek/hello-wai/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">Network.HTTP.Types</span></span>
@@ -250,6 +266,8 @@ _hello-wheb_
 > ---------------------|---
 > Framework:           | [Wheb](https://github.com/hansonkd/Wheb-Framework/) 0.3.1.0
 > Dependencies:        | [98](https://github.com/mietek/hello-wheb/blob/master/cabal.config)
+> Sandbox size:        | 146MB
+> App size:            | 10MB
 > Source:              | [_hello-wheb_](https://github.com/mietek/hello-wheb/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_import meta_import_haskell"><span class="keyword keyword_other keyword_other_haskell">import</span> <span class="support support_other support_other_module support_other_module_haskell">System.Environment</span></span>
@@ -279,6 +297,8 @@ _hello-yesod_
 > ---------------------|---
 > Framework:           | [Yesod](http://yesodweb.com/) 1.4.0
 > Dependencies:        | [145](https://github.com/mietek/hello-yesod/blob/master/cabal.config)
+> Sandbox size:        | 250MB
+> App size:            | 25MB
 > Source:              | [_hello-yesod_](https://github.com/mietek/hello-yesod/)
 
 <pre class="textmate-source"><code><span class="source source_haskell"><span class="meta meta_preprocessor meta_preprocessor_haskell">{-# <span class="keyword keyword_other keyword_other_preprocessor keyword_other_preprocessor_haskell">LANGUAGE</span> QuasiQuotes #-}</span>

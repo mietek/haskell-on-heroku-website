@@ -1,5 +1,5 @@
 ---
-title: Apps
+title: Real-world apps
 page-class: add-section-toc
 page-head: |
   <style>
@@ -10,10 +10,10 @@ page-head: |
 ---
 
 
-Apps
-====
+Real-world apps
+===============
 
-Real-world Haskell web applications, adapted to deploy with Halcyon.
+Existing Haskell web applications, adapted to use Halcyon.
 
 Ready to deploy to Heroku in two clicks.
 
