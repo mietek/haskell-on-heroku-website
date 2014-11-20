@@ -20,15 +20,17 @@ page-footer: |
 Haskell on Heroku
 ==================
 
-Haskell on Heroku is a system for deploying Haskell web applications to [Heroku](https://heroku.com/).
+Haskell on Heroku is a system for deploying Haskell web applications to [Heroku](https://heroku.com/), based on [Halcyon](https://halcyon.sh/).
+
+**Pre-release version.  Please sign up to the [Haskell on Heroku announcements list](http://eepurl.com/8KXsT) for updates, or follow <a href="https://twitter.com/mietek">@mietek</a>.**
 
 
 Overview
 --------
 
-Haskell on Heroku uses [Halcyon](https://halcyon.sh/) to allow deploying any Haskell application in two clicks, using the appropriate versions of GHC, libraries, and build tools.
+Haskell on Heroku can deploy any Haskell web application in two clicks, using explicitly declared versions of GHC, libraries, build-tools, and other dependencies.
 
-For more information on the build process, please refer to the [Halcyon documentation](https://halcyon.sh/#more).
+For more information about the build process, please refer to the [Halcyon documentation](https://halcyon.sh/#more).
 
 
 Usage
