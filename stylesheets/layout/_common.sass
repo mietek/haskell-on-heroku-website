@@ -9,9 +9,6 @@ code
   font-variant: normal
   letter-spacing: -1px
 
-table
-  font-family: "concourse-t3-tab", sans-serif
-
 
 nav.menu-bar h1.logotype a
   @include no-text
@@ -29,24 +26,33 @@ header.hero nav.menu-bar h1.logotype a
 #hero h1.logotype
   @include no-text
 
-
-#mietek a
+#haskell-on-heroku h1 a
   @include text-button
   @include no-text
-  @include smart-box-glow($accent-color)
+  display: block
+
+
+#mietek
+  @include no-text
   display: block
   float: left
   margin-right: ln(1)
   margin-bottom: ln(1)
   border: 1px $object-color solid
   border-radius: 50%
-  background-position: center center
-  background-color: transparent
-  background-blend-mode: screen
-  transition: ease(border-color, 1, 0), ease(background-color, 1, 0), ease(box-shadow, 1, 0)
-  @include frob-when-frobbed
-    border-color: $accent-color
-    background-color: $accent-color
 
-.hairline #mietek a
+.hairline #mietek
   border-width: 0.5px
+
+
+blockquote.twitter-tweet
+  font-style: italic
+
+div.tweet
+  margin-top: ln(3/2)
+  margin-bottom: ln(3/2)
+  margin-right: ln(1)
+
+
+#logo-for-app-json-files
+  background-image: image-url(logo, 1x, svg)

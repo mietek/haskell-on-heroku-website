@@ -12,15 +12,18 @@ footer nav.menu-bar h1.logotype a
 header.hero nav.menu-bar h1.logotype a
   @include smart-logotype(white, white, large)
 
-#hero h1
-  @include image("logotype-white-hero-large", "png")
-
 #hero h1.logotype
+  @include image("logotype-white-hero-large", "png")
+  width: 352px
+  background-size: 352px auto
+
+#haskell-on-heroku h1 a
+  @include image("logotype-violet-hero-large", "png")
   width: 352px
   background-size: 352px auto
 
 
-#mietek a
+#mietek
   @include image("mietek-large", "png")
   background-size: 128px 128px
   width: 128px
