@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-set -e
-
+rm -rf out
 mkdir out
 
-variants="720x480_small 1440x960_medium 2880x1920_large"
+file='hero.jpg'
+variants=( 720x480_-small 1440x960_-medium 2880x1920_-large )
 
-for variant in ${variants}; do
-  size=${variant%_*}
-  suffix=${variant#*_}
-  convert hero.jpg -resize "${size}!" out/hero-${suffix}.jpg
+for variant in "${variants[@]}"; do
+	size="${variant%_*}"
+	suffix="${variant#*_}"
+	convert "${file}" -resize "${size}!" "out/${file%.jpg}${suffix}.jpg"
 done
