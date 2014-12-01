@@ -1,5 +1,7 @@
-_[haskell-on-heroku](https://haskellonheroku.com/)-website_
-===========================================================
+_haskell-on-heroku-website_
+===========================
+
+Website for [Haskell on Heroku](https://haskellonheroku.com).
 
 Built with [_cannot_](https://cannot.mietek.io/).
 

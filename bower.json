@@ -1,6 +1,6 @@
 {
   "name": "haskell-on-heroku-website",
-  "description": "Haskell on Heroku website",
+  "description": "Website for Haskell on Heroku",
   "authors": [
     "Miëtek Bak <hello@mietek.io>"
   ],
