@@ -1,6 +1,6 @@
 ---
 title: Haskell web application deployment
-page-description: Haskell on Heroku is a system for deploying Haskell web applications.
+page-description: Haskell on Heroku is a system for deploying Haskell web applications, powered by Halcyon.
 page-class: hero tweak-listings
 page-data:
 - key: min-section-link-level
@@ -29,17 +29,32 @@ page-footer: |
 Haskell on Heroku
 ==================
 
-Haskell on Heroku is a system for deploying Haskell web applications to [Heroku](https://heroku.com/), based on [Halcyon](https://halcyon.sh/).
-
-**Pre-release version.  Please sign up to the [Haskell on Heroku announcements list](http://eepurl.com/8KXsT) for updates, or follow <a href="https://twitter.com/mietek">@mietek</a>.**
+Haskell on Heroku is a system for deploying Haskell web applications to [Heroku](https://heroku.com/), powered by [Halcyon](https://halcyon.sh/).
 
 
-Overview
---------
+### Support
 
-Haskell on Heroku can deploy any Haskell web application in two clicks, using explicitly declared versions of GHC, libraries, build-tools, and other dependencies.
+_**Work in progress.**  For updates, please sign up to the [Haskell on Heroku announcements list](http://eepurl.com/8KXsT), or follow <a href="https://twitter.com/mietek">@mietek</a>._
 
-For more information about the build process, please refer to the [Halcyon documentation](https://halcyon.sh/#more).
+The <a href="irc://chat.freenode.net/haskell-deployment">#haskell-deployment</a> IRC channel on [freenode](https://freenode.net/) is a good place to ask questions and find answers.
+
+Please report any problems with Haskell on Heroku on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the documentation.
+
+Need commercial support?  Contact the [author](#about) directly.
+
+
+### Examples
+
+Haskell on Heroku is being used in production since June 2014.
+
+All Halcyon [example applications](https://halcyon.sh/examples/) and [“Hello, world!” shootout entries](https://halcyon.sh/shootout/) can be deployed to Heroku just by pushing a button.
+
+
+<aside>
+<a class="micro face tristan-sloughter" href="https://twitter.com/t_sloughter/status/539168929131003904"></a>
+<blockquote>_“[Miëtek’s](#about) [Haskell on Heroku](https://haskellonheroku.com/) and Halcyon has made deploying [How I Start](https://howistart.org/) fast and simple!  Thanks!”_</blockquote>
+<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904)</p>
+</aside>
 
 
 Usage
@@ -47,63 +62,74 @@ Usage
 
 ```
 $ heroku create -b https://github.com/mietek/haskell-on-heroku
+$ heroku config:set HALCYON_AWS_ACCESS_KEY_ID=...
+$ heroku config:set HALCYON_AWS_SECRET_ACCESS_KEY=...
+$ heroku config:set HALCYON_S3_BUCKET=...
 $ git push heroku master
+```
+
+```
+$ heroku run --size=PX build
+$ git commit --amend -C HEAD
+$ git push -f heroku master
+```
+
+```
 $ heroku ps:scale web=1
 $ heroku open
 ```
 
+### Documentation
 
-### Examples
-
-<nav>
+<div><nav>
 <ul class="menu open">
-<li><a href="apps/">Real-world Haskell apps</a></li>
-<li><a href="examples/">“Hello, world!” examples</a></li>
+<li><a href="/guide/">User’s guide</a></li>
+<li><a href="/reference/">User’s reference</a></li>
+<li><a href="https://halcyon.sh/guide/">Halcyon user’s guide</a></li>
+<li><a href="https://halcyon.sh/reference/">Halcyon user’s reference</a></li>
 </ul>
-</nav>
+</nav></div>
 
 
-### Dependencies
+#### Internal documentation
 
-Haskell on Heroku supports:
+Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/) 4 and [_bashmenot_](https://bashmenot.mietek.io/).
 
-- Heroku _cedar_ and [_cedar-14_](https://devcenter.heroku.com/articles/cedar)
-- GHC [7.6.3](https://haskell.org/ghc/download_ghc_7_6_3) and [7.8.3](https://haskell.org/ghc/download_ghc_7_8_3)
-- _cabal-install_ [1.20.0.0](https://haskell.org/cabal/download.html) and newer
-
-Versions of GHC including [7.8.2](https://haskell.org/ghc/download_ghc_7_8_2), [7.6.1](https://haskell.org/ghc/download_ghc_7_6_1) , [7.4.2](https://haskell.org/ghc/download_ghc_7_4_2), [7.2.2](https://haskell.org/ghc/download_ghc_7_2_2), and [7.0.4](https://haskell.org/ghc/download_ghc_7_0_4) are also expected to work.
-
-
-### Support
-
-Please report any problems with Haskell on Heroku on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues/).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues/) for problems with the documentation.
-
-The <a href="irc://chat.freenode.net/haskell-deployment">#haskell-deployment</a> IRC channel on [freenode](https://freenode.net/) is a good place to ask questions and find answers.
+<div><nav>
+<ul class="menu open">
+<li><a href="https://github.com/mietek/haskell-on-heroku/">Haskell on Heroku source code</a></li>
+<li><a href="https://github.com/mietek/halcyon/">Halcyon source code</a></li>
+<li><a href="https://bashmenot.mietek.io/reference/">_bashmenot_ programmer’s reference</a></li>
+<li><a href="https://github.com/mietek/bashmenot/">_bashmenot_ source code</a></li>
+</ul>
+</nav></div>
 
 
 About
 -----
 
-<span id="mietek"><a class="hello" href=""></a></span>
+<div class="aside-like">
+<a class="face mietek" href="https://mietek.io/"></a>
+<blockquote>_My name is [Miëtek Bak](https://mietek.io/).  I make software, and Haskell on Heroku is one of [my projects](https://mietek.io/projects/)._
 
-My name is [Miëtek Bak](https://mietek.io/).  I make software, and Haskell on Heroku is one of [my projects](https://mietek.io/projects/).
+_This work is published under the [MIT X11 license](/license/), and supported by my company, [Least Fixed](https://leastfixed.com/)._
 
-This work is published under the [MIT X11 license](license/), and supported by my company, [Least Fixed](https://leastfixed.com/).
-
-Like my work?  I am available for consulting on software projects.  Say <a class="hello" href="">hello</a>, or follow <a href="https://twitter.com/mietek">@mietek</a>.
+_Like my work?  I am available for consulting.  Say <a class="hello" href="">hello</a>, or follow <a href="https://twitter.com/mietek">@mietek</a>._
+</blockquote>
+</div>
 
 
 ### Acknowledgments
 
-Thanks to [Joe Nelson](http://begriffs.com/), [Brian McKenna](http://brianmckenna.org/), and [Neuman Vong](https://github.com/luciferous/) for initial work on Haskell buildpacks.  Thanks to [CircuitHub](https://circuithub.com/), [Tweag I/O](http://tweag.io/), and [Purely Agile](http://purelyagile.com/) for advice and assistance.
+Thanks to [Joe Nelson](http://begriffs.com/), [Brian McKenna](http://brianmckenna.org/), and [Neuman Vong](https://github.com/luciferous/) for initial work on Haskell buildpacks.  Thanks to [CircuitHub](https://circuithub.com/), [Purely Agile](http://purelyagile.com/), and [Tweag I/O](http://tweag.io/) for advice and assistance.
 
-The monospaced font used in this website is [PragmataPro](http://fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://fsd.it/).  The sans-serif font is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  The welcome image is based on [Cumulus Clouds](https://flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://flickr.com/photos/kubina/).
+The welcome image is based on [Cumulus Clouds](https://flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://flickr.com/photos/kubina/).  The monospaced font is [PragmataPro](http://fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://fsd.it/).  The sans-serif font is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  Website built with [_cannot_](https://cannot.mietek.io/).
 
-Website built with [_cannot_](https://cannot.mietek.io/).
-
-This project is not affiliated with [Heroku](https://heroku.com/) or [DigitalOcean](https://digitalocean.com/).
+This project is not affiliated with [Heroku](https://heroku.com/), [DigitalOcean](https://digitalocean.com/), or [Amazon](https://amazon.com/).
 
 
-<div class="tweet">
-<blockquote class="twitter-tweet"><p>Check out <a href="https://twitter.com/mietek">@mietek</a>&#39;s Haskell Heroku buildpack -- it dynamically selects a pre-made Cabal sandbox for build speed. <a href="http://t.co/UpCbLnKR20">http://t.co/UpCbLnKR20</a></p>&mdash; Joe Nelson (@begriffs) <a href="https://twitter.com/begriffs/status/522811714325475329">October 16, 2014</a></blockquote>
-</div>
+<aside>
+<a class="micro face joe-nelson" href="https://twitter.com/begriffs/status/522811714325475329"></a>
+<blockquote>_“Check out [Miëtek’s](#about) [Haskell on Heroku](https://haskellonheroku.com/) buildpack — it dynamically selects a pre-made Cabal sandbox for build speed.”_</blockquote>
+<p>[— Joe Nelson](https://twitter.com/begriffs/status/522811714325475329)</p>
+</aside>
