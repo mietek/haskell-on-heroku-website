@@ -32,23 +32,9 @@ header.hero nav.menu-bar h1.logotype a
   display: block
 
 
-#mietek
-  @include no-text
-  display: block
-  float: left
-  margin-right: ln(1)
-  margin-bottom: ln(1)
-  border: 1px $object-color solid
-  border-radius: 50%
-
-.hairline #mietek
-  border-width: 0.5px
-
-
-blockquote.twitter-tweet
-  font-style: italic
-
-div.tweet
-  margin-top: ln(3/2)
-  margin-bottom: ln(3/2)
-  margin-right: ln(1)
+a.heroku-button
+  @include pill-button
+  color: $violet
+  border-color: $violet
+  @include frob-when-frobbed
+    background-color: $violet
