@@ -13,7 +13,7 @@ header-class: hero
 main-class: hero
 hero: |
   <h1 class="logotype">Haskell on Heroku</h1>
-  <p>Deploy any Haskell web application.  Easily.</p>
+  <p>Deploy any Haskell web application.  Instantly.</p>
   <div id="hero-button"><a href="#haskell-on-heroku" title="More">More</a></div>
 page-footer: |
   <script>
@@ -52,7 +52,7 @@ All Halcyon [example applications](https://halcyon.sh/examples/) and [“Hello, 
 
 <aside>
 <a class="micro face tristan-sloughter" href="https://twitter.com/t_sloughter/status/539168929131003904"></a>
-<blockquote>_“[Miëtek’s](#about) [Haskell on Heroku](https://haskellonheroku.com/) and Halcyon has made deploying [How I Start](https://howistart.org/) fast and simple!  Thanks!”_</blockquote>
+<blockquote>_“Miëtek’s Haskell on Heroku and [Halcyon](https://halcyon.sh/) has made deploying [How I Start](https://howistart.org/) fast and simple!  Thanks!”_</blockquote>
 <p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904)</p>
 </aside>
 
@@ -60,13 +60,12 @@ All Halcyon [example applications](https://halcyon.sh/examples/) and [“Hello, 
 Usage
 -----
 
-```
-$ heroku create -b https://github.com/mietek/haskell-on-heroku
-$ heroku config:set HALCYON_AWS_ACCESS_KEY_ID=...
-$ heroku config:set HALCYON_AWS_SECRET_ACCESS_KEY=...
-$ heroku config:set HALCYON_S3_BUCKET=...
-$ git push heroku master
-```
+<pre class="with-tweaks"><code><span class="prompt">$</span> <span class="input">heroku create -b <a href="https://github.com/mietek/haskell-on-heroku">https://github.com/mietek/haskell-on-heroku</a></span>
+<span class="prompt">$</span> <span class="input">heroku config:set <a href="https://halcyon.sh/reference/#halcyon_aws_access_key_id">HALCYON_AWS_ACCESS_KEY_ID</a>=…</span>
+<span class="prompt">$</span> <span class="input">heroku config:set <a href="https://halcyon.sh/reference/#halcyon_aws_secret_access_key">HALCYON_AWS_SECRET_ACCESS_KEY</a>=…</span>
+<span class="prompt">$</span> <span class="input">heroku config:set <a href="https://halcyon.sh/reference/#halcyon_s3_bucket">HALCYON_S3_BUCKET</a>=…</span>
+<span class="prompt">$</span> <span class="input">git push heroku master</span>
+</code></pre>
 
 ```
 $ heroku run --size=PX build
@@ -93,11 +92,11 @@ $ heroku open
 
 #### Internal documentation
 
-Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/) 4 and [_bashmenot_](https://bashmenot.mietek.io/).
+Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), using the [_bashmenot_](https://bashmenot.mietek.io/) shell function library.
 
 <div><nav>
 <ul class="menu open">
-<li><a href="https://github.com/mietek/haskell-on-heroku/">Haskell on Heroku source code</a></li>
+<li><a href="https://github.com/mietek/haskell-on-heroku/">Source code</a></li>
 <li><a href="https://github.com/mietek/halcyon/">Halcyon source code</a></li>
 <li><a href="https://bashmenot.mietek.io/reference/">_bashmenot_ programmer’s reference</a></li>
 <li><a href="https://github.com/mietek/bashmenot/">_bashmenot_ source code</a></li>
@@ -121,7 +120,7 @@ _Like my work?  I am available for consulting.  Say <a class="hello" href="">hel
 
 ### Acknowledgments
 
-Thanks to [Joe Nelson](http://begriffs.com/), [Brian McKenna](http://brianmckenna.org/), and [Neuman Vong](https://github.com/luciferous/) for initial work on Haskell buildpacks.  Thanks to [CircuitHub](https://circuithub.com/), [Purely Agile](http://purelyagile.com/), and [Tweag I/O](http://tweag.io/) for advice and assistance.
+Thanks to [Joe Nelson](http://begriffs.com/), [Brian McKenna](http://brianmckenna.org/), and [Neuman Vong](https://github.com/luciferous/) for initial work on Haskell deployment.  Thanks to [CircuitHub](https://circuithub.com/), [Purely Agile](http://purelyagile.com/), and [Tweag I/O](http://tweag.io/) for advice and assistance.
 
 The welcome image is based on [Cumulus Clouds](https://flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://flickr.com/photos/kubina/).  The monospaced font is [PragmataPro](http://fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://fsd.it/).  The sans-serif font is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  Website built with [_cannot_](https://cannot.mietek.io/).
 
@@ -130,6 +129,6 @@ This project is not affiliated with [Heroku](https://heroku.com/), [DigitalOcean
 
 <aside>
 <a class="micro face joe-nelson" href="https://twitter.com/begriffs/status/522811714325475329"></a>
-<blockquote>_“Check out [Miëtek’s](#about) [Haskell on Heroku](https://haskellonheroku.com/) buildpack — it dynamically selects a pre-made Cabal sandbox for build speed.”_</blockquote>
+<blockquote>_“Check out [Miëtek’s](#about) Haskell on Heroku buildpack — it dynamically selects a pre-made Cabal sandbox for build speed.”_</blockquote>
 <p>[— Joe Nelson](https://twitter.com/begriffs/status/522811714325475329)</p>
 </aside>
