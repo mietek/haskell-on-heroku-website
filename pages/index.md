@@ -52,8 +52,8 @@ All Halcyon [example applications](https://halcyon.sh/examples/) and [“Hello, 
 
 <aside>
 <a class="micro face tristan-sloughter" href="https://twitter.com/t_sloughter/status/539168929131003904"></a>
-<blockquote>_“Miëtek’s Haskell on Heroku and [Halcyon](https://halcyon.sh/) has made deploying [How I Start](https://howistart.org/) fast and simple!  Thanks!”_</blockquote>
-<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904)</p>
+<blockquote>_“[Miëtek’s](#about) Haskell on Heroku and [Halcyon](https://halcyon.sh/) has made deploying [How I Start](https://howistart.org/) fast and simple!  Thanks!”_</blockquote>
+<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904), [How I Start](https://howistart.org/) author</p>
 </aside>
 
 
@@ -128,7 +128,10 @@ This project is not affiliated with [Heroku](https://heroku.com/), [DigitalOcean
 
 
 <aside>
+<a class="micro face brian-mckenna" href=""></a>
+<blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s [Halcyon](https://halcyon.sh/) project.”_</blockquote>
+<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/527902645928087553), [Try Idris](https://halcyon.sh/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for Haskell on Heroku</p>
 <a class="micro face joe-nelson" href="https://twitter.com/begriffs/status/522811714325475329"></a>
-<blockquote>_“Check out [Miëtek’s](#about) Haskell on Heroku buildpack — it dynamically selects a pre-made Cabal sandbox for build speed.”_</blockquote>
-<p>[— Joe Nelson](https://twitter.com/begriffs/status/522811714325475329)</p>
+<blockquote>_“Check out Miëtek’s Haskell on Heroku buildpack — it dynamically selects a pre-made Cabal sandbox for build speed.”_</blockquote>
+<p>[— Joe Nelson](https://twitter.com/begriffs/status/522811714325475329), [inspiration](https://begriffs.com/posts/2013-08-22-haskell-on-heroku-omg-lets-get-this.html) for Haskell on Heroku</p>
 </aside>
