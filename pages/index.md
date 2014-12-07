@@ -96,10 +96,10 @@ Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), 
 
 <div><nav>
 <ul class="menu open">
-<li><a href="https://github.com/mietek/haskell-on-heroku/">Source code</a></li>
-<li><a href="https://github.com/mietek/halcyon/">Halcyon source code</a></li>
+<li><a href="https://github.com/mietek/haskell-on-heroku">Source code</a></li>
+<li><a href="https://github.com/mietek/halcyon">Halcyon source code</a></li>
 <li><a href="https://bashmenot.mietek.io/reference/">_bashmenot_ programmer’s reference</a></li>
-<li><a href="https://github.com/mietek/bashmenot/">_bashmenot_ source code</a></li>
+<li><a href="https://github.com/mietek/bashmenot">_bashmenot_ source code</a></li>
 </ul>
 </nav></div>
 
