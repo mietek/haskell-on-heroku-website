@@ -69,7 +69,7 @@ Usage
 
 ```
 $ heroku run --size=PX build
-$ git commit --amend -C HEAD
+$ git commit --amend --no-edit
 $ git push -f heroku master
 ```
 
