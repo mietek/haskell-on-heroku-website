@@ -45,7 +45,7 @@ Need commercial support?  Contact the [author](#about) directly.
 
 ### Examples
 
-Haskell on Heroku is being used in production since June 2014.
+Haskell on Heroku has been used in production since June 2014.
 
 All Halcyon [example applications](https://halcyon.sh/examples/) and [“Hello, world!” shootout entries](https://halcyon.sh/shootout/) can be deployed to Heroku just by pushing a button.
 
