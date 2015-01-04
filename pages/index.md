@@ -92,7 +92,7 @@ $ heroku open
 
 #### Internal documentation
 
-Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), using the [_bashmenot_](https://bashmenot.mietek.io/) shell function library.
+Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), using the [_bashmenot_](https://bashmenot.mietek.io/) library.
 
 <div><nav>
 <ul class="menu open">
