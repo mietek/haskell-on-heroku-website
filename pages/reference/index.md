@@ -37,6 +37,8 @@ _TODO_
 
 Directory in which Haskell on Heroku is installed.
 
+Automatically set by Haskell on Heroku at run-time.
+
 
 ### `BUILDPACK_URL`
 
