@@ -45,7 +45,7 @@ Deploy the app
 
 The [tutorial app](https://github.com/mietek/haskell-on-heroku-tutorial) is a simple web service, built with [Servant](http://haskell-servant.github.io/).
 
-The app includes a [`haskell-on-heroku-tutorial.cabal`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/haskell-on-heroku-tutorial.cabal) file, used to declare dependencies, and a [`.halcyon/constraints`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/.halcyon/constraints) file, used to declare version constraints.
+The app includes a Cabal package description file, [`haskell-on-heroku-tutorial.cabal`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/haskell-on-heroku-tutorial.cabal) file, used to declare dependencies, and a Halcyon constraints file,  [`.halcyon/constraints`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/.halcyon/constraints) file, used to declare version constraints.
 
 Clone the app repository:
 
