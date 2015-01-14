@@ -188,10 +188,36 @@ $ heroku logs --tail
 Press `control-C` to stop viewing the logs.
 
 
-Define a Procfile
------------------
+Add a `Procfile` — or not
+-------------------------
 
-TODO
+Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to declare what command should be executed to start your app.  With Haskell on Heroku, this isn’t necessary.
+
+If a `Procfile` isn’t included, the buildpack generates one at compile-time, based on the executable name declared in the Cabal package description file:
+
+```
+$ grep executable haskell-on-heroku-tutorial.cabal
+executable haskell-on-heroku-tutorial
+```
+
+The generated `Procfile` declares a single process type, `web`, and the command needed to start one:
+
+```
+web: /app/bin/haskell-on-heroku-tutorial
+```
+
+Heroku requires the `web` process type to be declared, as instances of this process are attached to the Heroku [HTTP routing](https://devcenter.heroku.com/articles/http-routing) stack.
+
+
+### Options
+
+One `Procfile` can declare multiple process types, although Haskell apps rarely need to be composed of multiple processes.
+
+The commands declared in a `Procfile` can include additional arguments and reference environment variables:
+
+```
+web: /app/bin/example-app -p $PORT
+```
 
 
 Scale the app
