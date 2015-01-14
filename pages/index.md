@@ -82,8 +82,10 @@ $ heroku open
 
 <div><nav>
 <ul class="menu open">
+<li><a href="/tutorial/">Tutorial</a></li>
 <li><a href="/guide/">User’s guide</a></li>
 <li><a href="/reference/">User’s reference</a></li>
+<li><a href="https://halcyon.sh/tutorial/">Halcyon tutorial</a></li>
 <li><a href="https://halcyon.sh/guide/">Halcyon user’s guide</a></li>
 <li><a href="https://halcyon.sh/reference/">Halcyon user’s reference</a></li>
 </ul>
