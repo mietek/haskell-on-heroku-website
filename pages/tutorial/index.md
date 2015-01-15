@@ -106,7 +106,9 @@ $ git push -q heroku HEAD:master
 ```
 </div>
 
-In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage._  The correct archive to restore is determined by calculating a _source hash_ of the source directory.
+In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage._
+
+The correct archive to restore is determined by calculating a _source hash_ of the app’s _source directory._
 
 Make sure your app is running:
 
@@ -183,8 +185,8 @@ $ heroku logs -t
 Press `control-C` to stop viewing the logs.
 
 
-Add a `Procfile`… or not
--------------------------
+Add a `Procfile`… or don’t
+--------------------------
 
 Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to declare what command should be executed to start your app.
 
@@ -291,8 +293,8 @@ Running `restore && cabal repl` attached to terminal... up, run.1522
 -----> Locating Cabal directories
        Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
 -----> Restoring Cabal directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-14.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-14.tar.gz... done, 180MB
 
 -----> Restoring sandbox directory
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done
@@ -355,7 +357,7 @@ Push a change
 
 Let’s change the tutorial app so that each note can contain a timestamp.
 
-The [`step2`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/2) version of the app includes a new `dateTime` field in each note.
+The [`step2`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step2) version of the app includes a new `dateTime` field in each note.
 
 Check out and deploy `step2`:
 
@@ -399,8 +401,8 @@ $ git push -q heroku HEAD:master
 -----> Locating Cabal directories
        Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
 -----> Restoring Cabal directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-14.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-14.tar.gz... done, 180MB
 
 -----> Restoring sandbox directory
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done
@@ -444,15 +446,15 @@ $ git push -q heroku HEAD:master
 ```
 </div>
 
-In this step, Halcyon tries to restore the tutorial app’s install directory.  This fails, and so Halcyon falls back to building the app:
+In this step, Halcyon tries to restore the tutorial app’s install directory by using an archive from public storage.  This fails, and so Halcyon falls back to building the app:
 
-1.  First, a _GHC directory_, a _Cabal directory_, and the app’s _sandbox directory_ are restored from public storage.
+1.  First, a _GHC directory_, a _Cabal directory_, and the app’s _sandbox directory_ are restored.
 
 2.  Next, Halcyon restores the app’s _build directory,_ and performs an incremental build.
 
-3.  Finally, a new install directory is prepared and archived, and the app is installed.
+3.  Finally, the app’s new install directory is prepared and archived, and the app is installed.
 
-Halcyon determines which sandbox to use by calculating a _constraints hash_ of the version constraints declared by your app.  Similarly, the version of GHC to use is implied by the `base` package constraint:
+Halcyon determines which sandbox archive to restore by calculating a _constraints hash_ of the version constraints declared by your app.  Similarly, the correct version of GHC to use is implied by the `base` package constraint:
 
 ```
 $ grep -E '^base-' .halcyon/constraints
