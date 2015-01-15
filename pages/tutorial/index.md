@@ -95,27 +95,17 @@ $ git push heroku master
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
 
-       To see the app, spin up at least one web dyno:
-       $ heroku ps:scale web=1
-       $ heroku open
-
-       To run GHCi, use a one-off dyno:
-       $ heroku run bash
-       $ restore
-       $ cabal repl
-
-
 -----> Discovering process types
        Procfile declares types -> web
 
 -----> Compressing... done, 3.3MB
 -----> Launching... done, v5
        https://still-earth-4767.herokuapp.com/ deployed to Heroku
-       ...
+...
 ```
 </div>
 
-Ensure at least one instance of your app is running:
+Make sure your app is running:
 
 ```
 $ heroku ps:scale web=1
@@ -129,7 +119,7 @@ Your app is now ready to use.
 
 By default, Heroku creates apps with randomly-generated names, such as `still-earth-4767`.
 
-You can specify your own app name as an argument to `heroku create`, or rename the app later using the `heroku apps:rename` command.
+You can specify your own app name as an argument to `heroku create`, or rename the app later with the `heroku apps:rename` command.
 
 
 View the logs
@@ -193,9 +183,9 @@ Press `control-C` to stop viewing the logs.
 Add a `Procfile`… or not
 -------------------------
 
-Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to declare what command should be executed to start your app.  With Haskell on Heroku, this isn’t necessary.
+Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to declare what command should be executed to start your app.
 
-If a `Procfile` isn’t included, the buildpack generates one at compile-time, based on the executable name declared in the Cabal package description file:
+With Haskell on Heroku, this isn’t necessary.  If a `Procfile` isn’t included, the buildpack generates one at compile-time, based on the executable name declared in the Cabal package description file:
 
 ```
 $ grep executable haskell-on-heroku-tutorial.cabal
@@ -227,7 +217,7 @@ Scale the app
 
 Heroku [dynos](https://devcenter.heroku.com/articles/dynos) are lightweight Linux containers, intended to run processes declared in your app’s `Procfile`.  There are three available [dyno sizes](https://devcenter.heroku.com/articles/dyno-size) — 1X, 2X, and PX.
 
-Right now, your app is running on a single 1X dyno.  You can check this by using the `heroku ps` command:
+Right now, your app is running on a single 1X dyno.  You can check this with the `heroku ps` command:
 
 ```
 $ heroku ps
