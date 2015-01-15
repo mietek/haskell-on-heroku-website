@@ -244,10 +244,107 @@ Scaling dynos... done, now running web at 1:1X.
 ```
 
 
-Start a one-off dyno
---------------------
+Use a one-off dyno
+------------------
 
-TODO
+Heroku allows you to run commands on [one-off dynos](https://devcenter.heroku.com/articles/one-off-dynos) with `heroku run`.
+
+Try launching a remote shell:
+
+```
+$ heroku run bash
+Running `bash` attached to terminal... up, run.4012
+~ $ ls
+Main.hs  Procfile  README.md  app.json	bin  cabal.config  haskell-on-heroku-tutorial.cabal
+```
+
+Each dyno has its own transient filesystem, which includes the contents of your app’s [slug](https://devcenter.heroku.com/articles/slug-compiler).  Once the command finishes running, the dyno is shut down, and its filesystem is discarded.
+
+For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in a Haskell REPL, you need to restore the dependencies first.
+
+Use `heroku run` to launch a remote REPL:
+
+<div class="toggle">
+<a class="toggle-button" data-target="use-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
+``` { #use-a-one-off-dyno-log1 .toggle }
+$ heroku run 'restore && cabal repl'
+Running `restore && cabal repl` attached to terminal... up, run.1522
+-----> Installing haskell-on-heroku-tutorial-1.0
+-----> Determining constraints
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **5f04cfc**
+       Constraints hash:                         **becfd1b**
+       Magic hash:                               **c7b5b77**
+       External storage:                         **public**
+       GHC version:                              **7.8.4**
+       Cabal version:                            **1.20.0.3**
+       Cabal repository:                         **Hackage**
+
+-----> Restoring GHC directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
+       Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
+
+-----> Locating Cabal directories
+       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
+-----> Restoring Cabal directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+
+-----> Restoring sandbox directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+
+-----> Restoring build directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.4MB
+
+-----> Restoring install directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-5f04cfc-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-install-5f04cfc-haskell-on-heroku-tutorial-1.0.tar.gz... done, 8.8MB
+-----> Installing app to /app
+-----> Installed haskell-on-heroku-tutorial-1.0
+
+-----> App restored:                             **haskell-on-heroku-tutorial-1.0**
+...
+
+GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
+...
+[1 of 1] Compiling Main             ( Main.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> 
+```
+</div>
+
+Your app’s code is now ready to use:
+
+<div class="toggle">
+<a class="toggle-button" data-target="use-a-one-off-dyno-log2" href="" title="Toggle">Toggle</a>
+``` { #use-a-one-off-dyno-log2 .toggle }
+*Main> :browse
+newtype Note = Note {contents :: Text}
+emptyNotes :: IO (TVar [Note])
+getNotes :: MonadIO m => TVar [Note] -> m [Note]
+postNote :: MonadIO m => TVar [Note] -> Note -> m [Note]
+type NoteAPI =
+  ("notes" :> Get [Note])
+  :<|> ("notes" :> (ReqBody Note :> Post [Note]))
+noteAPI :: Proxy NoteAPI
+server :: TVar [Note] -> Server NoteAPI
+main :: IO ()
+```
+</div>
+
+Press `control-D` to exit the REPL and shut down the dyno.
+
+
+### Options
+
+The default [dyno size](https://devcenter.heroku.com/articles/dyno-size) for one-off dynos is 1X.  You can choose another size with the `-s` option:
+
+```
+$ heroku run -s PX bash
+```
 
 
 Define a config var
