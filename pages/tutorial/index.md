@@ -225,7 +225,33 @@ web: /app/bin/example-app -p $PORT
 Scale the app
 -------------
 
-TODO
+Heroku [dynos](https://devcenter.heroku.com/articles/dynos) are lightweight Linux containers, intended to run processes declared in your app’s `Procfile`.  There are three available [dyno sizes](https://devcenter.heroku.com/articles/dyno-size) — 1X, 2X, and PX.
+
+Right now, your app is running on a single 1X dyno.  You can check this by using the `heroku ps` command:
+
+```
+$ heroku ps
+=== web (1X): `/app/bin/haskell-on-heroku-tutorial`
+web.1: up 2015/01/14 09:24:33 (~ 1m ago)
+```
+
+To increase your app’s throughput, and to prevent [dyno sleeping](https://devcenter.heroku.com/articles/dynos#dyno-sleeping), you can scale to more than one `web` dyno:
+
+```
+$ heroku ps:scale web=2
+Scaling dynos... done, now running web at 2:1X.
+```
+
+Scaling the app may require you to [verify](https://heroku.com/verify) your Heroku account.
+
+For each app, Heroku provides [750 free dyno-hours](https://devcenter.heroku.com/articles/usage-and-billing) per month.  This allows your app to run on a single 1X dyno for free, indefinitely.
+
+Scale the app back to avoid exceeding this allowance:
+
+```
+$ heroku ps:scale web=1
+Scaling dynos... done, now running web at 1:1X.
+```
 
 
 Start a one-off dyno
