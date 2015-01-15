@@ -56,8 +56,8 @@ $ git clone https://github.com/mietek/haskell-on-heroku-tutorial
 Create a new Heroku app with the `heroku create` command, using the `-b` option to specify the buildpack:
 
 <div class="toggle">
-<a class="toggle-button" data-target="prepare-the-app-log1" href="" title="Toggle">Toggle</a>
-``` { #prepare-the-app-log1 .toggle }
+<a class="toggle-button" data-target="deploy-the-app-log1" href="" title="Toggle">Toggle</a>
+``` { #deploy-the-app-log1 .toggle }
 $ cd haskell-on-heroku-tutorial
 $ heroku create -b https://github.com/mietek/haskell-on-heroku
 Creating still-earth-4767... done, stack is cedar-14
@@ -70,9 +70,9 @@ Git remote heroku added
 Push the code to Heroku in order to deploy your app:
 
 <div class="toggle">
-<a class="toggle-button" data-target="deploy-the-app-log1" href="" title="Toggle">Toggle</a>
-``` { #deploy-the-app-log1 .toggle }
-$ git push heroku master
+<a class="toggle-button" data-target="deploy-the-app-log2" href="" title="Toggle">Toggle</a>
+``` { #deploy-the-app-log2 .toggle }
+$ git push -q heroku HEAD:master
 ...
 -----> Welcome to Haskell on Heroku
        BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
@@ -94,6 +94,7 @@ $ git push heroku master
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
+       ...
 
 -----> Discovering process types
        Procfile declares types -> web
@@ -104,6 +105,8 @@ $ git push heroku master
 ...
 ```
 </div>
+
+In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage._  The correct archive to restore is determined by calculating a _source hash_ of the source directory.
 
 Make sure your app is running:
 
@@ -260,9 +263,9 @@ Main.hs  Procfile  README.md  app.json	bin  cabal.config  haskell-on-heroku-tuto
 
 Each dyno has its own transient filesystem, which includes the contents of your app’s [slug](https://devcenter.heroku.com/articles/slug-compiler).  Once the command finishes running, the dyno is shut down, and its filesystem is discarded.
 
-For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in a Haskell REPL, you need to restore the dependencies first.
+For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in GHCi, you need to restore the dependencies first.
 
-Use `heroku run` to launch a remote REPL:
+Use `heroku run` to launch a remote GHCi session:
 
 <div class="toggle">
 <a class="toggle-button" data-target="use-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
@@ -306,13 +309,13 @@ Running `restore && cabal repl` attached to terminal... up, run.1522
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> App restored:                             **haskell-on-heroku-tutorial-1.0**
-...
+       ...
 
 GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
 ...
 [1 of 1] Compiling Main             ( Main.hs, interpreted )
 Ok, modules loaded: Main.
-*Main> 
+λ 
 ```
 </div>
 
@@ -321,7 +324,7 @@ Your app’s code is now ready to use:
 <div class="toggle">
 <a class="toggle-button" data-target="use-a-one-off-dyno-log2" href="" title="Toggle">Toggle</a>
 ``` { #use-a-one-off-dyno-log2 .toggle }
-*Main> :browse
+λ :browse
 newtype Note = Note {contents :: Text}
 emptyNotes :: IO (TVar [Note])
 getNotes :: MonadIO m => TVar [Note] -> m [Note]
@@ -335,22 +338,16 @@ main :: IO ()
 ```
 </div>
 
-Press `control-D` to exit the REPL and shut down the dyno.
+Press `control-D` to exit GHCi and shut down the dyno.
 
 
 ### Options
 
-The default [dyno size](https://devcenter.heroku.com/articles/dyno-size) for one-off dynos is 1X.  You can choose another size with the `-s` option:
+By default, Heroku starts 1X one-off dynos.  You can specify another size with the `-s` option:
 
 ```
 $ heroku run -s PX bash
 ```
-
-
-Define a config var
--------------------
-
-TODO
 
 
 Push a change
