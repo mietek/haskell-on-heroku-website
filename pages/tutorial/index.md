@@ -53,7 +53,7 @@ Clone the app repository:
 $ git clone https://github.com/mietek/haskell-on-heroku-tutorial
 ```
 
-Create a new Heroku app, using the `-b` option to specify the buildpack:
+Create a new Heroku app with the `heroku create` command, using the `-b` option to specify the buildpack:
 
 <div class="toggle">
 <a class="toggle-button" data-target="prepare-the-app-log1" href="" title="Toggle">Toggle</a>
@@ -127,7 +127,9 @@ Your app is now ready to use.
 
 ### Options
 
-By default, Heroku creates apps with randomly-generated names, such as `still-earth-4767`.  You can specify your own app name as an argument to `heroku create`, or rename the app later using `heroku apps:rename`.
+By default, Heroku creates apps with randomly-generated names, such as `still-earth-4767`.
+
+You can specify your own app name as an argument to `heroku create`, or rename the app later using the `heroku apps:rename` command.
 
 
 View the logs
@@ -135,7 +137,7 @@ View the logs
 
 The tutorial app exposes one HTTP endpoint, `/notes`, which accepts `GET` and `POST` requests.
 
-All other requests fail, as you can see by visiting the app in your web browser:
+You can visit the app in your web browser by using the `heroku open` command:
 
 ```
 $ heroku open
@@ -144,10 +146,10 @@ Opening still-earth-4767... done
 
 Heroku allows you to view the output of your app as a sequence of events, combined with messages from all other Heroku components.
 
-Start viewing the logs in one shell:
+Use the `heroku logs -t` command to start viewing the logs in one shell:
 
 ```
-$ heroku logs --tail
+$ heroku logs -t
 ...
 2015-01-14T09:24:33.751003+00:00 heroku[web.1]: State changed from starting to up
 2015-01-14T09:24:40.087150+00:00 heroku[router]: at=info method=GET path="/" host=still-earth-4767.herokuapp.com request_id=2d9895dd-e31e-40d4-8b0a-f3835b4f653b fwd="192.168.144.120" dyno=web.1 connect=1ms service=2ms status=404 bytes=132
@@ -176,7 +178,7 @@ $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "H
 Incoming requests appear in the logs:
 
 ```
-$ heroku logs --tail
+$ heroku logs -t
 ...
 2015-01-14T09:25:05.606819+00:00 heroku[router]: at=info method=GET path="/notes" host=still-earth-4767.herokuapp.com request_id=34f251cb-66d6-4bf8-a16a-64ad4dc1d352 fwd="192.168.144.120" dyno=web.1 connect=1ms service=3ms status=200 bytes=150
 2015-01-14T09:25:09.527051+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=cc4a444f-804b-4a4d-8737-05ebd7bc6868 fwd="192.168.144.120" dyno=web.1 connect=8ms service=11ms status=201 bytes=183
@@ -188,7 +190,7 @@ $ heroku logs --tail
 Press `control-C` to stop viewing the logs.
 
 
-Add a `Procfile` — or not
+Add a `Procfile`… or not
 -------------------------
 
 Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to declare what command should be executed to start your app.  With Haskell on Heroku, this isn’t necessary.
@@ -206,7 +208,7 @@ The generated `Procfile` declares a single process type, `web`, and the command 
 web: /app/bin/haskell-on-heroku-tutorial
 ```
 
-Heroku requires the `web` process type to be declared, as instances of this process are attached to the Heroku [HTTP routing](https://devcenter.heroku.com/articles/http-routing) stack.
+Heroku requires the `web` process type to be declared, as only instances of this process receive HTTP traffic from Heroku’s [routers](https://devcenter.heroku.com/articles/http-routing).
 
 
 ### Options
