@@ -45,7 +45,7 @@ You don’t need to install Haskell on your system to follow this tutorial, but 
 Deploy the app
 --------------
 
-The [tutorial app](https://github.com/mietek/haskell-on-heroku-tutorial) is a simple web service, built with [Servant](http://haskell-servant.github.io/).
+The [tutorial app](https://github.com/mietek/haskell-on-heroku-tutorial) is a simple web service for storing notes, built with [Servant](http://haskell-servant.github.io/).
 
 The app includes a Cabal package description file, [`haskell-on-heroku-tutorial.cabal`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/haskell-on-heroku-tutorial.cabal) file, used to declare dependencies, and a Halcyon constraints file,  [`.halcyon/constraints`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/.halcyon/constraints) file, used to declare version constraints.
 
@@ -124,13 +124,19 @@ Your app is now ready to use.
 
 By default, Heroku creates apps with randomly-generated names, such as `still-earth-4767`.
 
-You can specify your own app name as an argument to `heroku create`, or rename the app later with the `heroku apps:rename` command.
+You can specify your own app name as an argument to `heroku create`, or rename the app later with the `heroku apps:rename` command:
+
+```
+$ heroku apps:rename example-name
+```
 
 
 View the logs
 -------------
 
 The tutorial app exposes one HTTP endpoint, `/notes`, which accepts `GET` and `POST` requests.
+
+Notes are JSON objects with a single text field, `contents`.  The app responds to each request with a list of all existing notes.
 
 You can visit the app in your web browser by using the `heroku open` command:
 
@@ -156,8 +162,6 @@ In another shell, make a `GET` request to see an empty list of notes:
 $ curl https://still-earth-4767.herokuapp.com/notes
 []
 ```
-
-Notes are JSON objects with a single text field, `contents`.  The app responds to each request with a list of all existing notes.
 
 Make a couple `POST` requests to add some notes:
 
@@ -188,7 +192,7 @@ Press `control-C` to stop viewing the logs.
 Add a `Procfile`… or don’t
 --------------------------
 
-Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to declare what command should be executed to start your app.
+Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) declaring what command should be executed to start your app.
 
 With Haskell on Heroku, this isn’t necessary.  If a `Procfile` isn’t included, the buildpack generates one at compile-time, based on the executable name declared in the Cabal package description file:
 
@@ -197,7 +201,7 @@ $ grep executable haskell-on-heroku-tutorial.cabal
 executable haskell-on-heroku-tutorial
 ```
 
-The generated `Procfile` declares a single process type, `web`, and the command needed to start one:
+The generated `Procfile` declares a single process type, `web`:
 
 ```
 web: /app/bin/haskell-on-heroku-tutorial
@@ -222,7 +226,7 @@ Scale the app
 
 Heroku [dynos](https://devcenter.heroku.com/articles/dynos) are lightweight Linux containers, intended to run processes declared in your app’s `Procfile`.  There are three available [dyno sizes](https://devcenter.heroku.com/articles/dyno-size) — 1X, 2X, and PX.
 
-Right now, your app is running on a single 1X dyno.  You can check this with the `heroku ps` command:
+Currently, your app is running on a single 1X dyno.  You can check this with the `heroku ps` command:
 
 ```
 $ heroku ps
@@ -230,7 +234,7 @@ $ heroku ps
 web.1: up 2015/01/14 09:24:33 (~ 1m ago)
 ```
 
-To increase your app’s throughput, and to prevent [dyno sleeping](https://devcenter.heroku.com/articles/dynos#dyno-sleeping), you can scale to more than one `web` dyno:
+To increase your app’s throughput, and to prevent [dyno sleeping](https://devcenter.heroku.com/articles/dynos#dyno-sleeping), you can scale the app to more than one `web` dyno:
 
 ```
 $ heroku ps:scale web=2
@@ -252,9 +256,11 @@ Scaling dynos... done, now running web at 1:1X.
 Use a one-off dyno
 ------------------
 
-Heroku allows you to run commands on [one-off dynos](https://devcenter.heroku.com/articles/one-off-dynos) with `heroku run`.
+Heroku allows you to run commands on [one-off dynos](https://devcenter.heroku.com/articles/one-off-dynos) with the `heroku run` command.
 
-Try launching a remote shell:
+Each dyno has its own transient filesystem, which includes the contents of your app’s [slug](https://devcenter.heroku.com/articles/slug-compiler).  Once the command finishes running, the dyno is shut down, and its filesystem is discarded.
+
+Try launching a remote shell on a one-off dyno:
 
 ```
 $ heroku run bash
@@ -263,9 +269,7 @@ Running `bash` attached to terminal... up, run.4012
 Main.hs  Procfile  README.md  app.json	bin  cabal.config  haskell-on-heroku-tutorial.cabal
 ```
 
-Each dyno has its own transient filesystem, which includes the contents of your app’s [slug](https://devcenter.heroku.com/articles/slug-compiler).  Once the command finishes running, the dyno is shut down, and its filesystem is discarded.
-
-For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to restore the dependencies first.
+For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to restore the dependencies first by using the `restore` command provided by the buildpack.
 
 Use `heroku run` to launch a remote GHCi session:
 
@@ -355,7 +359,7 @@ Press `control-D` to exit GHCi and shut down the dyno.
 
 ### Options
 
-By default, Heroku starts 1X one-off dynos.  You can specify another size with the `-s` option:
+By default, Heroku runs one-off commands on 1X dynos.  You can specify another [dyno size](https://devcenter.heroku.com/articles/dyno-size) with the `-s` option:
 
 ```
 $ heroku run -s PX bash
