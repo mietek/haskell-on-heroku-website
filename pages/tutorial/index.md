@@ -189,6 +189,51 @@ $ heroku logs -t
 Press `control-C` to stop viewing the logs.
 
 
+Configure the app
+-----------------
+
+Heroku lets you define [config vars](https://devcenter.heroku.com/articles/config-vars) to separate your app’s configuration data from the code.  At run-time, config vars are provided to the app as _environment variables._
+
+You can check which config vars are currently defined by using the `heroku config` command:
+
+```
+$ heroku config
+=== still-earth-4767 Config Vars
+BUILDPACK_URL:       https://github.com/mietek/haskell-on-heroku
+```
+
+The tutorial app responds to `GET /` requests with a welcome message:
+
+```
+$ curl https://still-earth-4767.herokuapp.com/
+"Welcome to Haskell on Heroku"
+```
+
+This message can be changed by setting the `TUTORIAL_HOME` environment variable:
+
+```
+$ grep -C1 Welcome Main.hs
+    let port = maybe 8080 read $ lookup "PORT" env
+        home = maybe "Welcome to Haskell on Heroku" T.pack $
+                 lookup "TUTORIAL_HOME" env
+```
+
+Use the `heroku config:set` command to define the `TUTORIAL_HOME` config var:
+
+```
+$ heroku config:set TUTORIAL_HOME="Hello, world!"
+Setting config vars and restarting still-earth-4767... done, v6
+TUTORIAL_HOME: Hello, world!
+```
+
+Your change is visible immediately:
+
+```
+$ curl https://still-earth-4767.herokuapp.com/
+"Hello, world!"
+```
+
+
 Add a `Procfile`… or don’t
 --------------------------
 
