@@ -108,6 +108,8 @@ $ git push -q heroku master
 
 In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage._
 
+All downloaded archives are cached in the Halcyon _cache directory,_ which is part of the Heroku [build cache](https://devcenter.heroku.com/articles/buildpack-api#caching).
+
 The correct archive to restore is determined by calculating a _source hash_ of the app’s _source directory._
 
 Make sure your app is running:
@@ -218,7 +220,7 @@ $ grep -C1 Welcome Main.hs
                  lookup "TUTORIAL_HOME" env
 ```
 
-Use the `heroku config:set` command to define the `TUTORIAL_HOME` config var:
+Use the `heroku config:set` command to define `TUTORIAL_HOME`:
 
 ```
 $ heroku config:set TUTORIAL_HOME="Hello, world!"
@@ -226,11 +228,18 @@ Setting config vars and restarting still-earth-4767... done, v6
 TUTORIAL_HOME: Hello, world!
 ```
 
-Your change is visible immediately:
+Your new welcome message is now ready to see:
 
 ```
 $ curl https://still-earth-4767.herokuapp.com/
 "Hello, world!"
+```
+
+Restore the default message with the `heroku config:unset` command:
+
+```
+$ heroku config:unset TUTORIAL_HOME
+Unsetting TUTORIAL_HOME and restarting still-earth-4767... done, v7
 ```
 
 
@@ -314,7 +323,7 @@ Running `bash` attached to terminal... up, run.4012
 Main.hs  Procfile  README.md  app.json	bin  cabal.config  haskell-on-heroku-tutorial.cabal
 ```
 
-For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to restore the dependencies first by using the `restore` command provided by the buildpack.
+For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to use the buildpack’s `restore` command to restore your app’s dependencies from storage.
 
 Use `heroku run` to launch a remote GHCi session:
 
@@ -379,6 +388,10 @@ Ok, modules loaded: Main.
 
 > ---------------------|---
 > _Expected time:_     | _40–60 seconds_
+
+In this step, Halcyon restores all required directories by extracting archives downloaded from public storage.
+
+Previously cached archives can’t be used, because there is no access to the Heroku build cache from one-off dynos.
 
 Your app’s code is now ready to use:
 
@@ -651,11 +664,11 @@ $ git push -q heroku HEAD:master
 </div>
 
 > ---------------------|---
-> _Expected time:_     | _120-180 seconds_
+> _Expected time:_     | _90–150 seconds_
 
-In this step, Halcyon restores the GHC, Cabal, and sandbox directories by using cached archives, and again performs an incremental build.
+In this step, Halcyon restores the GHC, Cabal, and sandbox directories from cache, performs an incremental build, and installs the app.
 
-The same sandbox directory is used again, because version constraints for our new dependencies were already declared:
+The previously restored sandbox directory can be used again, because version constraints for our new dependencies are already declared:
 
 ```
 $ git grep -E '^(old-locale|time)' step2 .halcyon/constraints
