@@ -104,7 +104,7 @@ $ git push -q heroku master
 </div>
 
 > ---------------------|---
-> _Expected time:_     | _30–40 seconds_
+> _Expected time:_     | _<1 minute_
 
 In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage._
 
@@ -243,8 +243,8 @@ Unsetting TUTORIAL_HOME and restarting still-earth-4767... done, v7
 ```
 
 
-Add a `Procfile`… or don’t
---------------------------
+Add a `Procfile`… or not
+------------------------
 
 Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) declaring what command should be executed to start your app.
 
@@ -374,7 +374,7 @@ $ git push -q heroku HEAD:master
 </div>
 
 > ---------------------|---
-> _Expected time:_     | _60–90 seconds_
+> _Expected time:_     | _1–2 minutes_
 
 In this step, Halcyon tries to restore the tutorial app’s install directory by using an archive from public storage.  This fails, and so Halcyon falls back to building the app:
 
@@ -511,7 +511,7 @@ Ok, modules loaded: Main.
 </div>
 
 > ---------------------|---
-> _Expected time:_     | _40–60 seconds_
+> _Expected time:_     | _<1 minute_
 
 In this step, Halcyon restores all required directories by extracting archives downloaded from public storage.
 
@@ -664,7 +664,7 @@ $ git push -q heroku HEAD:master
 </div>
 
 > ---------------------|---
-> _Expected time:_     | _90–150 seconds_
+> _Expected time:_     | _1–2 minutes_
 
 In this step, Halcyon restores the GHC, Cabal, and sandbox directories from cache, performs an incremental build, and installs the app.
 
@@ -684,8 +684,8 @@ $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "H
 ```
 
 
-Declare a version constraint
-----------------------------
+Declare a constraint
+--------------------
 
 TODO
 
