@@ -968,10 +968,50 @@ $ curl -X POST http://localhost:8080/notes -d '{ "contents": "Hello, world!" }'
 ```
 
 
-Set up remote storage
----------------------
+Set up private storage
+----------------------
 
-TODO
+Halcyon can upload all newly created archives to _private storage,_ which is an external cache for the apps and dependencies you build.
+
+By using private storage, you can effortlessly share archives between multiple machines, and avoid running into the Heroku 15-minute build time limit.
+
+To use private storage, you’ll need to:
+
+- Sign up for an [Amazon Web Services](http://aws.amazon.com/) account
+
+- Create an [Amazon IAM user](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html) and an [Amazon S3 bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
+
+- Give the IAM user [permission to access](http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html) the S3 bucket
+
+Configure private storage by setting [`HALCYON_AWS_ACCESS_KEY_ID`](https://halcyon.sh/reference/#halcyon_aws_access_key_id),  [`HALCYON_AWS_SECRET_ACCESS_KEY`](https://halcyon.sh/reference/#halcyon_aws_secret_access_key), and [`HALCYON_S3_BUCKET`](https://halcyon.sh/reference/#halcyon_s3_bucket):
+
+```
+$ heroku config:set \
+    HALCYON_AWS_ACCESS_KEY_ID=example-access-key-id \
+    HALCYON_AWS_SECRET_ACCESS_KEY=example-secret-access-key \
+    HALCYON_S3_BUCKET=example-bucket
+Setting config vars and restarting still-earth-4767... done, v12
+HALCYON_AWS_ACCESS_KEY_ID:     example-access-key-id
+HALCYON_AWS_SECRET_ACCESS_KEY: example-secret-access-key
+HALCYON_S3_BUCKET:             example-bucket
+```
+
+If your S3 bucket isn’t located in the Amazon US Standard region, you’ll also need to set [`HALCYON_S3_ENDPOINT`](https://halcyon.sh/reference/#halcyon_s3_endpoint) to the address of the correct [region-specific S3 endpoint](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region):
+
+```
+$ heroku config:set HALCYON_S3_ENDPOINT=s3-example-region.amazonaws.com
+Setting config vars and restarting still-earth-4767... done, v13
+HALCYON_S3_ENDPOINT: s3-example-region.amazonaws.com
+```
+
+
+### Options
+
+By default, all uploads are assigned the `private` [S3 <abbr title="Access control list">ACL</abbr>](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html).  To make future uploads publicly available, set [`HALCYON_S3_ACL`](https://halcyon.sh/reference/#halcyon_s3_acl) to `public-read`:
+
+```
+$ export HALCYON_S3_ACL=public-read
+```
 
 
 Provision an add-on
