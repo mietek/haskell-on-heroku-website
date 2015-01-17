@@ -42,12 +42,12 @@ $ which heroku
 You don’t need to install Haskell on your system to follow this tutorial, but if you want to do it, read the [Halcyon tutorial](https://halcyon.sh/tutorial/) first.
 
 
-Deploy the app
---------------
+Prepare the app
+---------------
 
 The [tutorial app](https://github.com/mietek/haskell-on-heroku-tutorial) is a simple web service for storing notes, built with [Servant](http://haskell-servant.github.io/).
 
-The app includes a Cabal package description file, [`haskell-on-heroku-tutorial.cabal`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/haskell-on-heroku-tutorial.cabal) file, used to declare dependencies, and a Halcyon constraints file,  [`.halcyon/constraints`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/.halcyon/constraints) file, used to declare version constraints.
+The app includes a Cabal _package description file,_ [`haskell-on-heroku-tutorial.cabal`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/haskell-on-heroku-tutorial.cabal) file, used to declare dependencies, and a Halcyon _constraints file,_ [`.halcyon/constraints`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/.halcyon/constraints) file, used to declare version constraints.
 
 Clone the app repository:
 
@@ -65,6 +65,21 @@ BUILDPACK_URL=https://github.com/mietek/haskell-on-heroku
 https://still-earth-4767.herokuapp.com/ | https://git.heroku.com/still-earth-4767.git
 Git remote heroku added
 ```
+
+
+### Options
+
+By default, Heroku creates apps with randomly-generated names, such as `still-earth-4767`.
+
+You can specify your own app name as an argument to `heroku create`, or rename the app later with the `heroku apps:rename` command:
+
+```
+$ heroku apps:rename example-name
+```
+
+
+Deploy the app
+--------------
 
 Push the code to Heroku in order to deploy your app:
 
@@ -103,9 +118,9 @@ $ git push -q heroku master
 > ---------------------|---
 > _Expected time:_     | _<1 minute_
 
-In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storag,_ which is an external cache for previously-built apps and dependencies.
+In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage,_ which is an external cache for previously-built apps and dependencies.
 
-All downloaded archives are cached in the Halcyon _cache directory,_ which is part of the Heroku [build cache](https://devcenter.heroku.com/articles/buildpack-api#caching).
+All downloaded archives are cached in the Halcyon _cache directory,_ inside the Heroku [build cache](https://devcenter.heroku.com/articles/buildpack-api#caching).
 
 The correct archive to restore is determined by calculating a _source hash_ of the app’s _source directory._
 
@@ -118,25 +133,6 @@ Scaling dynos... done, now running web at 1:1X.
 
 Your app is now ready to use.
 
-
-### Options
-
-By default, Heroku creates apps with randomly-generated names, such as `still-earth-4767`.
-
-You can specify your own app name as an argument to `heroku create`, or rename the app later with the `heroku apps:rename` command:
-
-```
-$ heroku apps:rename example-name
-```
-
-
-View the logs
--------------
-
-The tutorial app exposes one HTTP endpoint, `/notes`, which accepts `GET` and `POST` requests.
-
-Notes are JSON objects with a single text field, `contents`.  The app responds to each request with a list of all existing notes.
-
 You can visit the app in your web browser by using the `heroku open` command:
 
 ```
@@ -144,9 +140,17 @@ $ heroku open
 Opening still-earth-4767... done
 ```
 
-Heroku allows you to view the output of your app as a sequence of events, combined with messages from all other Heroku components.
 
-Use the `heroku logs -t` command to start viewing the logs in one shell:
+View the logs
+-------------
+
+Heroku allows you to view the output of your app as a sequence of events, mixed with messages from other Heroku components.
+
+The tutorial app exposes one HTTP endpoint, `/notes`, which accepts `GET` and `POST` requests.
+
+Notes are JSON objects with a single text field, `contents`.  The app responds to each request with a list of all existing notes.
+
+Use the `heroku logs` command with the `-t` option to start viewing the logs in one shell:
 
 ```
 $ heroku logs -t
@@ -258,7 +262,7 @@ The generated `Procfile` declares a single process type, `web`:
 web: /app/bin/haskell-on-heroku-tutorial
 ```
 
-Heroku requires the `web` process type to be declared, as only instances of this process receive HTTP traffic from Heroku’s [routers](https://devcenter.heroku.com/articles/http-routing).
+Heroku requires the `web` process type to be declared, as only instances of this process can receive HTTP traffic from Heroku’s [routers](https://devcenter.heroku.com/articles/http-routing).
 
 
 ### Options
@@ -435,7 +439,7 @@ Heroku allows you to run commands on [one-off dynos](https://devcenter.heroku.co
 
 Each dyno has its own transient filesystem, which includes the contents of your app’s [slug](https://devcenter.heroku.com/articles/slug-compiler).  Once the command finishes running, the dyno is shut down, and its filesystem is discarded.
 
-Try launching a remote shell on a one-off dyno:
+Start a remote shell on a one-off dyno:
 
 ```
 $ heroku run bash
@@ -444,15 +448,12 @@ Running `bash` attached to terminal... up, run.4012
 Main.hs  Procfile  README.md  app.json	bin  cabal.config  haskell-on-heroku-tutorial.cabal
 ```
 
-For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to use the buildpack’s `restore` command to restore your app’s dependencies from storage.
-
-Use `heroku run` to launch a remote GHCi session:
+For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to use the buildpack’s `restore` command:
 
 <div class="toggle">
 <a class="toggle-button" data-target="use-a-one-off-dyno-log" href="" title="Toggle">Toggle</a>
 ``` { #use-a-one-off-dyno-log .toggle }
-$ heroku run 'restore && cabal repl'
-Running `restore && cabal repl` attached to terminal... up, run.1522
+~ $ restore
 -----> Installing haskell-on-heroku-tutorial-1.0
 -----> Determining constraints
        Label:                                    **haskell-on-heroku-tutorial-1.0**
@@ -498,9 +499,6 @@ Running `restore && cabal repl` attached to terminal... up, run.1522
 
 -----> App restored:                             **haskell-on-heroku-tutorial-1.0**
 ...
-GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
-...
-Ok, modules loaded: Main.
 ```
 </div>
 
@@ -509,15 +507,17 @@ Ok, modules loaded: Main.
 
 In this step, Halcyon restores all required directories by extracting archives downloaded from public storage.
 
-Previously cached archives can’t be used, because there is no access to the Heroku build cache from one-off dynos.
+Previously-cached archives can’t be used, because there is no access to the Heroku build cache from one-off dynos.
 
-Your app’s code is now ready to use:
+Start a GHCi session inside the remote shell:
 
-```
+<div class="toggle">
+<a class="toggle-button" data-target="use-a-one-off-dyno-repl" href="" title="Toggle">Toggle</a>
+``` { #use-a-one-off-dyno-repl .toggle }
+~ $ cabal repl
 ...
 GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
 ...
-Ok, modules loaded: Main.
 λ :browse
 newtype Note = Note {contents :: Text}
 emptyNotes :: IO (TVar [Note])
@@ -530,8 +530,11 @@ noteAPI :: Proxy NoteAPI
 server :: TVar [Note] -> Server NoteAPI
 main :: IO ()
 ```
+</div>
 
-Press `control-D` to exit GHCi and shut down the dyno.
+Your app’s code is now ready to use.
+
+Press `control-D` twice to exit GHCi and shut down the dyno.
 
 
 ### Options
@@ -660,7 +663,7 @@ $ git push -q heroku HEAD:master
 
 In this step, Halcyon restores the GHC, Cabal, and sandbox directories from cache, performs an incremental build, and installs the app.
 
-The previously restored sandbox directory can be used again, because version constraints for our new dependencies are already declared:
+The previously-restored sandbox directory can be used again, because version constraints for our new dependencies are already declared:
 
 ```
 $ git grep -E '^(old-locale|time)' step2 .halcyon/constraints
@@ -701,9 +704,7 @@ $ git diff step3 step4 haskell-on-heroku-tutorial.cabal
                        warp
 ```
 
-In order for Halcyon to provide the correct sandbox directory, we need to declare version constraints for _hourglass_ and all of its dependencies.
-
-Halcyon can be used to determine these constraints.
+In order for Halcyon to provide the correct sandbox directory, we need to declare version constraints for _hourglass_ and all of its dependencies.  You can determine these constraints using Halcyon.
 
 Check out `step4`, and try deploying it:
 
@@ -788,20 +789,12 @@ $ git push heroku HEAD:master
 > ---------------------|---
 > _Expected time:_     | _<1 minute_
 
-As expected, Cabal fails to configure the app, because the _hourglass_ library isn’t provided in the existing sandbox directory.
+In this step, Cabal fails to configure the app, because the _hourglass_ library isn’t provided in the existing sandbox directory, and Halcyon suggests adding a single version constraint, `hourglass-0.2.8`.
 
-Halcyon suggests adding a single version constraint for the newest version of _hourglass_, which is currently 0.2.8.  Constraints for all of its dependencies are already declared.
-
-
-Build a sandbox
----------------
-
-Halcyon always provides a sandbox directory matching the declared version constraints.  If needed, the sandbox directory is built on-the-fly — either from scratch, or based on a previously-built sandbox.
-
-The [`step5`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step5) version of the app includes the constraint we determined, `hourglass-0.2.8`:
+The [`step5`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step5) version of the app declares this constraint:
 
 ```
-$ git diff step4 step5 .halcyon/constraints
+$ git diff -U1 step4 step5 .halcyon/constraints
 ...
 **@@ -40,2 +40,3 @@** ghc-prim-0.3.1.0
  hashable-1.2.3.1
@@ -809,13 +802,17 @@ $ git diff step4 step5 .halcyon/constraints
  http-date-0.0.4
 ```
 
-Heroku limits `git push` time to [15 minutes](https://devcenter.heroku.com/articles/slug-compiler#time-limit), and performs builds on a 1X dyno with [512 MB RAM](https://devcenter.heroku.com/articles/dyno-size).  For many Haskell apps, building dependencies from scratch is impossible under these conditions.
 
-By default, Haskell on Heroku reports an error as soon as it detects missing dependencies.  Building dependencies during a `git push` is not allowed, in order to avoid wasting your time on builds which take 15 minutes to fail.
+Build the sandbox
+-----------------
 
-Let’s override this default, as we only need to add a single package to a previously-built sandbox directory.
+Halcyon always provides a sandbox directory matching the declared version constraints.  If needed, the sandbox is built on-the-fly — either from scratch, or based on a previously-built sandbox.
 
-Set the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) option to `0`:
+Heroku limits `git push` time to [15 minutes](https://devcenter.heroku.com/articles/slug-compiler#time-limit), and performs builds on a 1X dyno with [512 MB RAM](https://devcenter.heroku.com/articles/dyno-size).  For many Haskell apps, building a sandbox from scratch is impossible under these conditions.
+
+To avoid wasting your time, Haskell on Heroku by default disallows building dependencies during a `git push`.
+
+Since you only need to add a single package to a previously-built sandbox, you can override this default by setting the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) option to `0`:
 
 ```
 $ heroku config:set HALCYON_NO_BUILD_DEPENDENCIES=0
@@ -826,8 +823,8 @@ HALCYON_NO_BUILD_DEPENDENCIES: 0
 Check out and install `step5`:
 
 <div class="toggle">
-<a class="toggle-button" data-target="build-a-sandbox-log" href="" title="Toggle">Toggle</a>
-``` { #build-a-sandbox-log .toggle }
+<a class="toggle-button" data-target="build-the-sandbox-log" href="" title="Toggle">Toggle</a>
+``` { #build-the-sandbox-log .toggle }
 $ git checkout -q step5
 $ git push heroku HEAD:master
 ...
@@ -973,7 +970,7 @@ Set up private storage
 
 Halcyon can upload all newly created archives to _private storage,_ which is an external cache for the apps and dependencies you build.
 
-By using private storage, you can effortlessly share archives between multiple machines, and avoid running into the Heroku 15-minute build time limit.
+By using private storage, you can share archives between multiple machines, and avoid running into the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
 
 To use private storage, you’ll need to:
 
@@ -983,7 +980,7 @@ To use private storage, you’ll need to:
 
 - Give the IAM user [permission to access](http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html) the S3 bucket
 
-Configure private storage by setting [`HALCYON_AWS_ACCESS_KEY_ID`](https://halcyon.sh/reference/#halcyon_aws_access_key_id),  [`HALCYON_AWS_SECRET_ACCESS_KEY`](https://halcyon.sh/reference/#halcyon_aws_secret_access_key), and [`HALCYON_S3_BUCKET`](https://halcyon.sh/reference/#halcyon_s3_bucket):
+Once you’re done, configure private storage by setting [`HALCYON_AWS_ACCESS_KEY_ID`](https://halcyon.sh/reference/#halcyon_aws_access_key_id),  [`HALCYON_AWS_SECRET_ACCESS_KEY`](https://halcyon.sh/reference/#halcyon_aws_secret_access_key), and [`HALCYON_S3_BUCKET`](https://halcyon.sh/reference/#halcyon_s3_bucket):
 
 ```
 $ heroku config:set \
@@ -1007,10 +1004,10 @@ HALCYON_S3_ENDPOINT: s3-example-region.amazonaws.com
 
 ### Options
 
-By default, all uploads are assigned the `private` [S3 <abbr title="Access control list">ACL</abbr>](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html).  To make future uploads publicly available, set [`HALCYON_S3_ACL`](https://halcyon.sh/reference/#halcyon_s3_acl) to `public-read`:
+By default, all uploads are assigned the `private` [Amazon S3 ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html).  To make newly-uploaded files available to the public, set [`HALCYON_S3_ACL`](https://halcyon.sh/reference/#halcyon_s3_acl) to `public-read`:
 
 ```
-$ export HALCYON_S3_ACL=public-read
+$ heroku config:set HALCYON_S3_ACL=public-read
 ```
 
 
