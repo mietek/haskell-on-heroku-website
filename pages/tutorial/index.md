@@ -57,9 +57,7 @@ $ git clone https://github.com/mietek/haskell-on-heroku-tutorial
 
 Create a new Heroku app with the `heroku create` command, using the `-b` option to specify the buildpack:
 
-<div class="toggle">
-<a class="toggle-button" data-target="deploy-the-app-log1" href="" title="Toggle">Toggle</a>
-``` { #deploy-the-app-log1 .toggle }
+```
 $ cd haskell-on-heroku-tutorial
 $ heroku create -b https://github.com/mietek/haskell-on-heroku
 Creating still-earth-4767... done, stack is cedar-14
@@ -67,13 +65,12 @@ BUILDPACK_URL=https://github.com/mietek/haskell-on-heroku
 https://still-earth-4767.herokuapp.com/ | https://git.heroku.com/still-earth-4767.git
 Git remote heroku added
 ```
-</div>
 
 Push the code to Heroku in order to deploy your app:
 
 <div class="toggle">
-<a class="toggle-button" data-target="deploy-the-app-log2" href="" title="Toggle">Toggle</a>
-``` { #deploy-the-app-log2 .toggle }
+<a class="toggle-button" data-target="deploy-the-app-log" href="" title="Toggle">Toggle</a>
+``` { #deploy-the-app-log .toggle }
 $ git push -q heroku master
 ...
 -----> Welcome to Haskell on Heroku
@@ -106,7 +103,7 @@ $ git push -q heroku master
 > ---------------------|---
 > _Expected time:_     | _<1 minute_
 
-In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storage._
+In this step, Halcyon restores the tutorial app’s _install directory_ by extracting an archive downloaded from _public storag,_ which is an external cache for previously-built apps and dependencies.
 
 All downloaded archives are cached in the Halcyon _cache directory,_ which is part of the Heroku [build cache](https://devcenter.heroku.com/articles/buildpack-api#caching).
 
@@ -452,8 +449,8 @@ For performance reasons, Haskell on Heroku does not include your app’s depende
 Use `heroku run` to launch a remote GHCi session:
 
 <div class="toggle">
-<a class="toggle-button" data-target="use-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
-``` { #use-a-one-off-dyno-log1 .toggle }
+<a class="toggle-button" data-target="use-a-one-off-dyno-log" href="" title="Toggle">Toggle</a>
+``` { #use-a-one-off-dyno-log .toggle }
 $ heroku run 'restore && cabal repl'
 Running `restore && cabal repl` attached to terminal... up, run.1522
 -----> Installing haskell-on-heroku-tutorial-1.0
@@ -500,13 +497,10 @@ Running `restore && cabal repl` attached to terminal... up, run.1522
        + halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App restored:                             **haskell-on-heroku-tutorial-1.0**
-       ...
-
+...
 GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
 ...
-[1 of 1] Compiling Main             ( Main.hs, interpreted )
 Ok, modules loaded: Main.
-λ 
 ```
 </div>
 
@@ -519,9 +513,11 @@ Previously cached archives can’t be used, because there is no access to the He
 
 Your app’s code is now ready to use:
 
-<div class="toggle">
-<a class="toggle-button" data-target="use-a-one-off-dyno-log2" href="" title="Toggle">Toggle</a>
-``` { #use-a-one-off-dyno-log2 .toggle }
+```
+...
+GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
+...
+Ok, modules loaded: Main.
 λ :browse
 newtype Note = Note {contents :: Text}
 emptyNotes :: IO (TVar [Note])
@@ -534,7 +530,6 @@ noteAPI :: Proxy NoteAPI
 server :: TVar [Note] -> Server NoteAPI
 main :: IO ()
 ```
-</div>
 
 Press `control-D` to exit GHCi and shut down the dyno.
 
@@ -555,9 +550,7 @@ Now, let’s change the tutorial app so that it remembers the time each note is 
 
 The [`step3`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step3) version of the app declares the standard Haskell [_old-locale_](http://hackage.haskell.org/package/old-locale) and [_time_](http://hackage.haskell.org/package/time) libraries as dependencies:
 
-<div class="toggle">
-<a class="toggle-button" data-target="declare-a-dependency-diff" href="" title="Toggle">Toggle</a>
-``` { #declare-a-dependency-diff .toggle }
+```
 $ git diff step2 step3 haskell-on-heroku-tutorial.cabal
 ...
 **@@ -14,9 +14,11 @@** executable haskell-on-heroku-tutorial
@@ -573,7 +566,6 @@ $ git diff step2 step3 haskell-on-heroku-tutorial.cabal
                        transformers,
                        warp
 ```
-</div>
 
 Check out and deploy `step3`:
 
@@ -691,9 +683,7 @@ Let’s try to simplify the code by using a third-party library.
 
 The [`step4`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step4) version of the app replaces _old-locale_ and _time_ with the [_hourglass_](http://hackage.haskell.org/package/hourglass) library:
 
-<div class="toggle">
-<a class="toggle-button" data-target="declare-a-constraint-diff" href="" title="Toggle">Toggle</a>
-``` { #declare-a-constraint-diff .toggle }
+```
 $ git diff step3 step4 haskell-on-heroku-tutorial.cabal
 ...
 **@@ -14,11 +14,10 @@** executable haskell-on-heroku-tutorial
@@ -710,7 +700,6 @@ $ git diff step3 step4 haskell-on-heroku-tutorial.cabal
                        transformers,
                        warp
 ```
-</div>
 
 In order for Halcyon to provide the correct sandbox directory, we need to declare version constraints for _hourglass_ and all of its dependencies.
 
@@ -811,27 +800,22 @@ Halcyon always provides a sandbox directory matching the declared version constr
 
 The [`step5`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step5) version of the app includes the constraint we determined, `hourglass-0.2.8`:
 
-<div class="toggle">
-<a class="toggle-button" data-target="build-a-sandbox-diff" href="" title="Toggle">Toggle</a>
-``` { #build-a-sandbox-diff .toggle }
+```
 $ git diff step4 step5 .halcyon/constraints
 ...
-**@@ -38,6 +38,7 @@** file-embed-0.0.7
- free-4.10.0.1
- ghc-prim-0.3.1.0
+**@@ -40,2 +40,3 @@** ghc-prim-0.3.1.0
  hashable-1.2.3.1
 **+hourglass-0.2.6**
  http-date-0.0.4
- http-types-0.8.5
- integer-gmp-0.5.1.0
 ```
-</div>
 
-Heroku limits the time it takes to complete an app build during a `git push` to [15 minutes](https://devcenter.heroku.com/articles/slug-compiler#time-limit), and performs builds on a 1X dyno with [512 MB RAM](https://devcenter.heroku.com/articles/dyno-size).
+Heroku limits `git push` time to [15 minutes](https://devcenter.heroku.com/articles/slug-compiler#time-limit), and performs builds on a 1X dyno with [512 MB RAM](https://devcenter.heroku.com/articles/dyno-size).  For many Haskell apps, building dependencies from scratch is impossible under these conditions.
 
-In most cases, these limits makes it impractical to build dependencies on-the-fly, and so Haskell on Heroku disallows this by default.  However, for the tutorial app, we only need to build a single package.
+By default, Haskell on Heroku reports an error as soon as it detects missing dependencies.  Building dependencies during a `git push` is not allowed, in order to avoid wasting your time on builds which take 15 minutes to fail.
 
-To allow building dependencies during a `git push`, set the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) config var to `0`:
+Let’s override this default, as we only need to add a single package to a previously-built sandbox directory.
+
+Set the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) option to `0`:
 
 ```
 $ heroku config:set HALCYON_NO_BUILD_DEPENDENCIES=0
