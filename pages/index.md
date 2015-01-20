@@ -45,9 +45,9 @@ Need commercial support?  Contact the [author](#about) directly.
 
 ### Examples
 
-- See the [Halcyon examples](/examples/) for a demonstration of advanced Halcyon features.
+- See the [Halcyon examples](https://halcyon.sh/examples/) for a demonstration of advanced Halcyon features.
 
-- Take a look at the [Halcyon shootout](/shootout/) for a comparison of build times and sizes across most Haskell web frameworks.
+- Take a look at the [Halcyon shootout](https://halcyon.sh/shootout/) for a comparison of build times and sizes across most Haskell web frameworks.
 
 All example apps can be deployed to Heroku in one click.
 
@@ -96,7 +96,7 @@ Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), 
 <aside>
 <a class="micro face brian-mckenna" href=""></a>
 <blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s Halcyon project.”_</blockquote>
-<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/527902645928087553), [Try Idris](/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for [Haskell on Heroku](https://haskellonheroku.com/)</p>
+<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/527902645928087553), [Try Idris](https://halcyon.sh/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for [Haskell on Heroku](https://haskellonheroku.com/)</p>
 </aside>
 
 
