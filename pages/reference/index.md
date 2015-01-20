@@ -20,7 +20,7 @@ Haskell on Heroku is a [Heroku](https://heroku.com/) buildpack for deploying [
 
 The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://www.haskell.org/cabal/users-guide/).
 
-This reference is a list of the buildpack-specific options.  Additional options are listed in the [Halcyon reference](https://halcyon.sh/reference/).
+This reference is a list of buildpack-specific options.  Additional options are listed in the [Halcyon reference](https://halcyon.sh/reference/).
 
 
 General options
