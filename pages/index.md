@@ -79,18 +79,25 @@ $ git push -q heroku master
 
 - Start with the [Haskell on Heroku tutorial](/tutorial/) to learn how to develop a simple Haskell web app and deploy it to Heroku.
 
-- Consider reading the [Halcyon tutorial](/tutorial/) to learn more about developing Haskell apps using Halcyon.
+- Read the [Halcyon tutorial](https://halcyon.sh/tutorial/) to learn more about developing Haskell apps using Halcyon.
 
 - See the [Haskell on Heroku reference](/reference/) for a list of buildpack-specific options.
 
 - Look for additional options in the [Halcyon reference](https://halcyon.sh/reference/).
 
 
-#### Internal documentation
+#### Internals
 
 Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), using the [_bashmenot_](https://bashmenot.mietek.io/) library.
 
 - Read the [Haskell on Heroku source code](https://github.com/mietek/haskell-on-heroku) to understand how it works.
+
+
+<aside>
+<a class="micro face brian-mckenna" href=""></a>
+<blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s Halcyon project.”_</blockquote>
+<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/527902645928087553), [Try Idris](/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for [Haskell on Heroku](https://haskellonheroku.com/)</p>
+</aside>
 
 
 About
@@ -113,10 +120,6 @@ Thanks to [Joe Nelson](http://begriffs.com/), [Brian McKenna](http://brianmckenn
 
 The welcome image is based on [Cumulus Clouds](https://flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://flickr.com/photos/kubina/).  The monospaced font is [PragmataPro](http://fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://fsd.it/).  The sans-serif font is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  Website built with [_cannot_](https://cannot.mietek.io/).
 
-This project is not affiliated with [Heroku](https://heroku.com/).
+Thanks to [Fastly](https://www.fastly.com/) for providing low-latency access to Halcyon public storage.
 
-<aside class="inline">
-<a class="micro face brian-mckenna" href=""></a>
-<blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s Halcyon project.”_</blockquote>
-<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/527902645928087553), [Try Idris](/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for [Haskell on Heroku](https://haskellonheroku.com/)</p>
-</aside>
+This project is not affiliated with [Heroku](https://heroku.com/).

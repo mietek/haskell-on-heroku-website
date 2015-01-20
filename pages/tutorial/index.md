@@ -1009,13 +1009,13 @@ $ heroku config:set HALCYON_S3_ACL=public-read
 Provision an add-on
 -------------------
 
-TODO
+_TODO_
 
 
 Use a database
 --------------
 
-TODO
+_TODO_
 
 
 Next steps
@@ -1025,7 +1025,9 @@ You now know how to use Haskell on Heroku to develop and deploy Haskell web apps
 
 Here’s some recommended reading:
 
-- TODO
+- _TODO_
+
+- _TODO_
 
 
 ---
