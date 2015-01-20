@@ -13,20 +13,16 @@ page-head: |
 ---
 
 
-Tutorial
-========
-
-<div><nav id="main-toc"></nav></div>
-
-
-Introduction
-------------
+Haskell on Heroku tutorial
+==========================
 
 Haskell on Heroku is a [Heroku](https://heroku.com/) buildpack for deploying [Haskell](https://haskell.org/) apps.
 
 The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://www.haskell.org/cabal/users-guide/).
 
 This tutorial shows how to develop a simple Haskell web app and deploy it to Heroku.
+
+<div><nav id="main-toc"></nav></div>
 
 
 Set up
@@ -880,7 +876,6 @@ $ git push heroku HEAD:master
        Ignoring hello-miku-1.0 (3c81d66) as HUnit-1.2.5.2 is not needed
        Ignoring hello-snap-1.0 (4af96d8) as HUnit-1.2.5.2 is not needed
        Ignoring hello-wheb-1.0 (4c4bfdc) as SHA-1.6.4.1 is not needed
-       Ignoring alex-3.1.3 (4e16492) as QuickCheck-2.7.6 is not needed
             41 hello-wai-1.0 (028a0e6)
        Ignoring hello-scotty-1.0 (33c011e) as data-default-0.5.3 is not needed
        Ignoring hello-happstack-1.0 (47c3e8d) as base-unicode-symbols-0.2.2.4 is not needed
@@ -968,7 +963,7 @@ $ curl -X POST http://localhost:8080/notes -d '{ "contents": "Hello, world!" }'
 Set up private storage
 ----------------------
 
-Halcyon can upload all newly created archives to _private storage,_ which is an external cache for the apps and dependencies you build.
+Halcyon can use _private storage_ as well as public storage.  Private storage is an external cache for the apps and dependencies you build.
 
 By using private storage, you can share archives between multiple machines, and avoid running into the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
 
