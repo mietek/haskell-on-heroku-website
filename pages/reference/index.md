@@ -1,5 +1,5 @@
 ---
-title: User’s reference
+title: Reference
 page-class: add-section-toc rule-before-h3 tweak-listings
 page-data:
 - key: max-back-link-level
@@ -13,12 +13,18 @@ page-head: |
 ---
 
 
-User’s reference
-================
+Haskell on Heroku reference
+===========================
+
+Haskell on Heroku is a [Heroku](https://heroku.com/) buildpack for deploying [Haskell](https://haskell.org/) apps.
+
+The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://www.haskell.org/cabal/users-guide/).
+
+This reference is a list of the buildpack-specific options.  Additional options are listed in the [Halcyon reference](https://halcyon.sh/reference/).
 
 
-Options
--------
+General options
+---------------
 
 ### `BUILDPACK_SSH_PRIVATE_KEY`
 
@@ -28,6 +34,18 @@ Options
 
 _TODO_
 
+
+### `BUILDPACK_NO_COPY_CACHE`
+
+> ---------------------|---
+> Default value:       | `0`
+> Type:                | `0` or `1`
+
+_TODO_
+
+
+Self-update options
+-------------------
 
 ### `BUILDPACK_DIR`
 
@@ -48,7 +66,7 @@ Automatically set by Haskell on Heroku at run-time.
 
 URL of the _git_ repository from which Haskell on Heroku updates itself.
 
-The `master` branch is used by default.  Other branches may be specified with a `#`_`branch`_ suffix.
+Defaults to the `master` branch.  Other branches may be specified with a `#`_`branch`_ suffix.
 
 
 ### `BUILDPACK_NO_SELF_UPDATE`
@@ -58,10 +76,3 @@ The `master` branch is used by default.  Other branches may be specified with a 
 > Type:                | `0` or `1`
 
 Prevents Haskell on Heroku from updating itself.
-
-
----
-
-_**Work in progress.**  For updates, please sign up to the [Haskell on Heroku announcements list](http://eepurl.com/8KXsT), or follow <a href="https://twitter.com/mietek">@mietek</a>._
-
-For more information, please see the Halcyon [user’s reference](https://halcyon.sh/reference/).
