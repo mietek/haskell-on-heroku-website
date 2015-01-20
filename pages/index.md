@@ -54,8 +54,8 @@ All example apps can be deployed to Heroku in one click.
 
 <aside>
 <a class="micro face tristan-sloughter" href="https://twitter.com/t_sloughter/status/539168929131003904"></a>
-<blockquote>_“[Miëtek’s](#about) Haskell on Heroku and [Halcyon](https://halcyon.sh/) has made deploying [How I Start](https://howistart.org/) fast and simple!  Thanks!”_</blockquote>
-<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904), [How I Start](https://howistart.org/) author</p>
+<blockquote>_“[Miëtek’s](#about) Haskell on Heroku and [Halcyon](https://halcyon.sh/) has made deploying [How I Start](https://halcyon.sh/examples/#how-i-start) fast and simple!  Thanks!”_</blockquote>
+<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904), [How I Start](https://halcyon.sh/examples/#how-i-start) author</p>
 </aside>
 
 
