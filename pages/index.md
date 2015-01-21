@@ -33,6 +33,8 @@ Haskell on Heroku is a [Heroku](https://heroku.com/) buildpack for deploying H
 
 The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://haskell.org/cabal/users-guide/).
 
+Follow the [Haskell on Heroku tutorial](/tutorial/) to get started.
+
 
 ### Support
 
