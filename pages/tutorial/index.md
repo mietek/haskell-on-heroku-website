@@ -549,7 +549,9 @@ Now, let’s change the tutorial app so that it remembers the time each note is 
 
 The [`step3`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step3) version of the app declares the standard Haskell [_old-locale_](http://hackage.haskell.org/package/old-locale) and [_time_](http://hackage.haskell.org/package/time) libraries as dependencies:
 
-```
+<div class="toggle">
+<a class="toggle-button" data-target="declare-a-dependency-diff" href="" title="Toggle">Toggle</a>
+``` { #declare-a-dependency-diff .toggle }
 $ git diff step2 step3 haskell-on-heroku-tutorial.cabal
 ...
 **@@ -14,9 +14,11 @@** executable haskell-on-heroku-tutorial
@@ -565,6 +567,7 @@ $ git diff step2 step3 haskell-on-heroku-tutorial.cabal
                        transformers,
                        warp
 ```
+</div>
 
 Check out and deploy `step3`:
 
@@ -682,7 +685,9 @@ Let’s try to simplify the code by using a third-party library.
 
 The [`step4`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step4) version of the app replaces _old-locale_ and _time_ with the [_hourglass_](http://hackage.haskell.org/package/hourglass) library:
 
-```
+<div class="toggle">
+<a class="toggle-button" data-target="declare-a-constraint-diff" href="" title="Toggle">Toggle</a>
+``` { #declare-a-constraint-diff .toggle }
 $ git diff step3 step4 haskell-on-heroku-tutorial.cabal
 ...
 **@@ -14,11 +14,10 @@** executable haskell-on-heroku-tutorial
@@ -699,6 +704,7 @@ $ git diff step3 step4 haskell-on-heroku-tutorial.cabal
                        transformers,
                        warp
 ```
+</div>
 
 In order for Halcyon to provide the right sandbox directory, we need to declare version constraints for _hourglass_ and all of its dependencies.  You can determine these constraints using Halcyon.
 
