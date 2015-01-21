@@ -151,8 +151,8 @@ Use the `heroku logs` command with the `-t` option to start viewing the logs in 
 ```
 $ heroku logs -t
 ...
-2015-01-14T09:24:33.751003+00:00 heroku[web.1]: State changed from starting to up
-2015-01-14T09:24:40.087150+00:00 heroku[router]: at=info method=GET path="/" host=still-earth-4767.herokuapp.com request_id=2d9895dd-e31e-40d4-8b0a-f3835b4f653b fwd="192.168.144.120" dyno=web.1 connect=1ms service=2ms status=404 bytes=132
+2015-01-15T09:24:33.751003+00:00 heroku[web.1]: State changed from starting to up
+2015-01-15T09:24:40.087150+00:00 heroku[router]: at=info method=GET path="/" host=still-earth-4767.herokuapp.com request_id=2d9895dd-e31e-40d4-8b0a-f3835b4f653b fwd="192.168.144.120" dyno=web.1 connect=1ms service=2ms status=404 bytes=132
 ```
 
 In another shell, make a `GET` request to see an empty list of notes:
@@ -178,11 +178,11 @@ Incoming requests appear in the logs:
 ```
 $ heroku logs -t
 ...
-2015-01-14T09:25:05.606819+00:00 heroku[router]: at=info method=GET path="/notes" host=still-earth-4767.herokuapp.com request_id=34f251cb-66d6-4bf8-a16a-64ad4dc1d352 fwd="192.168.144.120" dyno=web.1 connect=1ms service=3ms status=200 bytes=150
-2015-01-14T09:25:09.527051+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=cc4a444f-804b-4a4d-8737-05ebd7bc6868 fwd="192.168.144.120" dyno=web.1 connect=8ms service=11ms status=201 bytes=183
-2015-01-14T09:25:09.526124+00:00 app[web.1]: Hello, world!
-2015-01-14T09:25:13.085316+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=8672db7e-ad15-4093-9ef4-f052971d39e7 fwd="192.168.144.120" dyno=web.1 connect=3ms service=4ms status=201 bytes=205
-2015-01-14T09:25:13.085297+00:00 app[web.1]: Hello?
+2015-01-15T09:25:05.606819+00:00 heroku[router]: at=info method=GET path="/notes" host=still-earth-4767.herokuapp.com request_id=34f251cb-66d6-4bf8-a16a-64ad4dc1d352 fwd="192.168.144.120" dyno=web.1 connect=1ms service=3ms status=200 bytes=150
+2015-01-15T09:25:09.527051+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=cc4a444f-804b-4a4d-8737-05ebd7bc6868 fwd="192.168.144.120" dyno=web.1 connect=8ms service=11ms status=201 bytes=183
+2015-01-15T09:25:09.526124+00:00 app[web.1]: Hello, world!
+2015-01-15T09:25:13.085316+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=8672db7e-ad15-4093-9ef4-f052971d39e7 fwd="192.168.144.120" dyno=web.1 connect=3ms service=4ms status=201 bytes=205
+2015-01-15T09:25:13.085297+00:00 app[web.1]: Hello?
 ```
 
 Press `control-C` to stop viewing the logs.
@@ -406,7 +406,7 @@ Currently, your app is running on a single 1X dyno.  You can check this with the
 ```
 $ heroku ps
 === web (1X): `/app/bin/haskell-on-heroku-tutorial`
-web.1: up 2015/01/14 09:24:33 (~ 1m ago)
+web.1: up 2015/01/15 09:24:33 (~ 1m ago)
 ```
 
 To increase your app’s throughput, and to prevent [dyno sleeping](https://devcenter.heroku.com/articles/dynos#dyno-sleeping), you can scale the app to more than one `web` dyno:
@@ -671,7 +671,7 @@ Your app is now ready to use again:
 
 ```
 $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
-[{"contents":"Hello, world!","dateTime":"2015-01-14T09:31:28Z"}]
+[{"contents":"Hello, world!","dateTime":"2015-01-15T09:31:28Z"}]
 ```
 
 
@@ -956,7 +956,7 @@ Your app is now ready to use again:
 
 ```
 $ curl -X POST http://localhost:8080/notes -d '{ "contents": "Hello, world!" }'
-[{"contents":"Hello, world!","dateTime":"2015-01-12T09:28:26+00:00"}]
+[{"contents":"Hello, world!","dateTime":"2015-01-15T09:28:26+00:00"}]
 ```
 
 
