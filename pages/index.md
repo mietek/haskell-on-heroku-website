@@ -13,7 +13,7 @@ header-class: hero
 main-class: hero
 hero: |
   <h1 class="logotype">Haskell on Heroku</h1>
-  <p>Buildpack for deploying Haskell apps.</p>
+  <p>Buildpack for deploying Haskell apps</p>
   <div id="hero-button"><a href="#haskell-on-heroku" title="More">More</a></div>
 page-footer: |
   <script>
