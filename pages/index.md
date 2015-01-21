@@ -31,7 +31,7 @@ Haskell on Heroku
 
 Haskell on Heroku is a [Heroku](https://heroku.com/) buildpack for deploying Haskell apps.
 
-The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://www.haskell.org/cabal/users-guide/).
+The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://haskell.org/cabal/users-guide/).
 
 
 ### Support
@@ -120,6 +120,6 @@ Thanks to [Joe Nelson](http://begriffs.com/), [Brian McKenna](http://brianmckenn
 
 The welcome image is based on [Cumulus Clouds](https://flickr.com/photos/kubina/152730867/), by [Jeff Kubina](https://flickr.com/photos/kubina/).  The monospaced font is [PragmataPro](http://fsd.it/fonts/pragmatapro.htm), by [Fabrizio Schiavi](http://fsd.it/).  The sans-serif font is [Concourse](http://practicaltypography.com/concourse.html), by [Matthew Butterick](http://practicaltypography.com/).  Website built with [_cannot_](https://cannot.mietek.io/).
 
-Thanks to [Fastly](https://www.fastly.com/) for providing low-latency access to Halcyon public storage.
+Thanks to [Fastly](https://fastly.com/) for providing low-latency access to Halcyon public storage.
 
 This project is not affiliated with [Heroku](https://heroku.com/).
