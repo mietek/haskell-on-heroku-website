@@ -118,7 +118,7 @@ In this step, Halcyon restores the tutorial app’s _install directory_ by extra
 
 All downloaded archives are cached in the Halcyon _cache directory,_ inside the Heroku [build cache](https://devcenter.heroku.com/articles/buildpack-api#caching).
 
-The correct archive to restore is determined by calculating a _source hash_ of the app’s _source directory._
+The right archive to restore is determined by calculating a _source hash_ of the app’s _source directory._
 
 Make sure your app is running:
 
@@ -381,7 +381,7 @@ In this step, Halcyon tries to restore the tutorial app’s install directory by
 
 3.  Finally, the app’s new install directory is prepared and archived, and the app is installed.
 
-Halcyon determines which sandbox archive to restore by calculating a _constraints hash_ of the version constraints declared by your app.  Similarly, the correct version of GHC to use is implied by the `base` package constraint:
+Halcyon determines which sandbox archive to restore by calculating a _constraints hash_ of the version constraints declared by your app.  Similarly, the right version of GHC to use is implied by the `base` package constraint:
 
 ```
 $ grep -E '^base-' .halcyon/constraints
@@ -662,9 +662,9 @@ In this step, Halcyon restores the GHC, Cabal, and sandbox directories from cach
 The previously-restored sandbox directory can be used again, because version constraints for our new dependencies are already declared:
 
 ```
-$ git grep -E '^(old-locale|time)' step2 .halcyon/constraints
-step2:.halcyon/constraints:53:**old-locale**-1.0.0.6
-step2:.halcyon/constraints:83:**time**-1.4.2
+$ grep -E '^(old-locale|time)' .halcyon/constraints
+old-locale-1.0.0.6
+time-1.4.2
 ```
 
 Your app is now ready to use again:
@@ -700,7 +700,7 @@ $ git diff step3 step4 haskell-on-heroku-tutorial.cabal
                        warp
 ```
 
-In order for Halcyon to provide the correct sandbox directory, we need to declare version constraints for _hourglass_ and all of its dependencies.  You can determine these constraints using Halcyon.
+In order for Halcyon to provide the right sandbox directory, we need to declare version constraints for _hourglass_ and all of its dependencies.  You can determine these constraints using Halcyon.
 
 Check out `step4`, and try deploying it:
 
@@ -944,7 +944,7 @@ $ git push heroku HEAD:master
 > ---------------------|---
 > _Expected time:_     | _4–5 minutes_
 
-In this step, Halcyon restores the GHC and Cabal directories from cache, and tries to locate the correct sandbox directory for the current version of the app.  This fails, and so Halcyon falls back to building the sandbox:
+In this step, Halcyon restores the GHC and Cabal directories from cache, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon falls back to building the sandbox:
 
 1.  First, previously-built sandbox directories are located and assigned a score, which reflects the number of required dependencies within each sandbox.
 
@@ -988,7 +988,7 @@ HALCYON_AWS_SECRET_ACCESS_KEY: example-secret-access-key
 HALCYON_S3_BUCKET:             example-bucket
 ```
 
-If your S3 bucket isn’t located in the Amazon US Standard region, you’ll also need to set [`HALCYON_S3_ENDPOINT`](https://halcyon.sh/reference/#halcyon_s3_endpoint) to the address of the correct [region-specific S3 endpoint](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region):
+If your S3 bucket isn’t located in the Amazon US Standard region, you’ll also need to set [`HALCYON_S3_ENDPOINT`](https://halcyon.sh/reference/#halcyon_s3_endpoint) to the address of the right [region-specific S3 endpoint](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region):
 
 ```
 $ heroku config:set HALCYON_S3_ENDPOINT=s3-example-region.amazonaws.com
