@@ -36,7 +36,7 @@ The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and developmen
 
 ### Support
 
-The <a href="irc://chat.freenode.net/haskell-deployment">#haskell-deployment</a> IRC channel on [freenode](https://freenode.net/) is a good place to ask questions and find answers.
+The <a href="irc://chat.freenode.net/haskell-deployment">`#haskell-deployment`</a> IRC channel on [_freenode_](https://freenode.net/) is a good place to ask questions and find answers.
 
 Please report any problems with Haskell on Heroku on the [issue tracker](https://github.com/mietek/haskell-on-heroku/issues).  There is a [separate issue tracker](https://github.com/mietek/haskell-on-heroku-website/issues) for problems with the documentation.
 
