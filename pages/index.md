@@ -94,9 +94,9 @@ Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), 
 
 
 <aside>
-<a class="micro face brian-mckenna" href=""></a>
-<blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s Halcyon project.”_</blockquote>
-<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/527902645928087553), [Try Idris](https://halcyon.sh/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for [Haskell on Heroku](https://haskellonheroku.com/)</p>
+<a class="micro face brian-mckenna" href="https://twitter.com/puffnfresh/status/541029111611674624"></a>
+<blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s [Halcyon](https://halcyon.sh/) project.”_</blockquote>
+<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/541029111611674624), [Try Idris](https://halcyon.sh/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for Haskell on Heroku</p>
 </aside>
 
 
