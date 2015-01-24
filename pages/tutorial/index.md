@@ -791,7 +791,7 @@ $ git push heroku HEAD:master
 > ---------------------|---
 > _Expected time:_     | _<1 minute_
 
-In this step, Cabal fails to configure the app, because the _hourglass_ library isn’t provided in the existing sandbox directory, and Halcyon suggests adding a single version constraint, `hourglass-0.2.8`.
+In this step, Cabal fails to configure the app, because the _hourglass_ library isn’t provided in the existing sandbox directory.  Halcyon suggests adding a single version constraint, `hourglass-0.2.8`.
 
 The [`step5`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step5) version of the app declares this constraint:
 
@@ -808,13 +808,13 @@ $ git diff -U1 step4 step5 .halcyon/constraints
 Build the sandbox
 -----------------
 
-Halcyon always provides a sandbox directory matching the declared version constraints.  If needed, the sandbox is built on-the-fly — either from scratch, or based on a previously-built sandbox.
+Halcyon always provides a sandbox directory matching the declared version constraints.  If needed, the sandbox directory is built on-the-fly — either from scratch, or based on a previously-built sandbox.
 
 Heroku limits `git push` time to [15 minutes](https://devcenter.heroku.com/articles/slug-compiler#time-limit), and performs builds on a 1X dyno with [512 MB RAM](https://devcenter.heroku.com/articles/dyno-size).  For many Haskell apps, building a sandbox from scratch is impossible under these conditions.
 
-To avoid wasting your time, Haskell on Heroku by default disallows building dependencies during a `git push`.
+By default, Haskell on Heroku does not allow dependencies to be built during a `git push`, in order to avoid wasting your time on builds which take 15 minutes to fail.  In this case, we expect the build to finish in less than 5 minutes, as we only need to add a single package to a previously-built sandbox.
 
-Since you only need to add a single package to a previously-built sandbox, you can override this default by setting the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) option to `0`:
+Override the default by setting the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) option to `0`:
 
 ```
 $ heroku config:set HALCYON_NO_BUILD_DEPENDENCIES=0
