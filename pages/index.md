@@ -33,7 +33,7 @@ Haskell on Heroku is a [Heroku](https://heroku.com/) buildpack for deploying H
 
 The buildpack uses [Halcyon](https://halcyon.sh/) to install apps and development tools, including [GHC](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/) and [Cabal](https://haskell.org/cabal/users-guide/).
 
-Follow the [Haskell on Heroku tutorial](/tutorial/) to get started.
+**Follow the [Haskell on Heroku tutorial](/tutorial/) to get started.**
 
 
 ### Support
@@ -64,7 +64,7 @@ All example apps can be deployed to Heroku in one click.
 Usage
 -----
 
-Create a new Heroku app with the `heroku create` command, using the `-b` option to specify the buildpack:
+Haskell on Heroku, like other [Heroku buildpacks](https://devcenter.heroku.com/articles/buildpacks), can be used when creating a new Heroku app:
 
 ```
 $ heroku create -b https://github.com/mietek/haskell-on-heroku
@@ -73,13 +73,13 @@ $ heroku create -b https://github.com/mietek/haskell-on-heroku
 Push the code to Heroku in order to deploy your app:
 
 ```
-$ git push -q heroku master
+$ git push heroku master
 ```
 
 
 ### Documentation
 
-- Start with the [Haskell on Heroku tutorial](/tutorial/) to learn how to develop a simple Haskell web app and deploy it to Heroku.
+- **Start with the [Haskell on Heroku tutorial](/tutorial/) to learn how to develop a simple Haskell web app and deploy it to Heroku.**
 
 - Read the [Halcyon tutorial](https://halcyon.sh/tutorial/) to learn more about developing Haskell apps using Halcyon.
 
