@@ -922,11 +922,7 @@ $ git push -q heroku HEAD:master
        Listing https://halcyon.global.ssl.fastly.net/... done
 -----> Examining partially matching sandbox directories
        ...
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-1a1d740-hello-yesod-1.0.constraints... done
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-3b0b768-hello-happstack-1.0.constraints... done
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-335d31e-hello-snap-1.0.constraints... done
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.constraints... done
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-ffec23f-hello-wai-1.0.constraints... done
 -----> Scoring partially matching sandbox directories
        ...
        Ignoring hello-yesod-1.0 (1a1d740) as asn1-encoding-0.9.0 is not needed
@@ -1180,7 +1176,7 @@ All downloaded archives are uploaded to your private storage:
 ```
 $ s3_list example-bucket linux-ubuntu-14
        Listing s3://example-bucket/?prefix=linux-ubuntu-14... done
-linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
 linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
 ```
 
