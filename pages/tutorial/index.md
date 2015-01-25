@@ -1169,7 +1169,7 @@ $ git push -q -f heroku HEAD:master
 > ---------------------|---
 > _Expected time:_     | _1–2 minutes_
 
-In this step, Halcyon restores a Cabal directory and a Cabal directory by extracting archives downloaded from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon runs into the default dependency build restriction.
+In this step, Halcyon restores a GHC directory and a Cabal directory from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon runs into the default dependency build restriction.
 
 All downloaded archives are uploaded to your private storage:
 
@@ -1178,15 +1178,6 @@ $ s3_list example-bucket linux-ubuntu-14
        Listing s3://example-bucket/?prefix=linux-ubuntu-14... done
 linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
 linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
-```
-
-It’s important to notice only _the buildpack_ is now deployed, and not your app.  This trick allows us to get around the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
-
-Remember to unset [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) before the next step:
-
-```
-$ heroku config:unset HALCYON_PURGE_CACHE
-Unsetting HALCYON_PURGE_CACHE and restarting still-earth-4767... done, v16
 ```
 
 
