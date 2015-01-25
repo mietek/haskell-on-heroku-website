@@ -32,16 +32,11 @@ General options
 > Default value:       | _none_
 > Type:                | _string_
 
-_TODO_
+Private key to be written to `~/.ssh/id_rsa` after beginning execution.
 
+Additionally, disables SSH strict host key checking, and sets the known hosts file to `/dev/null`.
 
-### `BUILDPACK_NO_COPY_CACHE`
-
-> ---------------------|---
-> Default value:       | `0`
-> Type:                | `0` or `1`
-
-_TODO_
+Intended to support using private GitHub repositories as [`HALCYON_SANDBOX_SOURCES`](https://halcyon.sh/reference/#halcyon_sandbox_sources).
 
 
 Self-update options
