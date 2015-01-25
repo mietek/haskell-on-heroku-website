@@ -45,7 +45,7 @@ The [tutorial app](https://github.com/mietek/haskell-on-heroku-tutorial) is a si
 
 The app includes a Cabal _package description file,_ [`haskell-on-heroku-tutorial.cabal`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/haskell-on-heroku-tutorial.cabal) file, used to declare dependencies, and a Halcyon _constraints file,_ [`.halcyon/constraints`](https://github.com/mietek/haskell-on-heroku-tutorial/blob/master/.halcyon/constraints) file, used to declare version constraints.
 
-Clone the app repository:
+Clone the [_haskell-on-heroku-tutorial_ source repository](https://github.com/mietek/haskell-on-heroku-tutorial):
 
 ```
 $ git clone https://github.com/mietek/haskell-on-heroku-tutorial
@@ -245,7 +245,7 @@ Add a `Procfile`… or not
 
 Heroku expects you to include a [`Procfile`](https://devcenter.heroku.com/articles/procfile) declaring what command should be executed to start your app.
 
-With Haskell on Heroku, this isn’t necessary.  If a `Procfile` isn’t included, the buildpack generates one at compile-time, based on the executable name declared in the Cabal package description file:
+With Haskell on Heroku, this isn’t necessary.  If a `Procfile` isn’t included, the buildpack generates one at compile-time, based on the executable name declared in the Cabal package description file:
 
 ```
 $ grep executable haskell-on-heroku-tutorial.cabal
@@ -444,7 +444,7 @@ Running `bash` attached to terminal... up, run.4012
 Main.hs  Procfile  README.md  app.json	bin  cabal.config  haskell-on-heroku-tutorial.cabal
 ```
 
-For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to use the buildpack’s `restore` command:
+For performance reasons, Haskell on Heroku does not include your app’s dependencies in the slug.  If you want to experiment with your app in [GHCi](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html), you need to use the buildpack’s `restore` command:
 
 <div class="toggle">
 <a class="toggle-button" data-target="use-a-one-off-dyno-log" href="" title="Toggle">Toggle</a>
@@ -812,7 +812,7 @@ Halcyon always provides a sandbox directory matching the declared version constr
 
 Heroku limits `git push` time to [15 minutes](https://devcenter.heroku.com/articles/slug-compiler#time-limit), and performs builds on a 1X dyno with [512 MB RAM](https://devcenter.heroku.com/articles/dyno-size).  For many Haskell apps, building a sandbox from scratch is impossible under these conditions.
 
-By default, Haskell on Heroku does not allow dependencies to be built during a `git push`, in order to avoid wasting your time on builds which take 15 minutes to fail.  In this case, we expect the build to finish in less than 5 minutes, as we only need to add a single package to a previously-built sandbox.
+By default, Haskell on Heroku does not allow dependencies to be built during a `git push`, in order to avoid wasting your time on builds which take 15 minutes to fail.  In this case, we expect the build to finish in less than 5 minutes, as we only need to add a single package to a previously-built sandbox.
 
 Override the default by setting the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://halcyon.sh/reference/#halcyon_no_build_dependencies) option to `0`:
 
@@ -1027,7 +1027,7 @@ _TODO_
 Next steps
 ----------
 
-You now know how to use Haskell on Heroku to develop and deploy Haskell web apps.  You have also developed and deployed a simple Haskell web service.
+You now know how to use Haskell on Heroku to develop and deploy Haskell web apps.  You have also developed and deployed a simple Haskell web service.
 
 Here’s some recommended reading:
 
