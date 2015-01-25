@@ -518,9 +518,6 @@ For performance reasons, Haskell on Heroku does not include your app’s depen
        + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App restored:                             **haskell-on-heroku-tutorial-1.0**
-
-       To run GHCi:
-       $ cabal repl
 ```
 </div>
 
@@ -565,7 +562,7 @@ Press `control-D` twice to exit GHCi and shut down the dyno.
 By default, Heroku runs one-off commands on 1X dynos.  You can specify another [dyno size](https://devcenter.heroku.com/articles/dyno-size) with the `-s` option:
 
 ```
-$ heroku run -s PX bash
+$ heroku run -s 2X bash
 ```
 
 
@@ -1084,7 +1081,7 @@ Try forcing Heroku to deploy the same version of the app again:
 <div class="toggle">
 <a class="toggle-button" data-target="use-private-storage-log" href="" title="Toggle">Toggle</a>
 ``` { #use-private-storage-log .toggle }
-$ git commit --amend --no-edit
+$ git commit -q --amend --no-edit
 $ git push -q -f heroku HEAD:master
 -----> Fetching custom git buildpack... done
 -----> Haskell app detected
@@ -1110,7 +1107,7 @@ $ git push -q -f heroku HEAD:master
        GHC version:                              **7.8.4**
 
 -----> Restoring install directory
-       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 
 -----> Determining constraints
@@ -1125,36 +1122,30 @@ $ git push -q -f heroku HEAD:master
        Cabal repository:                         **Hackage**
 
 -----> Restoring GHC directory
-       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... 404 (not found)
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... 404 (not found)
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
-       Uploading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
        Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
 
 -----> Locating Cabal directories
-       Listing s3://dev.halcyon.sh/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
        Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
 -----> Restoring Cabal directory
-       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... 404 (not found)
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... 404 (not found)
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
-       Uploading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
        Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
 
 -----> Restoring sandbox directory
-       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 -----> Locating sandbox directories
-       Listing s3://dev.halcyon.sh/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
        Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
 **   *** ERROR: Cannot build sandbox directory**
 **   *** ERROR: Failed to deploy app**
 **   *** ERROR: Deploying buildpack only**
-
-       To continue, build the app on a one-off PX dyno:
-       $ heroku run -s PX build
-
-       Next, deploy the app:
-       $ git commit --amend --no-edit
-       $ git push -f heroku master
+       ...
 
 
 -----> Discovering process types
