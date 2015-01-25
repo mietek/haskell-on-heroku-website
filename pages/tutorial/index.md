@@ -1063,6 +1063,142 @@ $ heroku config:set HALCYON_S3_ACL=public-read
 ```
 
 
+Use private storage
+-------------------
+
+Let’s force Halcyon to build the sandbox directory again, in order to populate your private storage.  Since we are using Heroku, we want the build to be performed on a one-off PX dyno.
+
+Restore the default dependency build restriction:
+
+```
+$ heroku config:unset HALCYON_NO_BUILD_DEPENDENCIES
+Unsetting HALCYON_NO_BUILD_DEPENDENCIES and restarting still-earth-4767... done, v13
+```
+
+Set the [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) option to `1` in order to empty the cache directory before building:
+
+```
+$ heroku config:set HALCYON_PURGE_CACHE=1
+Setting config vars and restarting still-earth-4767... done, v14
+HALCYON_PURGE_CACHE: 1
+```
+
+Try forcing Heroku to deploy the same version of the app again:
+
+<div class="toggle">
+<a class="toggle-button" data-target="use-private-storage-log" href="" title="Toggle">Toggle</a>
+``` { #use-private-storage-log .toggle }
+$ git commit --amend --no-edit
+$ git push -q -f heroku HEAD:master
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
+-----> Welcome to Haskell on Heroku
+       BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
+       HALCYON_AWS_ACCESS_KEY_ID:                **(secret)**
+       HALCYON_AWS_SECRET_ACCESS_KEY:            **(secret)**
+       HALCYON_PURGE_CACHE:                      **1**
+       HALCYON_S3_BUCKET:                        **example-bucket**
+
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
+-----> Purging cache
+
+-----> Installing haskell-on-heroku-tutorial-1.0
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **57e9d9d**
+       External storage:                         **private and public**
+       GHC version:                              **7.8.4**
+
+-----> Restoring install directory
+       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+
+-----> Determining constraints
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **57e9d9d**
+       Constraints hash:                         **0551a64**
+       Magic hash:                               **4877c9d**
+       External storage:                         **private and public**
+       GHC version:                              **7.8.4**
+       Cabal version:                            **1.20.0.3**
+       Cabal repository:                         **Hackage**
+
+-----> Restoring GHC directory
+       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
+       Uploading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
+       Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
+
+-----> Locating Cabal directories
+       Listing s3://dev.halcyon.sh/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
+       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
+-----> Restoring Cabal directory
+       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
+       Uploading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
+
+-----> Restoring sandbox directory
+       Downloading s3://dev.halcyon.sh/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+-----> Locating sandbox directories
+       Listing s3://dev.halcyon.sh/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
+       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
+**   *** ERROR: Cannot build sandbox directory**
+**   *** ERROR: Failed to deploy app**
+**   *** ERROR: Deploying buildpack only**
+
+       To continue, build the app on a one-off PX dyno:
+       $ heroku run -s PX build
+
+       Next, deploy the app:
+       $ git commit --amend --no-edit
+       $ git push -f heroku master
+
+
+-----> Discovering process types
+       Procfile declares types -> (none)
+
+-----> Compressing... done, 130.1MB
+-----> Launching... done, v15
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
+```
+</div>
+
+> ---------------------|---
+> _Expected time:_     | _1–2 minutes_
+
+In this step, Halcyon restores a Cabal directory and a Cabal directory by extracting archives downloaded from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon runs into the default dependency build restriction.
+
+All downloaded archives are uploaded to your private storage:
+
+```
+$ s3_list example-bucket linux-ubuntu-14
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14... done
+linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
+```
+
+It’s important to notice only _the buildpack_ is now deployed, and not your app.  This trick allows us to get around the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
+
+Remember to unset [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) before the next step:
+
+```
+$ heroku config:unset HALCYON_PURGE_CACHE
+Unsetting HALCYON_PURGE_CACHE and restarting still-earth-4767... done, v16
+```
+
+
+### Options
+
+If you want to avoid downloading any archives from public storage, set [`HALCYON_NO_PUBLIC_STORAGE`](https://halcyon.sh/reference/#halcyon_no_public_storage) to `1` before populating your private storage.
+
+
 Provision an add-on
 -------------------
 
