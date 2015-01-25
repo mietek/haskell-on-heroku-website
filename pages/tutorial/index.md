@@ -1177,6 +1177,231 @@ linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
 If you want to avoid downloading any archives from public storage, set [`HALCYON_NO_PUBLIC_STORAGE`](https://halcyon.sh/reference/#halcyon_no_public_storage) to `1` before populating your private storage.
 
 
+Build the app on a one-off dyno
+-------------------------------
+
+It’s important to notice only _the buildpack_ is now deployed, and not your app.  This trick allows us to get around the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
+
+Remember to unset [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) after the previous step:
+
+```
+$ heroku config:unset HALCYON_PURGE_CACHE
+Unsetting HALCYON_PURGE_CACHE and restarting still-earth-4767... done, v16
+```
+
+Build the app on a one-off PX dyno:
+
+<div class="toggle">
+<a class="toggle-button" data-target="build-the-app-on-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
+``` { #build-the-app-on-a-one-off-dyno-log1 .toggle }
+$ heroku run -s PX build
+Running `build` attached to terminal... up, run.8506
+-----> Self-updating bashmenot... done, 167e265
+-----> Self-updating Halcyon... done, 0e8fd37
+-----> Self-updating buildpack... done, 34a2e51
+-----> Examining cache contents
+       halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
+       halcyon-ghc-7.8.4.tar.gz
+
+-----> Installing haskell-on-heroku-tutorial-1.0
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **57e9d9d**
+       External storage:                         **private and public**
+       GHC version:                              **7.8.4**
+
+-----> Restoring install directory
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+
+-----> Determining constraints
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **57e9d9d**
+       Constraints hash:                         **0551a64**
+       Magic hash:                               **4877c9d**
+       External storage:                         **private and public**
+       GHC version:                              **7.8.4**
+       Cabal version:                            **1.20.0.3**
+       Cabal repository:                         **Hackage**
+
+-----> Restoring GHC directory
+       Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
+
+-----> Restoring Cabal directory
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
+
+-----> Restoring sandbox directory
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+-----> Locating sandbox directories
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
+       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
+-----> Examining partially-matching sandbox directories
+       ...
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.constraints... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.constraints... done
+-----> Scoring partially-matching sandbox directories
+       Ignoring hello-yesod-1.0 (1a1d740) as asn1-encoding-0.9.0 is not needed
+       Ignoring hello-happstack-1.0 (3b0b768) as extensible-exceptions-0.1.1.4 is not needed
+       Ignoring hello-snap-1.0 (335d31e) as HUnit-1.2.5.2 is not needed
+           101 haskell-on-heroku-tutorial-1.0 (f458aa8)
+            41 hello-wai-1.0 (ffec23f)
+-----> Using partially-matching sandbox directory: haskell-on-heroku-tutorial-1.0 (f458aa8)
+-----> Restoring sandbox directory
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+-----> Building sandbox directory
+-----> Building sandbox
+       Resolving dependencies...
+       Notice: installing into a sandbox located at /app/sandbox
+       Downloading hourglass-0.2.8...
+       Configuring hourglass-0.2.8...
+       Building hourglass-0.2.8...
+       Installed hourglass-0.2.8
+-----> Sandbox built, 144MB
+       Removing documentation from sandbox directory... done, 144MB
+       Stripping sandbox directory... done, 144MB
+-----> Archiving sandbox directory
+       Creating halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... done, 25MB
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.constraints... done
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-... done
+
+-----> Restoring build directory
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.4MB
+-----> Examining source changes
+       * .halcyon/constraints
+       * Main.hs
+       * cabal.config
+       * haskell-on-heroku-tutorial.cabal
+-----> Configuring app
+-----> Building app
+       Building haskell-on-heroku-tutorial-1.0...
+       Preprocessing executable 'haskell-on-heroku-tutorial' for
+       haskell-on-heroku-tutorial-1.0...
+       [1 of 1] Compiling Main             ( Main.hs, dist/build/haskell-on-heroku-tutorial/haskell-on-heroku-tutorial-tmp/Main.o )
+       Linking dist/build/haskell-on-heroku-tutorial/haskell-on-heroku-tutorial ...
+-----> App built, 13MB
+       Stripping app... done, 9.8MB
+-----> Archiving build directory
+       Creating halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.2MB
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
+
+-----> Restoring install directory
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+-----> Preparing install directory
+-----> Installing extra data files for dependencies
+-----> Install directory prepared, 9.1MB
+-----> Archiving install directory
+       Creating halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.1MB
+       Uploading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-... done
+-----> Installing app to /app
+-----> Installed haskell-on-heroku-tutorial-1.0
+
+-----> Examining cache changes
+       + halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
+
+-----> App built:                                **haskell-on-heroku-tutorial-1.0**
+       ...
+```
+</div>
+
+> ---------------------|---
+> _Expected time:_     | _3–4 minutes_
+
+In this step, Halcyon restores the GHC and Cabal directories from cache, builds and archives a sandbox based on a partially-matching sandbox directory, performs an incremental build, and installs the app again.
+
+**Note:**  Using a PX dyno may require you to [verify](https://heroku.com/verify) your Heroku account.
+
+All downloaded and newly-created archives are uploaded to your private storage:
+
+```
+$ s3_list example-bucket linux-ubuntu-14
+       Listing s3://example-bucket/?prefix=linux-ubuntu-14... done
+linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
+linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz
+linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.constraints
+linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz
+linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
+linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
+```
+
+Finally, force Heroku to deploy the same version of the app again:
+
+<div class="toggle">
+<a class="toggle-button" data-target="build-the-app-on-a-one-off-dyno-log2" href="" title="Toggle">Toggle</a>
+``` { #build-the-app-on-a-one-off-dyno-log2 .toggle }
+$ git commit -q --amend --no-edit
+$ git push -q -f heroku HEAD:master
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
+-----> Welcome to Haskell on Heroku
+       BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
+       HALCYON_AWS_ACCESS_KEY_ID:                **(secret)**
+       HALCYON_AWS_SECRET_ACCESS_KEY:            **(secret)**
+       HALCYON_S3_BUCKET:                        **example-bucket**
+
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
+-----> Examining cache contents
+       halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
+       halcyon-ghc-7.8.4.tar.gz
+
+-----> Installing haskell-on-heroku-tutorial-1.0
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **57e9d9d**
+       External storage:                         **private and public**
+       GHC version:                              **7.8.4**
+
+-----> Restoring install directory
+       Downloading s3://example-bucket/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.1MB
+-----> Installing app to /app
+-----> Installed haskell-on-heroku-tutorial-1.0
+
+-----> Examining cache changes
+       + halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz
+
+-----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
+       ...
+
+
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 3.4MB
+-----> Launching... done, v17
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
+```
+</div>
+
+> ---------------------|---
+> _Expected time:_     | _<1 minute_
+
+In this step, Halcyon restores the app’s install directory from your private storage.
+
+Your app is now ready to use again:
+
+```
+$ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
+[{"contents":"Hello, world!","dateTime":"2015-01-25T09:36:44+00:00"}]
+```
+
+
 Provision an add-on
 -------------------
 
