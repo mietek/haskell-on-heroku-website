@@ -399,7 +399,7 @@ $ git push -q heroku HEAD:master
 
 In this step, Halcyon tries to restore the tutorial app’s install directory by using an archive from public storage.  This fails, and so Halcyon falls back to building the app:
 
-1.  First, a _GHC directory_, a _Cabal directory_, and the app’s _sandbox directory_ are restored from public storage.
+1.  First, the _GHC directory_, the _Cabal directory_, and the app’s _sandbox directory_ are restored from public storage.
 
 2.  Next, Halcyon restores the app’s _build directory_ from public storage, and performs an incremental build.
 
@@ -440,7 +440,7 @@ $ heroku ps:scale web=2
 Scaling dynos... done, now running web at 2:1X.
 ```
 
-Scaling the app may require you to [verify](https://heroku.com/verify) your Heroku account.
+**Note:**  Scaling the app may require you to [verify](https://heroku.com/verify) your Heroku account.
 
 For each app, Heroku provides [750 free dyno-hours](https://devcenter.heroku.com/articles/usage-and-billing) per month.  This allows your app to run on a single 1X dyno for free, indefinitely.
 
@@ -1169,7 +1169,7 @@ $ git push -q -f heroku HEAD:master
 > ---------------------|---
 > _Expected time:_     | _1–2 minutes_
 
-In this step, Halcyon restores a GHC directory and a Cabal directory from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon runs into the default dependency build restriction.
+In this step, Halcyon restores the GHC and Cabal directories from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon runs into the default dependency build restriction.
 
 All downloaded archives are uploaded to your private storage:
 
