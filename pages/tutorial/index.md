@@ -255,7 +255,7 @@ executable haskell-on-heroku-tutorial
 The generated `Procfile` declares a single process type, `web`:
 
 ```
-web: /app/bin/haskell-on-heroku-tutorial
+web: bin/haskell-on-heroku-tutorial
 ```
 
 Heroku requires the `web` process type to be declared, as only instances of this process can receive HTTP traffic from Heroku’s [routers](https://devcenter.heroku.com/articles/http-routing).
@@ -268,7 +268,7 @@ One `Procfile` can declare multiple process types, although Haskell apps rarely 
 The commands declared in a `Procfile` can include additional arguments and reference environment variables:
 
 ```
-web: /app/bin/example-app -p $PORT
+web: bin/example-app -p $PORT
 ```
 
 
@@ -405,7 +405,7 @@ Currently, your app is running on a single 1X dyno.  You can check this with the
 
 ```
 $ heroku ps
-=== web (1X): `/app/bin/haskell-on-heroku-tutorial`
+=== web (1X): `bin/haskell-on-heroku-tutorial`
 web.1: up 2015/01/15 09:24:33 (~ 1m ago)
 ```
 
