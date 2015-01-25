@@ -147,6 +147,8 @@ $ heroku open
 Opening still-earth-4767... done
 ```
 
+**Note:**  Warnings saying _“This app’s git repository is large”_ can be ignored, as they are a known Heroku issue.
+
 
 View the logs
 -------------
