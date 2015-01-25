@@ -83,31 +83,42 @@ Push the code to Heroku in order to deploy your app:
 <a class="toggle-button" data-target="deploy-the-app-log" href="" title="Toggle">Toggle</a>
 ``` { #deploy-the-app-log .toggle }
 $ git push -q heroku master
-...
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
 -----> Welcome to Haskell on Heroku
        BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
 
------> Installing buildpack... done, 4502dd8
------> Installing Halcyon... done, a45f643
------> Installing bashmenot... done, 2be4839
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
 -----> Installing haskell-on-heroku-tutorial-1.0
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **34a3b68**
+       Source hash:                              **a1f7195**
        External storage:                         **public**
        GHC version:                              **7.8.4**
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz... done, 8.8MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz... done, 8.8MB
 -----> Installing app to /app
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> Examining cache changes
-       + halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
-...
+       ...
+
+
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 3.4MB
+-----> Launching... done, v4
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
 </div>
 
@@ -151,8 +162,8 @@ Use the `heroku logs` command with the `-t` option to start viewing the logs in 
 ```
 $ heroku logs -t
 ...
-2015-01-15T09:24:33.751003+00:00 heroku[web.1]: State changed from starting to up
-2015-01-15T09:24:40.087150+00:00 heroku[router]: at=info method=GET path="/" host=still-earth-4767.herokuapp.com request_id=2d9895dd-e31e-40d4-8b0a-f3835b4f653b fwd="192.168.144.120" dyno=web.1 connect=1ms service=2ms status=404 bytes=132
+2015-01-25T09:24:33.751003+00:00 heroku[web.1]: State changed from starting to up
+2015-01-25T09:24:40.087150+00:00 heroku[router]: at=info method=GET path="/" host=still-earth-4767.herokuapp.com request_id=2d9895dd-e31e-40d4-8b0a-f3835b4f653b fwd="192.168.144.120" dyno=web.1 connect=1ms service=2ms status=404 bytes=132
 ```
 
 In another shell, make a `GET` request to see an empty list of notes:
@@ -178,11 +189,11 @@ Incoming requests appear in the logs:
 ```
 $ heroku logs -t
 ...
-2015-01-15T09:25:05.606819+00:00 heroku[router]: at=info method=GET path="/notes" host=still-earth-4767.herokuapp.com request_id=34f251cb-66d6-4bf8-a16a-64ad4dc1d352 fwd="192.168.144.120" dyno=web.1 connect=1ms service=3ms status=200 bytes=150
-2015-01-15T09:25:09.527051+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=cc4a444f-804b-4a4d-8737-05ebd7bc6868 fwd="192.168.144.120" dyno=web.1 connect=8ms service=11ms status=201 bytes=183
-2015-01-15T09:25:09.526124+00:00 app[web.1]: Hello, world!
-2015-01-15T09:25:13.085316+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=8672db7e-ad15-4093-9ef4-f052971d39e7 fwd="192.168.144.120" dyno=web.1 connect=3ms service=4ms status=201 bytes=205
-2015-01-15T09:25:13.085297+00:00 app[web.1]: Hello?
+2015-01-25T09:25:05.606819+00:00 heroku[router]: at=info method=GET path="/notes" host=still-earth-4767.herokuapp.com request_id=34f251cb-66d6-4bf8-a16a-64ad4dc1d352 fwd="192.168.144.120" dyno=web.1 connect=1ms service=3ms status=200 bytes=150
+2015-01-25T09:25:09.527051+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=cc4a444f-804b-4a4d-8737-05ebd7bc6868 fwd="192.168.144.120" dyno=web.1 connect=8ms service=11ms status=201 bytes=183
+2015-01-25T09:25:09.526124+00:00 app[web.1]: Hello, world!
+2015-01-25T09:25:13.085316+00:00 heroku[router]: at=info method=POST path="/notes" host=still-earth-4767.herokuapp.com request_id=8672db7e-ad15-4093-9ef4-f052971d39e7 fwd="192.168.144.120" dyno=web.1 connect=3ms service=4ms status=201 bytes=205
+2015-01-25T09:25:13.085297+00:00 app[web.1]: Hello?
 ```
 
 Press `control-C` to stop viewing the logs.
@@ -221,7 +232,7 @@ Use the `heroku config:set` command to define `TUTORIAL_HOME`:
 
 ```
 $ heroku config:set TUTORIAL_HOME="Hello, world!"
-Setting config vars and restarting still-earth-4767... done, v6
+Setting config vars and restarting still-earth-4767... done, v5
 TUTORIAL_HOME: Hello, world!
 ```
 
@@ -236,7 +247,7 @@ Restore the default message with the `heroku config:unset` command:
 
 ```
 $ heroku config:unset TUTORIAL_HOME
-Unsetting TUTORIAL_HOME and restarting still-earth-4767... done, v7
+Unsetting TUTORIAL_HOME and restarting still-earth-4767... done, v6
 ```
 
 
@@ -286,32 +297,35 @@ Check out and deploy `step2`:
 ``` { #push-a-change-log .toggle }
 $ git checkout -q step2
 $ git push -q heroku HEAD:master
-...
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
 -----> Welcome to Haskell on Heroku
        BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
 
------> Installing buildpack... done, dae3cd1
------> Installing Halcyon... done, a45f643
------> Installing bashmenot... done, 2be4839
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
 -----> Examining cache contents
-       halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> Installing haskell-on-heroku-tutorial-1.0
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **61bcce2**
+       Source hash:                              **0229215**
        External storage:                         **public**
        GHC version:                              **7.8.4**
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-61bcce2-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 
 -----> Determining constraints
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **61bcce2**
-       Constraints hash:                         **becfd1b**
-       Magic hash:                               **c7b5b77**
+       Source hash:                              **0229215**
+       Constraints hash:                         **f458aa8**
+       Magic hash:                               **3bffeae**
        External storage:                         **public**
        GHC version:                              **7.8.4**
        Cabal version:                            **1.20.0.3**
@@ -324,12 +338,12 @@ $ git push -q heroku HEAD:master
 -----> Locating Cabal directories
        Listing https://halcyon.global.ssl.fastly.net/... done
 -----> Restoring Cabal directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
 
 -----> Restoring sandbox directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
 
 -----> Restoring build directory
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
@@ -348,25 +362,33 @@ $ git push -q heroku HEAD:master
        Creating halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.1MB
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-61bcce2-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 -----> Preparing install directory
 -----> Installing extra data files for dependencies
 -----> Install directory prepared, 8.8MB
 -----> Archiving install directory
-       Creating halcyon-install-61bcce2-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
+       Creating halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
 -----> Installing app to /app
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> Examining cache changes
        + halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+       + halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
        + halcyon-ghc-7.8.4.tar.gz
-       - halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-install-61bcce2-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz
+       - halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
-...
+       ...
+
+
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 3.4MB
+-----> Launching... done, v7
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
 </div>
 
@@ -454,9 +476,9 @@ For performance reasons, Haskell on Heroku does not include your app’s depen
 -----> Determining constraints
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **34a3b68**
-       Constraints hash:                         **becfd1b**
-       Magic hash:                               **c7b5b77**
+       Source hash:                              **0229215**
+       Constraints hash:                         **f458aa8**
+       Magic hash:                               **3bffeae**
        External storage:                         **public**
        GHC version:                              **7.8.4**
        Cabal version:                            **1.20.0.3**
@@ -469,32 +491,34 @@ For performance reasons, Haskell on Heroku does not include your app’s depen
 -----> Locating Cabal directories
        Listing https://halcyon.global.ssl.fastly.net/... done
 -----> Restoring Cabal directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
 
 -----> Restoring sandbox directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
 
 -----> Restoring build directory
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
        Extracting halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.4MB
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz... done, 8.8MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... done, 8.8MB
 -----> Installing app to /app
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> Examining cache changes
        + halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+       + halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
        + halcyon-ghc-7.8.4.tar.gz
-       + halcyon-install-34a3b68-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App restored:                             **haskell-on-heroku-tutorial-1.0**
-...
+
+       To run GHCi:
+       $ cabal repl
 ```
 </div>
 
@@ -507,13 +531,17 @@ Previously-cached archives can’t be used, because there is no access to the He
 
 Start a GHCi session inside the remote shell:
 
-<div class="toggle">
-<a class="toggle-button" data-target="use-a-one-off-dyno-repl" href="" title="Toggle">Toggle</a>
-``` { #use-a-one-off-dyno-repl .toggle }
+```
 ~ $ cabal repl
-...
 GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
 ...
+[1 of 1] Compiling Main             ( Main.hs, interpreted )
+Ok, modules loaded: Main.
+```
+
+Your app’s code is now ready to use:
+
+```
 λ :browse
 newtype Note = Note {contents :: Text}
 emptyNotes :: IO (TVar [Note])
@@ -526,9 +554,6 @@ noteAPI :: Proxy NoteAPI
 server :: TVar [Note] -> Server NoteAPI
 main :: IO ()
 ```
-</div>
-
-Your app’s code is now ready to use.
 
 Press `control-D` twice to exit GHCi and shut down the dyno.
 
@@ -576,36 +601,39 @@ Check out and deploy `step3`:
 ``` { #declare-a-dependency-log .toggle }
 $ git checkout -q step3
 $ git push -q heroku HEAD:master
-...
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
 -----> Welcome to Haskell on Heroku
        BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
 
------> Installing buildpack... done, dae3cd1
------> Installing Halcyon... done, a45f643
------> Installing bashmenot... done, 2be4839
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
 -----> Examining cache contents
        halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+       halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
        halcyon-ghc-7.8.4.tar.gz
-       halcyon-install-61bcce2-haskell-on-heroku-tutorial-1.0.tar.gz
-       halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> Installing haskell-on-heroku-tutorial-1.0
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **27a6077**
+       Source hash:                              **188f30c**
        External storage:                         **public**
        GHC version:                              **7.8.4**
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 
 -----> Determining constraints
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **27a6077**
-       Constraints hash:                         **becfd1b**
-       Magic hash:                               **c7b5b77**
+       Source hash:                              **188f30c**
+       Constraints hash:                         **f458aa8**
+       Magic hash:                               **3bffeae**
        External storage:                         **public**
        GHC version:                              **7.8.4**
        Cabal version:                            **1.20.0.3**
@@ -615,10 +643,10 @@ $ git push -q heroku HEAD:master
        Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
 
 -----> Restoring Cabal directory
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
 
 -----> Restoring sandbox directory
-       Extracting halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
 
 -----> Restoring build directory
        Extracting halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.4MB
@@ -638,22 +666,30 @@ $ git push -q heroku HEAD:master
        Creating halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.1MB
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 -----> Preparing install directory
 -----> Installing extra data files for dependencies
 -----> Install directory prepared, 8.8MB
 -----> Archiving install directory
-       Creating halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
+       Creating halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
 -----> Installing app to /app
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> Examining cache changes
        * halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz
-       - halcyon-install-61bcce2-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz
+       - halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
-...
+       ...
+
+
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 3.4MB
+-----> Launching... done, v8
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
 </div>
 
@@ -674,7 +710,7 @@ Your app is now ready to use again:
 
 ```
 $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
-[{"contents":"Hello, world!","dateTime":"2015-01-15T09:31:28Z"}]
+[{"contents":"Hello, world!","dateTime":"2015-01-25T09:31:28Z"}]
 ```
 
 
@@ -714,37 +750,40 @@ Check out `step4`, and try deploying it:
 <a class="toggle-button" data-target="declare-a-constraint-log" href="" title="Toggle">Toggle</a>
 ``` { #declare-a-constraint-log .toggle }
 $ git checkout -q step4
-$ git push heroku HEAD:master
-...
+$ git push -q heroku HEAD:master
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
 -----> Welcome to Haskell on Heroku
        BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
 
------> Installing buildpack... done, dae3cd1
------> Installing Halcyon... done, a45f643
------> Installing bashmenot... done, 2be4839
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
 -----> Examining cache contents
        halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+       halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
        halcyon-ghc-7.8.4.tar.gz
-       halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz
-       halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> Installing haskell-on-heroku-tutorial-1.0
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **9ab4c40**
+       Source hash:                              **ba0aa48**
        External storage:                         **public**
        GHC version:                              **7.8.4**
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-9ab4c40-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-ba0aa48-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 
 -----> Determining constraints
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **9ab4c40**
-       Constraints hash:                         **becfd1b**
-       Magic hash:                               **c7b5b77**
+       Source hash:                              **ba0aa48**
+       Constraints hash:                         **f458aa8**
+       Magic hash:                               **3bffeae**
        External storage:                         **public**
        GHC version:                              **7.8.4**
        Cabal version:                            **1.20.0.3**
@@ -754,10 +793,10 @@ $ git push heroku HEAD:master
        Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
 
 -----> Restoring Cabal directory
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
 
 -----> Restoring sandbox directory
-       Extracting halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
 **   *** WARNING: Unexpected constraints difference**
        @@ -38,6 +38,7 @@
         free-4.10.0.1
@@ -784,7 +823,8 @@ $ git push heroku HEAD:master
        hourglass -any
 **   *** ERROR: Failed to configure app**
 **   *** ERROR: Failed to deploy app**
-...
+
+ !     Push rejected, failed to compile Haskell app
 ```
 </div>
 
@@ -818,7 +858,7 @@ Override the default by setting the [`HALCYON_NO_BUILD_DEPENDENCIES`](https://ha
 
 ```
 $ heroku config:set HALCYON_NO_BUILD_DEPENDENCIES=0
-Setting config vars and restarting still-earth-4767... done, v10
+Setting config vars and restarting still-earth-4767... done, v9
 HALCYON_NO_BUILD_DEPENDENCIES: 0
 ```
 
@@ -828,38 +868,41 @@ Check out and install `step5`:
 <a class="toggle-button" data-target="build-the-sandbox-log" href="" title="Toggle">Toggle</a>
 ``` { #build-the-sandbox-log .toggle }
 $ git checkout -q step5
-$ git push heroku HEAD:master
-...
+$ git push -q heroku HEAD:master
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
 -----> Welcome to Haskell on Heroku
        BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
        HALCYON_NO_BUILD_DEPENDENCIES:            **0**
 
------> Installing buildpack... done, dae3cd1
------> Installing Halcyon... done, 458c9aa
------> Installing bashmenot... done, 2be4839
+-----> Installing buildpack... done, 34a2e51
+-----> Installing Halcyon... done, 0e8fd37
+-----> Installing bashmenot... done, 167e265
 -----> Examining cache contents
        halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz
+       halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
        halcyon-ghc-7.8.4.tar.gz
-       halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz
-       halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz
+       halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> Installing haskell-on-heroku-tutorial-1.0
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **04d46d4**
+       Source hash:                              **57e9d9d**
        External storage:                         **public**
        GHC version:                              **7.8.4**
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-04d46d4-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 
 -----> Determining constraints
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
-       Source hash:                              **04d46d4**
-       Constraints hash:                         **3ad1ba3**
-       Magic hash:                               **c23e21c**
+       Source hash:                              **57e9d9d**
+       Constraints hash:                         **0551a64**
+       Magic hash:                               **4877c9d**
        External storage:                         **public**
        GHC version:                              **7.8.4**
        Cabal version:                            **1.20.0.3**
@@ -869,29 +912,30 @@ $ git push heroku HEAD:master
        Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
 
 -----> Restoring Cabal directory
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-15.tar.gz... done, 180MB
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
 
 -----> Restoring sandbox directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-3ad1ba3-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 -----> Locating sandbox directories
        Listing https://halcyon.global.ssl.fastly.net/... done
 -----> Examining partially matching sandbox directories
        ...
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.constraints... done
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-1a1d740-hello-yesod-1.0.constraints... done
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-3b0b768-hello-happstack-1.0.constraints... done
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-335d31e-hello-snap-1.0.constraints... done
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.constraints... done
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-ffec23f-hello-wai-1.0.constraints... done
 -----> Scoring partially matching sandbox directories
-       Ignoring hello-miku-1.0 (3c81d66) as HUnit-1.2.5.2 is not needed
-       Ignoring hello-snap-1.0 (4af96d8) as HUnit-1.2.5.2 is not needed
-       Ignoring hello-wheb-1.0 (4c4bfdc) as SHA-1.6.4.1 is not needed
-            41 hello-wai-1.0 (028a0e6)
-       Ignoring hello-scotty-1.0 (33c011e) as data-default-0.5.3 is not needed
-       Ignoring hello-happstack-1.0 (47c3e8d) as base-unicode-symbols-0.2.2.4 is not needed
-       Ignoring hello-spock-1.0 (0331829) as QuickCheck-2.7.6 is not needed
-           101 haskell-on-heroku-tutorial-1.0 (becfd1b)
-       Ignoring hello-yesod-1.0 (dac4ebf) as asn1-encoding-0.9.0 is not needed
------> Using partially matching sandbox directory: haskell-on-heroku-tutorial-1.0 (becfd1b)
+       ...
+       Ignoring hello-yesod-1.0 (1a1d740) as asn1-encoding-0.9.0 is not needed
+       Ignoring hello-happstack-1.0 (3b0b768) as base-unicode-symbols-0.2.2.4 is not needed
+       Ignoring hello-snap-1.0 (335d31e) as HUnit-1.2.5.2 is not needed
+           101 haskell-on-heroku-tutorial-1.0 (f458aa8)
+            41 hello-wai-1.0 (ffec23f)
+-----> Using partially matching sandbox directory: haskell-on-heroku-tutorial-1.0 (f458aa8)
 -----> Restoring sandbox directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-sandbox-becfd1b-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
 -----> Building sandbox directory
 -----> Building sandbox
        Resolving dependencies...
@@ -904,7 +948,7 @@ $ git push heroku HEAD:master
        Removing documentation from sandbox directory... done, 144MB
        Stripping sandbox directory... done, 143MB
 -----> Archiving sandbox directory
-       Creating halcyon-sandbox-3ad1ba3-haskell-on-heroku-tutorial-1.0.tar.gz... done, 25MB
+       Creating halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz... done, 25MB
 
 -----> Restoring build directory
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
@@ -927,23 +971,31 @@ $ git push heroku HEAD:master
        Creating halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.2MB
 
 -----> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-04d46d4-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
 -----> Preparing install directory
 -----> Installing extra data files for dependencies
 -----> Install directory prepared, 9.1MB
 -----> Archiving install directory
-       Creating halcyon-install-04d46d4-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
+       Creating halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
 -----> Installing app to /app
 -----> Installed haskell-on-heroku-tutorial-1.0
 
 -----> Examining cache changes
        * halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-install-04d46d4-haskell-on-heroku-tutorial-1.0.tar.gz
-       - halcyon-install-27a6077-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-sandbox-3ad1ba3-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz
+       - halcyon-install-188f30c-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
-...
+       ...
+
+
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 3.4MB
+-----> Launching... done, v10
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
 </div>
 
@@ -962,7 +1014,7 @@ Your app is now ready to use again:
 
 ```
 $ curl -X POST http://localhost:8080/notes -d '{ "contents": "Hello, world!" }'
-[{"contents":"Hello, world!","dateTime":"2015-01-15T09:28:26+00:00"}]
+[{"contents":"Hello, world!","dateTime":"2015-01-25T09:28:26+00:00"}]
 ```
 
 
@@ -984,11 +1036,8 @@ To use private storage, you’ll need to:
 Once you’re done, configure private storage by setting [`HALCYON_AWS_ACCESS_KEY_ID`](https://halcyon.sh/reference/#halcyon_aws_access_key_id),  [`HALCYON_AWS_SECRET_ACCESS_KEY`](https://halcyon.sh/reference/#halcyon_aws_secret_access_key), and [`HALCYON_S3_BUCKET`](https://halcyon.sh/reference/#halcyon_s3_bucket):
 
 ```
-$ heroku config:set \
-    HALCYON_AWS_ACCESS_KEY_ID=example-access-key-id \
-    HALCYON_AWS_SECRET_ACCESS_KEY=example-secret-access-key \
-    HALCYON_S3_BUCKET=example-bucket
-Setting config vars and restarting still-earth-4767... done, v12
+$ heroku config:set HALCYON_AWS_ACCESS_KEY_ID=example-access-key-id HALCYON_AWS_SECRET_ACCESS_KEY=example-secret-access-key HALCYON_S3_BUCKET=example-bucket
+Setting config vars and restarting still-earth-4767... done, v11
 HALCYON_AWS_ACCESS_KEY_ID:     example-access-key-id
 HALCYON_AWS_SECRET_ACCESS_KEY: example-secret-access-key
 HALCYON_S3_BUCKET:             example-bucket
@@ -998,7 +1047,7 @@ If your S3 bucket isn’t located in the Amazon US Standard region, you’ll als
 
 ```
 $ heroku config:set HALCYON_S3_ENDPOINT=s3-example-region.amazonaws.com
-Setting config vars and restarting still-earth-4767... done, v13
+Setting config vars and restarting still-earth-4767... done, v12
 HALCYON_S3_ENDPOINT: s3-example-region.amazonaws.com
 ```
 
