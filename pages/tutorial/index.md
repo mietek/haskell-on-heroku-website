@@ -1402,18 +1402,6 @@ $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "H
 ```
 
 
-Provision an add-on
--------------------
-
-_TODO_
-
-
-Use a database
---------------
-
-_TODO_
-
-
 Next steps
 ----------
 
@@ -1421,11 +1409,6 @@ You now know how to use Haskell on Heroku to develop and deploy Haskell web ap
 
 Here’s some recommended reading:
 
-- _TODO_
+- See the [Haskell on Heroku reference](/reference/) for a list of buildpack-specific options.
 
-- _TODO_
-
-
----
-
-_**Work in progress.**  For updates, follow <a href="https://twitter.com/mietek">@mietek</a>._
+- Look for additional options in the [Halcyon reference](https://halcyon.sh/reference/).
