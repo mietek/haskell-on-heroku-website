@@ -1008,7 +1008,7 @@ In this step, Halcyon restores the GHC and Cabal directories from cache, and tri
 Your app is now ready to use again:
 
 ```
-$ curl -X POST http://localhost:8080/notes -d '{ "contents": "Hello, world!" }'
+$ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
 [{"contents":"Hello, world!","dateTime":"2015-01-25T09:28:26+00:00"}]
 ```
 
