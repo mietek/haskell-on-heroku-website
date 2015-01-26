@@ -233,7 +233,7 @@ $ grep -C1 Welcome Main.hs
 Use the `heroku config:set` command to define `TUTORIAL_HOME`:
 
 ```
-$ heroku config:set TUTORIAL_HOME="Hello, world!"
+$ heroku config:set TUTORIAL_HOME='Hello, world!'
 Setting config vars and restarting still-earth-4767... done, v5
 TUTORIAL_HOME: Hello, world!
 ```
