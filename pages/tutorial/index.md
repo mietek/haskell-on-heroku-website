@@ -1056,8 +1056,8 @@ $ heroku config:set HALCYON_S3_ACL=public-read
 ```
 
 
-Use private storage
--------------------
+Deploy the buildpack
+--------------------
 
 Let’s force Halcyon to build the sandbox directory again, in order to populate your private storage.  Since we are using Heroku, we want the build to be performed on a one-off PX dyno.
 
@@ -1079,8 +1079,8 @@ HALCYON_PURGE_CACHE: 1
 Try forcing Heroku to deploy the same version of the app again:
 
 <div class="toggle">
-<a class="toggle-button" data-target="use-private-storage-log" href="" title="Toggle">Toggle</a>
-``` { #use-private-storage-log .toggle }
+<a class="toggle-button" data-target="deploy-the-buildpack-log" href="" title="Toggle">Toggle</a>
+``` { #deploy-the-buildpack-log .toggle }
 $ git commit -q --amend --no-edit
 $ git push -q -f heroku HEAD:master
 -----> Fetching custom git buildpack... done
@@ -1177,8 +1177,8 @@ linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
 If you want to avoid downloading any archives from public storage, set [`HALCYON_NO_PUBLIC_STORAGE`](https://halcyon.sh/reference/#halcyon_no_public_storage) to `1` before populating your private storage.
 
 
-Build the app on a one-off dyno
--------------------------------
+Build on a one-off PX dyno
+--------------------------
 
 It’s important to notice only _the buildpack_ is now deployed, and not your app.  This trick allows us to get around the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
 
@@ -1192,8 +1192,8 @@ Unsetting HALCYON_PURGE_CACHE and restarting still-earth-4767... done, v16
 Build the app on a one-off PX dyno:
 
 <div class="toggle">
-<a class="toggle-button" data-target="build-the-app-on-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
-``` { #build-the-app-on-a-one-off-dyno-log1 .toggle }
+<a class="toggle-button" data-target="build-on-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
+``` { #build-on-a-one-off-dyno-log1 .toggle }
 $ heroku run -s PX build
 Running `build` attached to terminal... up, run.8506
 -----> Self-updating bashmenot... done, 167e265
@@ -1339,8 +1339,8 @@ linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
 Finally, force Heroku to deploy the same version of the app again:
 
 <div class="toggle">
-<a class="toggle-button" data-target="build-the-app-on-a-one-off-dyno-log2" href="" title="Toggle">Toggle</a>
-``` { #build-the-app-on-a-one-off-dyno-log2 .toggle }
+<a class="toggle-button" data-target="build-on-a-one-off-dyno-log2" href="" title="Toggle">Toggle</a>
+``` { #build-on-a-one-off-dyno-log2 .toggle }
 $ git commit -q --amend --no-edit
 $ git push -q -f heroku HEAD:master
 -----> Fetching custom git buildpack... done
