@@ -1016,9 +1016,9 @@ $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "H
 Set up private storage
 ----------------------
 
-Halcyon can use _private storage_ as well as public storage.  Private storage is an external cache for the apps and dependencies you build.
+Halcyon can use _private storage_ as well as public storage.  Private storage is an external cache for the apps and dependencies you build, and a method for sharing build products between multiple machines.
 
-By using private storage, you can share archives between multiple machines, and avoid running into the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
+By using private storage, you can perform builds with no time limit on a fast one-off PX dyno with 6 GB RAM, and share build products with the default 1X dynos which receive your `git push`.
 
 To use private storage, you’ll need to:
 
@@ -1059,7 +1059,7 @@ $ heroku config:set HALCYON_S3_ACL=public-read
 Deploy the buildpack
 --------------------
 
-Let’s force Halcyon to build the sandbox directory again, in order to populate your private storage.  Since we are using Heroku, we want the build to be performed on a one-off PX dyno.
+Let’s build a sandbox directory for your app again — this time, using a one-off PX dyno.  In order to do that, _the buildpack_ needs to be deployed first.
 
 Restore the default dependency build restriction:
 
@@ -1068,7 +1068,7 @@ $ heroku config:unset HALCYON_NO_BUILD_DEPENDENCIES
 Unsetting HALCYON_NO_BUILD_DEPENDENCIES and restarting still-earth-4767... done, v13
 ```
 
-Set the [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) option to `1` in order to empty the cache directory before building:
+Set the [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) option to `1` so that the existing sandbox directory archive is deleted during the next push:
 
 ```
 $ heroku config:set HALCYON_PURGE_CACHE=1
@@ -1160,15 +1160,17 @@ $ git push -q -f heroku HEAD:master
 > ---------------------|---
 > _Expected time:_     | _1–2 minutes_
 
-In this step, Halcyon restores the GHC and Cabal directories from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon runs into the default dependency build restriction.
+In this step, Halcyon restores the GHC and Cabal directories from public storage, and tries to locate the right sandbox directory for the current version of the app.  This fails, and so Halcyon fails to build the app.
 
-All downloaded archives are uploaded to your private storage:
+All downloaded archives are uploaded to your private storage.
+
+**Note:**  Your app _isn’t_ deployed now — only the buildpack is.  This trick is needed to allow building on a one-off PX dyno.
+
+Remember to unset [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) before the next step:
 
 ```
-$ s3_list example-bucket linux-ubuntu-14
-       Listing s3://example-bucket/?prefix=linux-ubuntu-14... done
-linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
-linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
+$ heroku config:unset HALCYON_PURGE_CACHE
+Unsetting HALCYON_PURGE_CACHE and restarting still-earth-4767... done, v16
 ```
 
 
@@ -1180,16 +1182,9 @@ If you want to avoid downloading any archives from public storage, set [`HALCYON
 Build on a one-off PX dyno
 --------------------------
 
-It’s important to notice only _the buildpack_ is now deployed, and not your app.  This trick allows us to get around the Heroku 15-minute build [time limit](https://devcenter.heroku.com/articles/slug-compiler#time-limit).
+With private storage set up, and the buildpack deployed, you can now build the sandbox directory on a fast PX dyno with 6 GB RAM.
 
-Remember to unset [`HALCYON_PURGE_CACHE`](https://halcyon.sh/reference/#halcyon_purge_cache) after the previous step:
-
-```
-$ heroku config:unset HALCYON_PURGE_CACHE
-Unsetting HALCYON_PURGE_CACHE and restarting still-earth-4767... done, v16
-```
-
-Build the app on a one-off PX dyno:
+Use the `heroku run` command with the `-s PX` option to perform a build:
 
 <div class="toggle">
 <a class="toggle-button" data-target="build-on-a-one-off-dyno-log1" href="" title="Toggle">Toggle</a>
@@ -1321,20 +1316,9 @@ Running `build` attached to terminal... up, run.8506
 
 In this step, Halcyon restores the GHC and Cabal directories from cache, builds and archives a sandbox based on a partially-matching sandbox directory, performs an incremental build, and installs the app again.
 
+All downloaded and newly-created archives are uploaded to your private storage.
+
 **Note:**  Using a PX dyno may require you to [verify](https://heroku.com/verify) your Heroku account.
-
-All downloaded and newly-created archives are uploaded to your private storage:
-
-```
-$ s3_list example-bucket linux-ubuntu-14
-       Listing s3://example-bucket/?prefix=linux-ubuntu-14... done
-linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-57e9d9d-haskell-on-heroku-tutorial-1.0.tar.gz
-linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.constraints
-linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-0551a64-haskell-on-heroku-tutorial-1.0.tar.gz
-linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
-linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz
-```
 
 Finally, force Heroku to deploy the same version of the app again:
 
@@ -1394,7 +1378,7 @@ $ git push -q -f heroku HEAD:master
 
 In this step, Halcyon restores the app’s install directory from your private storage.
 
-Your app is now ready to use again:
+Once again, your app is now ready to use:
 
 ```
 $ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
