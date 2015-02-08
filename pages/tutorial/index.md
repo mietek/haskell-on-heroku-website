@@ -1151,7 +1151,7 @@ $ git push -q -f heroku HEAD:master
 -----> Discovering process types
        Procfile declares types -> (none)
 
------> Compressing... done, 130.1MB
+-----> Compressing... done, 1.5MB
 -----> Launching... done, v15
        https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
