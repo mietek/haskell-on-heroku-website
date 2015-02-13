@@ -57,7 +57,7 @@ All example apps can be deployed to Heroku in one click.
 <aside>
 <a class="micro face tristan-sloughter" href="https://twitter.com/t_sloughter/status/539168929131003904"></a>
 <blockquote>_“[Miëtek’s](#about) Haskell on Heroku and [Halcyon](https://halcyon.sh/) has made deploying [How I Start](https://halcyon.sh/examples/#how-i-start) fast and simple!  Thanks!”_</blockquote>
-<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904), [How I Start](https://halcyon.sh/examples/#how-i-start) author</p>
+<p>[— Tristan Sloughter](https://twitter.com/t_sloughter/status/539168929131003904), author of [How I Start](https://halcyon.sh/examples/#how-i-start)</p>
 </aside>
 
 
@@ -98,7 +98,7 @@ Haskell on Heroku is written in [GNU _bash_](https://gnu.org/software/bash/), 
 <aside>
 <a class="micro face brian-mckenna" href="https://twitter.com/puffnfresh/status/541029111611674624"></a>
 <blockquote>_“Deployment of Haskell applications is getting interesting due to Miëtek’s [Halcyon](https://halcyon.sh/) project.”_</blockquote>
-<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/541029111611674624), [Try Idris](https://halcyon.sh/examples/#try-idris) author and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for Haskell on Heroku</p>
+<p>[— Brian McKenna](https://twitter.com/puffnfresh/status/541029111611674624), author of [Try Idris](https://halcyon.sh/examples/#try-idris) and [inspiration](http://brianmckenna.org/blog/haskell_buildpack_heroku) for Haskell on Heroku</p>
 </aside>
 
 
