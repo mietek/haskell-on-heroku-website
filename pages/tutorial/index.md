@@ -48,7 +48,7 @@ The app includes a Cabal _package description file,_ [`haskell-on-heroku-tutoria
 Clone the [_haskell-on-heroku-tutorial_ source repository](https://github.com/mietek/haskell-on-heroku-tutorial):
 
 ```
-$ git clone https://github.com/mietek/haskell-on-heroku-tutorial
+$ git clone -q https://github.com/mietek/haskell-on-heroku-tutorial
 ```
 
 Create a new Heroku app with the `heroku create` command, using the `-b` option to specify the buildpack:
