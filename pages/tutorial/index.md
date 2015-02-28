@@ -57,7 +57,7 @@ Create a new Heroku app with the `heroku create` command, using the `-b` option 
 $ cd haskell-on-heroku-tutorial
 $ heroku create -b https://github.com/mietek/haskell-on-heroku
 Creating still-earth-4767... done, stack is cedar-14
-BUILDPACK_URL=https://github.com/mietek/haskell-on-heroku
+Buildpack set. Next release on still-earth-4767 will use https://github.com/mietek/haskell-on-heroku.
 https://still-earth-4767.herokuapp.com/ | https://git.heroku.com/still-earth-4767.git
 Git remote heroku added
 ```
@@ -88,11 +88,10 @@ $ git push -q heroku master
 
 
 -----> Welcome to Haskell on Heroku
-       BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
 
------> Installing buildpack... done, 34a2e51
------> Installing Halcyon... done, 0e8fd37
------> Installing bashmenot... done, 167e265
+-----> Installing buildpack... done, e52a46e
+-----> Installing Halcyon... done, fd5fc7d
+-----> Installing bashmenot... done, 5165edd
 -----> Installing haskell-on-heroku-tutorial-1.0
        Label:                                    **haskell-on-heroku-tutorial-1.0**
        Prefix:                                   **/app**
@@ -116,8 +115,8 @@ $ git push -q heroku master
 -----> Discovering process types
        Procfile declares types -> web
 
------> Compressing... done, 3.4MB
------> Launching... done, v4
+-----> Compressing... done, 3.5MB
+-----> Launching... done, v3
        https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
 </div>
@@ -210,8 +209,7 @@ You can check which config vars are currently defined by using the `heroku confi
 
 ```
 $ heroku config
-=== still-earth-4767 Config Vars
-BUILDPACK_URL:       https://github.com/mietek/haskell-on-heroku
+=== still-earth-4767 has no config vars.
 ```
 
 The tutorial app responds to `GET /` requests with a welcome message:
@@ -234,7 +232,7 @@ Use the `heroku config:set` command to define `TUTORIAL_HOME`:
 
 ```
 $ heroku config:set TUTORIAL_HOME='Hello, world!'
-Setting config vars and restarting still-earth-4767... done, v5
+Setting config vars and restarting still-earth-4767... done, v4
 TUTORIAL_HOME: Hello, world!
 ```
 
@@ -249,7 +247,7 @@ Restore the default message with the `heroku config:unset` command:
 
 ```
 $ heroku config:unset TUTORIAL_HOME
-Unsetting TUTORIAL_HOME and restarting still-earth-4767... done, v6
+Unsetting TUTORIAL_HOME and restarting still-earth-4767... done, v5
 ```
 
 
@@ -304,11 +302,10 @@ $ git push -q heroku HEAD:master
 
 
 -----> Welcome to Haskell on Heroku
-       BUILDPACK_URL:                            **https://github.com/mietek/haskell-on-heroku**
 
------> Installing buildpack... done, 34a2e51
------> Installing Halcyon... done, 0e8fd37
------> Installing bashmenot... done, 167e265
+-----> Installing buildpack... done, e52a46e
+-----> Installing Halcyon... done, fd5fc7d
+-----> Installing bashmenot... done, 5165edd
 -----> Examining cache contents
        halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
 
@@ -338,7 +335,7 @@ $ git push -q heroku HEAD:master
        Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
 
 -----> Locating Cabal directories
-       Listing https://halcyon.global.ssl.fastly.net/... done
+       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
 -----> Restoring Cabal directory
        Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
        Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
@@ -377,8 +374,8 @@ $ git push -q heroku HEAD:master
        + halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
        + halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
        + halcyon-ghc-7.8.4.tar.gz
-       - halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
        + halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
+       - halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
        + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
 
 -----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
@@ -388,8 +385,8 @@ $ git push -q heroku HEAD:master
 -----> Discovering process types
        Procfile declares types -> web
 
------> Compressing... done, 3.4MB
------> Launching... done, v7
+-----> Compressing... done, 3.5MB
+-----> Launching... done, v6
        https://still-earth-4767.herokuapp.com/ deployed to Heroku
 ```
 </div>
