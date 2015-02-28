@@ -283,140 +283,6 @@ web: bin/example-app -p $PORT
 ```
 
 
-Push a change
--------------
-
-Let’s change the tutorial app so that each note can contain a timestamp.
-
-The [`step2`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step2) version of the app includes a new `dateTime` field in each note.
-
-Check out and deploy `step2`:
-
-<div class="toggle">
-<a class="toggle-button" data-target="push-a-change-log" href="" title="Toggle">Toggle</a>
-``` { #push-a-change-log .toggle }
-$ git checkout -q step2
-$ git push -q heroku HEAD:master
------> Fetching custom git buildpack... done
------> Haskell app detected
-
-
------> Welcome to Haskell on Heroku
-
------> Installing buildpack... done, e52a46e
------> Installing Halcyon... done, fd5fc7d
------> Installing bashmenot... done, 5165edd
------> Examining cache contents
-       halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
-
------> Installing haskell-on-heroku-tutorial-1.0
-       Label:                                    **haskell-on-heroku-tutorial-1.0**
-       Prefix:                                   **/app**
-       Source hash:                              **0229215**
-       External storage:                         **public**
-       GHC version:                              **7.8.4**
-
------> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
-
------> Determining constraints
-       Label:                                    **haskell-on-heroku-tutorial-1.0**
-       Prefix:                                   **/app**
-       Source hash:                              **0229215**
-       Constraints hash:                         **f458aa8**
-       Magic hash:                               **3bffeae**
-       External storage:                         **public**
-       GHC version:                              **7.8.4**
-       Cabal version:                            **1.20.0.3**
-       Cabal repository:                         **Hackage**
-
------> Restoring GHC directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
-       Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
-
------> Locating Cabal directories
-       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
------> Restoring Cabal directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
-       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
-
------> Restoring sandbox directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
-
------> Restoring build directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
-       Extracting halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.4MB
------> Examining source changes
-       * Main.hs
------> Building app
-       Building haskell-on-heroku-tutorial-1.0...
-       Preprocessing executable 'haskell-on-heroku-tutorial' for
-       haskell-on-heroku-tutorial-1.0...
-       [1 of 1] Compiling Main             ( Main.hs, dist/build/haskell-on-heroku-tutorial/haskell-on-heroku-tutorial-tmp/Main.o )
-       Linking dist/build/haskell-on-heroku-tutorial/haskell-on-heroku-tutorial ...
------> App built, 12MB
-       Stripping app... done, 9.4MB
------> Archiving build directory
-       Creating halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.1MB
-
------> Restoring install directory
-       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
------> Preparing install directory
------> Installing extra data files for dependencies
------> Install directory prepared, 8.8MB
------> Archiving install directory
-       Creating halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
------> Installing app to /app
------> Installed haskell-on-heroku-tutorial-1.0
-
------> Examining cache changes
-       + halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
-       + halcyon-ghc-7.8.4.tar.gz
-       + halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
-       - halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
-       + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
-
------> App deployed:                             **haskell-on-heroku-tutorial-1.0**
-       ...
-
-
------> Discovering process types
-       Procfile declares types -> web
-
------> Compressing... done, 3.5MB
------> Launching... done, v6
-       https://still-earth-4767.herokuapp.com/ deployed to Heroku
-```
-</div>
-
-> ---------------------|---
-> _Expected time:_     | _1–2 minutes_
-
-In this step, Halcyon tries to restore the tutorial app’s install directory by using an archive from public storage.  This fails, and so Halcyon falls back to building the app:
-
-1.  First, the _GHC directory_, the _Cabal directory_, and the app’s _sandbox directory_ are restored from public storage.
-
-2.  Next, Halcyon restores the app’s _build directory_ from public storage, and performs an incremental build.
-
-3.  Finally, the app’s new install directory is prepared and archived, and the app is installed.
-
-Halcyon determines which sandbox archive to restore by calculating a _constraints hash_ of the version constraints declared by your app.  Similarly, the right version of GHC to use is implied by the `base` package constraint:
-
-```
-$ grep -E '^base-' .halcyon/constraints
-base-4.7.0.2
-```
-
-Your app is now ready to use again:
-
-```
-$ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
-[{"contents":"Hello, world!","dateTime":""}]
-```
-
-
 Scale the app
 -------------
 
@@ -560,6 +426,140 @@ By default, Heroku runs one-off commands on 1X dynos.  You can specify another [
 
 ```
 $ heroku run -s 2X bash
+```
+
+
+Push a change
+-------------
+
+Let’s change the tutorial app so that each note can contain a timestamp.
+
+The [`step2`](https://github.com/mietek/haskell-on-heroku-tutorial/tree/step2) version of the app includes a new `dateTime` field in each note.
+
+Check out and deploy `step2`:
+
+<div class="toggle">
+<a class="toggle-button" data-target="push-a-change-log" href="" title="Toggle">Toggle</a>
+``` { #push-a-change-log .toggle }
+$ git checkout -q step2
+$ git push -q heroku HEAD:master
+-----> Fetching custom git buildpack... done
+-----> Haskell app detected
+
+
+-----> Welcome to Haskell on Heroku
+
+-----> Installing buildpack... done, e52a46e
+-----> Installing Halcyon... done, fd5fc7d
+-----> Installing bashmenot... done, 5165edd
+-----> Examining cache contents
+       halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
+
+-----> Installing haskell-on-heroku-tutorial-1.0
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **0229215**
+       External storage:                         **public**
+       GHC version:                              **7.8.4**
+
+-----> Restoring install directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+
+-----> Determining constraints
+       Label:                                    **haskell-on-heroku-tutorial-1.0**
+       Prefix:                                   **/app**
+       Source hash:                              **0229215**
+       Constraints hash:                         **f458aa8**
+       Magic hash:                               **3bffeae**
+       External storage:                         **public**
+       GHC version:                              **7.8.4**
+       Cabal version:                            **1.20.0.3**
+       Cabal repository:                         **Hackage**
+
+-----> Restoring GHC directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-ghc-7.8.4.tar.gz... done
+       Extracting halcyon-ghc-7.8.4.tar.gz... done, 701MB
+
+-----> Locating Cabal directories
+       Listing https://halcyon.global.ssl.fastly.net/?prefix=linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-... done
+-----> Restoring Cabal directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done
+       Extracting halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz... done, 182MB
+
+-----> Restoring sandbox directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz... done, 140MB
+
+-----> Restoring build directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done
+       Extracting halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 9.4MB
+-----> Examining source changes
+       * Main.hs
+-----> Building app
+       Building haskell-on-heroku-tutorial-1.0...
+       Preprocessing executable 'haskell-on-heroku-tutorial' for
+       haskell-on-heroku-tutorial-1.0...
+       [1 of 1] Compiling Main             ( Main.hs, dist/build/haskell-on-heroku-tutorial/haskell-on-heroku-tutorial-tmp/Main.o )
+       Linking dist/build/haskell-on-heroku-tutorial/haskell-on-heroku-tutorial ...
+-----> App built, 12MB
+       Stripping app... done, 9.4MB
+-----> Archiving build directory
+       Creating halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.1MB
+
+-----> Restoring install directory
+       Downloading https://halcyon.global.ssl.fastly.net/linux-ubuntu-14.04-x86_64/ghc-7.8.4/halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... 404 (not found)
+-----> Preparing install directory
+-----> Installing extra data files for dependencies
+-----> Install directory prepared, 8.8MB
+-----> Archiving install directory
+       Creating halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz... done, 2.0MB
+-----> Installing app to /app
+-----> Installed haskell-on-heroku-tutorial-1.0
+
+-----> Examining cache changes
+       + halcyon-build-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-cabal-1.20.0.3-hackage-2015-01-25.tar.gz
+       + halcyon-ghc-7.8.4.tar.gz
+       + halcyon-install-0229215-haskell-on-heroku-tutorial-1.0.tar.gz
+       - halcyon-install-a1f7195-haskell-on-heroku-tutorial-1.0.tar.gz
+       + halcyon-sandbox-f458aa8-haskell-on-heroku-tutorial-1.0.tar.gz
+
+-----> App deployed:                             **haskell-on-heroku-tutorial-1.0**
+       ...
+
+
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 3.5MB
+-----> Launching... done, v6
+       https://still-earth-4767.herokuapp.com/ deployed to Heroku
+```
+</div>
+
+> ---------------------|---
+> _Expected time:_     | _1–2 minutes_
+
+In this step, Halcyon tries to restore the tutorial app’s install directory by using an archive from public storage.  This fails, and so Halcyon falls back to building the app:
+
+1.  First, the _GHC directory_, the _Cabal directory_, and the app’s _sandbox directory_ are restored from public storage.
+
+2.  Next, Halcyon restores the app’s _build directory_ from public storage, and performs an incremental build.
+
+3.  Finally, the app’s new install directory is prepared and archived, and the app is installed.
+
+Halcyon determines which sandbox archive to restore by calculating a _constraints hash_ of the version constraints declared by your app.  Similarly, the right version of GHC to use is implied by the `base` package constraint:
+
+```
+$ grep -E '^base-' .halcyon/constraints
+base-4.7.0.2
+```
+
+Your app is now ready to use again:
+
+```
+$ curl -X POST https://still-earth-4767.herokuapp.com/notes -d '{ "contents": "Hello, world!" }'
+[{"contents":"Hello, world!","dateTime":""}]
 ```
 
 
