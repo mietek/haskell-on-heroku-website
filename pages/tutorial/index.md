@@ -1035,16 +1035,14 @@ HALCYON_AWS_SECRET_ACCESS_KEY: example-secret-access-key
 HALCYON_S3_BUCKET:             example-bucket
 ```
 
+
+### Options
+
 If your S3 bucket isn’t located in the Amazon US Standard region, you’ll also need to set [`HALCYON_S3_ENDPOINT`](https://halcyon.sh/reference/#halcyon_s3_endpoint) to the address of the right [region-specific S3 endpoint](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region):
 
 ```
 $ heroku config:set HALCYON_S3_ENDPOINT=s3-example-region.amazonaws.com
-Setting config vars and restarting still-earth-4767... done, v12
-HALCYON_S3_ENDPOINT: s3-example-region.amazonaws.com
 ```
-
-
-### Options
 
 By default, all uploads are assigned the `private` [Amazon S3 ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html).  To make newly-uploaded files available to the public, set [`HALCYON_S3_ACL`](https://halcyon.sh/reference/#halcyon_s3_acl) to `public-read`:
 
